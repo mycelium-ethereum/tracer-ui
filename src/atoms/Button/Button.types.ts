@@ -1,3 +1,4 @@
 export interface ButtonProps {
-  theme: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "error";
+  size?: "small" | "medium" | "large";
 }
