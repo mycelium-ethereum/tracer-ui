@@ -16,10 +16,10 @@ jobs:
                   cache-name: cache-node-modules
               with:
                   path: node_modules
-                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
 
             - name: Install node modules
-              run: npm ci
+              run: yarn
 
             - name: Check code formatting and lint rules
               run: npm run lint
