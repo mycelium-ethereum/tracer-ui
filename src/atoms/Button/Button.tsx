@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { ButtonProps } from "./Button.types";
 
+const foo = 4;
+
 const StyledButton = styled.button`
     background-color: white;
     border: 1px solid black;
