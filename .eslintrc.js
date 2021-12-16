@@ -19,7 +19,7 @@ module.exports = {
     },
     plugins: ["react", "@typescript-eslint"],
     rules: {
-        "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+        "no-unused-vars": "error",
         "no-implicit-globals": "error",
     },
     settings: {
