@@ -1,5 +1,5 @@
 module.exports = (componentName) => ({
-  content: `// Generated with util/create-component.js
+    content: `// Generated with util/create-component.js
 @import "../variables.scss";
 @import "../typography.scss";
 
@@ -9,5 +9,5 @@ module.exports = (componentName) => ({
   color: $harvey-green;
 }
 `,
-  extension: `.scss`
+    extension: `.scss`,
 });

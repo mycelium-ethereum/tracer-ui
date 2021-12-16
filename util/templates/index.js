@@ -5,9 +5,9 @@ const componentTests = require("./component.test");
 const componentStyles = require("./component.scss");
 
 module.exports = [
-  component,
-  componentTypes,
-  componentStories,
-  componentTests,
-  componentStyles
+    component,
+    componentTypes,
+    componentStories,
+    componentTests,
+    componentStyles,
 ];

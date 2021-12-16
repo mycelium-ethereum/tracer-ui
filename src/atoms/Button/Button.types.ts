@@ -1,3 +1,3 @@
 export interface ButtonProps {
-  theme: "primary" | "secondary";
+    theme: "primary" | "secondary";
 }

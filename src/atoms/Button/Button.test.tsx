@@ -5,30 +5,30 @@ import Button from "./Button";
 import { ButtonProps } from "./Button.types";
 
 describe("Test Component", () => {
-  let props: ButtonProps;
+    let props: ButtonProps;
 
-  beforeEach(() => {
-    props = {
-      theme: "primary"
-    };
-  });
+    beforeEach(() => {
+        props = {
+            theme: "primary",
+        };
+    });
 
-  const renderComponent = () => render(<Button {...props} />);
+    const renderComponent = () => render(<Button {...props} />);
 
-  it("should have primary className with default props", () => {
-    const { getByTestId } = renderComponent();
+    it("should have primary className with default props", () => {
+        const { getByTestId } = renderComponent();
 
-    const testComponent = getByTestId("test-button");
+        const testComponent = getByTestId("test-button");
 
-    expect(testComponent).toHaveClass("test-button-primary");
-  });
+        expect(testComponent).toHaveClass("test-button-primary");
+    });
 
-  it("should have secondary className with theme set as secondary", () => {
-    props.theme = "secondary";
-    const { getByTestId } = renderComponent();
+    it("should have secondary className with theme set as secondary", () => {
+        props.theme = "secondary";
+        const { getByTestId } = renderComponent();
 
-    const testComponent = getByTestId("test-button");
+        const testComponent = getByTestId("test-button");
 
-    expect(testComponent).toHaveClass("test-button-secondary");
-  });
+        expect(testComponent).toHaveClass("test-button-secondary");
+    });
 });
