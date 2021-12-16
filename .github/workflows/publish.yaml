@@ -24,3 +24,6 @@ jobs:
 
       - name: Install node_modules
         run: yarn
+
+      - name: Build
+        run: yarn Build
