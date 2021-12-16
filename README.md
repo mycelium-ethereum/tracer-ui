@@ -14,6 +14,15 @@ npm run test
 npm run build
 ```
 
+### Generate
+There is a handy script that can be used to generate components instead of copying and pasting existing components.
+These templates can be changed under ./util/templates.
+
+To use the template simply run
+```
+npm run generate <(atom | molecule | organism)> <ComponentName>
+```
+
 ### Storybook
 
 To run a live-reload Storybook server on your local machine:
