@@ -3,23 +3,30 @@ import styled from "styled-components";
 
 import { ButtonProps } from "./Button.types";
 
-const StyledButton = styled.button`
-  background-color: white;
-  border: 1px solid black;
+const Button = styled.button.attrs<ButtonProps>((props) => ({
+  variant: props.variant || "primary",
+  size: props.size || "medium",
+}))<ButtonProps>`
+  border-radius: 0.25rem;
   padding: 16px;
   width: 360px;
   text-align: center;
+  background-color: ${(props) => props.theme.colors[props.variant]};
+  padding: ${(props) =>
+    props.size === "small"
+      ? "0.5rem 1rem"
+      : props.size === "medium"
+      ? "0.75rem 1rem"
+      : "1rem 1.5rem"};
+  font-size: ${(props) => (props.size === "small" ? "0.75rem" : "1rem")};
 
-  ${(props) =>
-    props.theme === "secondary" &&
-    `background-color: black;
-     color: white;`}
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
 `;
-
-const Button: React.FC<ButtonProps> = ({ theme, children }) => (
-  <StyledButton data-testid="test-button" theme={theme}>
-    {children}
-  </StyledButton>
-);
 
 export default Button;

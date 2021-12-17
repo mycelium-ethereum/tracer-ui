@@ -9,7 +9,7 @@ describe("Test Component", () => {
 
   beforeEach(() => {
     props = {
-      theme: "primary"
+      variant: "primary",
     };
   });
 
@@ -24,7 +24,7 @@ describe("Test Component", () => {
   });
 
   it("should have secondary className with theme set as secondary", () => {
-    props.theme = "secondary";
+    props.variant = "secondary";
     const { getByTestId } = renderComponent();
 
     const testComponent = getByTestId("test-button");
