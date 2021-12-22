@@ -5,7 +5,7 @@ import React from "react";
 import { ${componentName}Props } from "./${componentName}.types";
 
 const ${componentName}: React.FC<${componentName}Props> = ({ foo }) => (
-    <div data-testid="${componentName}" className="foo-bar">{foo}</div>
+    <div data-testid="${componentName}">{foo}</div>
 );
 
 export default ${componentName};
