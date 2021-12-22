@@ -9,9 +9,7 @@ describe("Test Component", () => {
   let props: CardProps;
 
   beforeEach(() => {
-    props = {
-      foo: "bar",
-    };
+    props = {};
   });
 
   const renderComponent = () => render(<Card {...props} />);
