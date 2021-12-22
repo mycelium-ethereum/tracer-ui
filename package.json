@@ -14,7 +14,9 @@
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
-    "generate": "node ./util/create-component",
+    "generate-atom": "node ./util/create-component atoms",
+    "generate-molecule": "node ./util/create-component molecules",
+    "generate-organism": "node ./util/create-component organisms",
     "prepublishOnly": "npm run build"
   },
   "repository": {
