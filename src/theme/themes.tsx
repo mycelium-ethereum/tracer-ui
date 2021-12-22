@@ -17,6 +17,7 @@ export interface TracerTheme {
       active: string;
       inactive: string;
       highlight: string;
+      border: string;
     };
     text: {
       active: string;
@@ -34,6 +35,7 @@ export const lightTheme: TracerTheme = {
       active: "#FFFFFF",
       inactive: "#FFFFFF",
       highlight: "#F3F4F6",
+      border: "#D1D5DB",
     },
     text: {
       active: "#384051",
@@ -62,6 +64,7 @@ export const darkTheme: TracerTheme = {
       background: "#1C2336",
       inactive: "#1D2634",
       highlight: "#384051",
+      border: "#6C727F",
     },
     text: {
       active: "#FAFAFA",
