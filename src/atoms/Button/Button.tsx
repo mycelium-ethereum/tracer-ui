@@ -10,15 +10,14 @@ const Button: React.FC<ButtonProps> = ({
   size,
   ...rest
 }) => (
-  <div data-testid="Button">
-    <StyledButton
-      variant={variant}
-      size={size}
-      {...(rest as StyledComponent<"button", DefaultTheme, {}, never>)}
-    >
-      {children}
-    </StyledButton>
-  </div>
+  <StyledButton
+    data-testid="button"
+    variant={variant}
+    size={size}
+    {...(rest as StyledComponent<"button", DefaultTheme, {}, never>)}
+  >
+    {children}
+  </StyledButton>
 );
 
 type StyledButtonProps = {
