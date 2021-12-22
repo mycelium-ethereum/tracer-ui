@@ -1,4 +1,8 @@
-export interface ButtonProps {
-  variant?: "primary" | "secondary" | "error";
+import React from "react";
+
+// Generated with util/create-component.js
+export interface ButtonProps
+  extends Omit<React.HTMLProps<HTMLButtonElement>, "size"> {
+  variant?: "primary" | "ghost";
   size?: "small" | "medium" | "large";
 }

@@ -1,3 +1,4 @@
+// Generated with util/create-component.js
 import React from "react";
 import { render } from "@testing-library/react";
 
@@ -9,26 +10,18 @@ describe("Test Component", () => {
 
   beforeEach(() => {
     props = {
-      variant: "primary",
+      foo: "bar"
     };
   });
 
   const renderComponent = () => render(<Button {...props} />);
 
-  it("should have primary className with default props", () => {
+  it("should render foo text correctly", () => {
+    props.foo = "harvey was here";
     const { getByTestId } = renderComponent();
 
-    const testComponent = getByTestId("test-button");
+    const component = getByTestId("Button");
 
-    expect(testComponent).toHaveClass("test-button-primary");
-  });
-
-  it("should have secondary className with theme set as secondary", () => {
-    props.variant = "secondary";
-    const { getByTestId } = renderComponent();
-
-    const testComponent = getByTestId("test-button");
-
-    expect(testComponent).toHaveClass("test-button-secondary");
+    expect(component).toHaveTextContent("harvey was here");
   });
 });
