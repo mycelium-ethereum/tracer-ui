@@ -29,18 +29,53 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
   variant: props.variant || "primary",
   size: props.size || "medium",
 }))<StyledButtonProps>`
-  background: ${({ variant, disabled, theme }) => {
-    if (variant === "ghost") {
-      return "rgba(255, 255, 255, 0.2)";
-    } else {
-      return disabled
-        ? theme.colors.action.inactive
-        : theme.colors.action.active;
-    }
-  }};
-  color: ${({ theme }) => theme.colors.action.text};
-  border: ${({ variant }) => (variant === "ghost" ? "1px solid #FFF" : "none")};
   border-radius: 4px;
+  border: none;
+  width: 100%;
+  line-height: 1.5rem;
+  ${({ variant, theme }) => {
+    switch (variant) {
+      case "primary":
+        return `
+          background-color: ${theme.colors.action.active};
+          color: ${theme.colors.action.text};
+          &:hover {
+            background-color: ${theme.colors.action.hover};
+          }
+          &:active {
+            background-color: ${theme.colors.action.active};
+            color: ${theme.colors.action.text};
+            border: 1px solid ${theme.colors.action.active};
+          }
+          &:disabled {
+            background-color: ${theme.colors.action.inactive};
+          }
+        `;
+      case "secondary":
+        return `
+          background-color: ${theme.colors.cell.background};
+          color: ${theme.colors.text.active};
+          border: 1px solid ${theme.colors.cell.border};
+          &:disabled {
+            background-color: ${theme.colors.cell.inactive};
+          }
+          &:hover {
+            background-color: ${theme.colors.cell.highlight};
+          }
+        `;
+      case "ghost":
+        return `
+          background-color: rgba(255, 255, 255, 0.2);
+          color: #FFF;
+          border: 1px solid #FFF;
+          &:disabled {
+            border-color: #999;
+            color: #999;
+          }
+          `;
+    }
+  }}
+
   padding: ${({ size }) => {
     switch (size) {
       case "small":
@@ -53,7 +88,6 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
         return "12px 24px";
     }
   }};
-  width: 100%;
   font-size: ${({ size }) => {
     switch (size) {
       case "small":
@@ -66,16 +100,7 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
         return "1rem";
     }
   }};
-  line-height: 1.5rem;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  :hover {
-    ${({ variant, disabled, theme }) => {
-      if (variant === "ghost") {
-        return "background: rgba(255, 255, 255, 0.2)";
-      } else {
-        return disabled ? "" : `background: ${theme.colors.action.hover}`;
-      }
-    }}
   }
 `;
 

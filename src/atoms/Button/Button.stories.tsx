@@ -27,7 +27,7 @@ export default {
       defaultValue: "primary",
       control: {
         type: "select",
-        options: ["primary", "ghost"],
+        options: ["primary", "secondary", "ghost"],
       },
     },
   },
@@ -43,11 +43,10 @@ Primary.args = {
   variant: "primary",
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  children: "Disabled Button",
-  variant: "primary",
-  disabled: true,
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: "Secondary Button",
+  variant: "secondary",
 };
 
 export const Ghost = Template.bind({});
