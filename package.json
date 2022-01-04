@@ -15,8 +15,9 @@
         "storybook": "start-storybook -p 6006",
         "storybook:export": "build-storybook",
         "prepublishOnly": "npm run build",
-        "lint": "eslint src/**/*.{ts,tsx} && prettier --check 'src/**/*.{ts,tsx}'",
+        "lint": "eslint src/**/*.{ts,tsx}",
         "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+        "check-format": "eslint src/**/*.{ts,tsx} && prettier --check 'src/**/*.{ts,tsx}'",
         "generate-atom": "node ./util/create-component atoms",
         "generate-molecule": "node ./util/create-component molecules",
         "generate-organism": "node ./util/create-component organisms"

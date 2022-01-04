@@ -22,4 +22,4 @@ jobs:
               run: yarn
 
             - name: Check code formatting and lint rules
-              run: yarn lint
+              run: yarn check-format
