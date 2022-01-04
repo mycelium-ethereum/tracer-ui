@@ -5,32 +5,32 @@ import { ButtonProps } from "./Button.types";
 import { ComponentMeta, Story } from "@storybook/react";
 
 export default {
-  title: "atoms/Button",
-  component: Button,
-  argTypes: {
-    children: {
-      defaultValue: "Button Text",
-      control: { type: "text" },
+    title: "atoms/Button",
+    component: Button,
+    argTypes: {
+        children: {
+            defaultValue: "Button Text",
+            control: { type: "text" },
+        },
+        disabled: {
+            defaultValue: false,
+            control: { type: "boolean" },
+        },
+        size: {
+            defaultValue: "medium",
+            control: {
+                type: "select",
+                options: ["small", "medium", "large"],
+            },
+        },
+        variant: {
+            defaultValue: "primary",
+            control: {
+                type: "select",
+                options: ["primary", "secondary", "ghost"],
+            },
+        },
     },
-    disabled: {
-      defaultValue: false,
-      control: { type: "boolean" },
-    },
-    size: {
-      defaultValue: "medium",
-      control: {
-        type: "select",
-        options: ["small", "medium", "large"],
-      },
-    },
-    variant: {
-      defaultValue: "primary",
-      control: {
-        type: "select",
-        options: ["primary", "secondary", "ghost"],
-      },
-    },
-  },
 } as ComponentMeta<typeof Button>;
 
 // Create a master template for mapping args to render the Button component
@@ -39,18 +39,18 @@ const Template: Story<ButtonProps> = (args) => <Button {...args}></Button>;
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
 Primary.args = {
-  children: "Primary Button",
-  variant: "primary",
+    children: "Primary Button",
+    variant: "primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  children: "Secondary Button",
-  variant: "secondary",
+    children: "Secondary Button",
+    variant: "secondary",
 };
 
 export const Ghost = Template.bind({});
 Ghost.args = {
-  children: "Ghost Button",
-  variant: "ghost",
+    children: "Ghost Button",
+    variant: "ghost",
 };

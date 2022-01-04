@@ -34,7 +34,6 @@ You can then serve the files under `storybook-static` using S3, GitHub pages, Ex
 
 Follow [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
 
-
 ## Publishing
 
 First, make sure you have an NPM account and are [logged into NPM using the `npm login` command.](https://docs.npmjs.com/creating-a-new-npm-user-account)

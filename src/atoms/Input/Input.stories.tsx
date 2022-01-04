@@ -5,18 +5,18 @@ import { InputProps } from "./Input.types";
 import { ComponentMeta, Story } from "@storybook/react";
 
 export default {
-  title: "atoms/Input",
-  component: Input,
-  argTypes: {
-    placeholder: {
-      defaultValue: "Placeholder",
-      control: { type: "text" },
+    title: "atoms/Input",
+    component: Input,
+    argTypes: {
+        placeholder: {
+            defaultValue: "Placeholder",
+            control: { type: "text" },
+        },
+        disabled: {
+            defaultValue: false,
+            control: { type: "boolean" },
+        },
     },
-    disabled: {
-      defaultValue: false,
-      control: { type: "boolean" },
-    },
-  },
 } as ComponentMeta<typeof Input>;
 
 // Create a master template for mapping args to render the Input component
@@ -28,5 +28,5 @@ Default.args = {};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  disabled: true,
+    disabled: true,
 };

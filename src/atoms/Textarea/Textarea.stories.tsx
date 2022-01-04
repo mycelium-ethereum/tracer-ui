@@ -5,23 +5,23 @@ import { TextareaProps } from "./Textarea.types";
 import { ComponentMeta, Story } from "@storybook/react";
 
 export default {
-  title: "atoms/Textarea",
-  component: Textarea,
-  argTypes: {
-    placeholder: {
-      defaultValue: "Placeholder",
-      control: { type: "text" },
+    title: "atoms/Textarea",
+    component: Textarea,
+    argTypes: {
+        placeholder: {
+            defaultValue: "Placeholder",
+            control: { type: "text" },
+        },
+        disabled: {
+            defaultValue: false,
+            control: { type: "boolean" },
+        },
     },
-    disabled: {
-      defaultValue: false,
-      control: { type: "boolean" },
-    },
-  },
 } as ComponentMeta<typeof Textarea>;
 
 // Create a master template for mapping args to render the Textarea component
 const Template: Story<TextareaProps> = (args) => (
-  <Textarea {...args}></Textarea>
+    <Textarea {...args}></Textarea>
 );
 
 // Reuse that template for creating different stories
@@ -30,5 +30,5 @@ Default.args = {};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  disabled: true,
+    disabled: true,
 };

@@ -6,8 +6,8 @@ const directoryName = process.argv[2];
 let componentName = process.argv[3];
 
 if (!componentName) {
-  console.error("Please supply a valid component name".red);
-  process.exit(1);
+    console.error("Please supply a valid component name".red);
+    process.exit(1);
 }
 
 // Capitalize the first letter of the component name
@@ -18,8 +18,8 @@ console.log("Creating Component Templates with name: " + componentName);
 const componentDirectory = `./src/${directoryName}/${componentName}`;
 
 if (fs.existsSync(componentDirectory)) {
-  console.error(`Component ${componentName} already exists.`.red);
-  process.exit(1);
+    console.error(`Component ${componentName} already exists.`.red);
+    process.exit(1);
 }
 
 fs.mkdirSync(componentDirectory);
@@ -29,10 +29,10 @@ const generatedTemplates = templates.map((template) =>
 );
 
 generatedTemplates.forEach((template) => {
-  fs.writeFileSync(
-    `${componentDirectory}/${componentName}${template.extension}`,
-    template.content
-  );
+    fs.writeFileSync(
+        `${componentDirectory}/${componentName}${template.extension}`,
+        template.content,
+    );
 });
 
 // Add index.ts to the component directory
@@ -51,5 +51,5 @@ fs.appendFileSync(
 );
 
 console.log(
-  "Successfully created component under: " + componentDirectory.green
+    "Successfully created component under: " + componentDirectory.green,
 );

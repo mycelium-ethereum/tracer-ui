@@ -6,22 +6,22 @@ import Navbar from "./Navbar";
 import { NavbarProps } from "./Navbar.types";
 
 describe("Test Component", () => {
-  let props: NavbarProps;
+    let props: NavbarProps;
 
-  beforeEach(() => {
-    props = {
-      foo: "bar"
-    };
-  });
+    beforeEach(() => {
+        props = {
+            foo: "bar",
+        };
+    });
 
-  const renderComponent = () => render(<Navbar {...props} />);
+    const renderComponent = () => render(<Navbar {...props} />);
 
-  it("should render foo text correctly", () => {
-    props.foo = "harvey was here";
-    const { getByTestId } = renderComponent();
+    it("should render foo text correctly", () => {
+        props.foo = "harvey was here";
+        const { getByTestId } = renderComponent();
 
-    const component = getByTestId("Navbar");
+        const component = getByTestId("Navbar");
 
-    expect(component).toHaveTextContent("harvey was here");
-  });
+        expect(component).toHaveTextContent("harvey was here");
+    });
 });
