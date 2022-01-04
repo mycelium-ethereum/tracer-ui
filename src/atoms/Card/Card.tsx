@@ -15,9 +15,6 @@ export default Card;
 const StyledCard = styled.div.attrs<CardProps>((props) => ({
     maxWidth: props.maxWidth,
     color: props.color || "primary",
-    fluid: props.fluid || false,
-    square: props.square || false,
-    shadow: props.shadow || false,
     padding: props.padding || "md",
 }))<CardProps>`
     background-color: ${(props) =>
@@ -26,6 +23,8 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
             : props.theme.colors.cell.active};
     color: ${(props) => props.theme.colors.text.active};
     box-sizing: border-box;
+    border: ${(props) =>
+        props.border ? "1px solid " + props.theme.colors.cell.border : "none"};
     padding: 1rem;
     margin: 0 auto;
     width: ${(props) => (props.fluid ? "100%" : "calc(100% - 2rem)")};

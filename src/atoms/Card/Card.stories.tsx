@@ -38,6 +38,11 @@ export default {
             defaultValue: "md",
             description: "The padding of the card.",
         },
+        border: {
+            control: { type: "boolean" },
+            defaultValue: false,
+            description: "If true, the card will have a border.",
+        },
         color: {
             control: {
                 type: "select",

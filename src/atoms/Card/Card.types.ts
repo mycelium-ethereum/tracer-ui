@@ -6,4 +6,5 @@ export interface CardProps {
     color?: "active" | "highlight";
     shadow?: boolean;
     padding?: "sm" | "md" | "lg";
+    border?: boolean;
 }
