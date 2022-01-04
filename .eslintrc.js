@@ -21,6 +21,7 @@ module.exports = {
     rules: {
         "no-unused-vars": "error",
         "no-implicit-globals": "error",
+        "@typescript-eslint/no-empty-interface": "off",
     },
     settings: {
         react: {
