@@ -22,6 +22,7 @@ module.exports = {
         "no-unused-vars": "error",
         "no-implicit-globals": "error",
         "@typescript-eslint/no-empty-interface": "off",
+        "react/prop-types": "off",
         "@typescript-eslint/ban-types": [
             "error",
             {
