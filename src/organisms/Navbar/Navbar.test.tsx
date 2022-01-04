@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Button from "./Button";
-import { ButtonProps } from "./Button.types";
+import Navbar from "./Navbar";
+import { NavbarProps } from "./Navbar.types";
 
 describe("Test Component", () => {
-    let props: ButtonProps;
+    let props: NavbarProps;
 
     beforeEach(() => {
         props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
         };
     });
 
-    const renderComponent = () => render(<Button {...props} />);
+    const renderComponent = () => render(<Navbar {...props} />);
 
     it("should render foo text correctly", () => {
         props.foo = "harvey was here";
         const { getByTestId } = renderComponent();
 
-        const component = getByTestId("Button");
+        const component = getByTestId("Navbar");
 
         expect(component).toHaveTextContent("harvey was here");
     });
