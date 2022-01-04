@@ -19,8 +19,8 @@ const Template: Story<ListProps> = (args) => {
     }
     return (
         <List {...args}>
-            {listItems.map((item) => (
-                <ListItem>{item}</ListItem>
+            {listItems.map((item, idx) => (
+                <ListItem key={idx}>{item}</ListItem>
             ))}
         </List>
     );
