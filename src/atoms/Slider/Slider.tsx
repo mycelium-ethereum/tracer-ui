@@ -47,6 +47,7 @@ const StyledSlider = styled.input`
         height: 10px;
         width: 10px;
         transform: scale(3);
+        cursor: pointer;
     }
     &::-moz-range-thumb {
         background: ${(props) => props.theme.colors.action.active};
@@ -55,6 +56,7 @@ const StyledSlider = styled.input`
         height: 10px;
         width: 10px;
         transform: scale(3);
+        cursor: pointer;
     }
 
     &:hover::-webkit-slider-thumb {
