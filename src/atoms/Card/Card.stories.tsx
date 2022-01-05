@@ -33,7 +33,7 @@ export default {
         padding: {
             control: {
                 type: "select",
-                options: ["sm", "md", "lg"],
+                options: ["xs", "sm", "md", "lg"],
             },
             defaultValue: "md",
             description: "The padding of the card.",
