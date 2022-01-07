@@ -2,11 +2,11 @@
 // import React from "react";
 // import { render } from "@testing-library/react";
 
-// import Title from "./Title";
-// import { TitleProps } from "./Title.types";
+// import Text from "./Text";
+// import { TextProps } from "./Text.types";
 
 // describe("Test Component", () => {
-//   let props: TitleProps;
+//   let props: TextProps;
 
 //   beforeEach(() => {
 //     props = {
@@ -14,13 +14,13 @@
 //     };
 //   });
 
-//   const renderComponent = () => render(<Title {...props} />);
+//   const renderComponent = () => render(<Text {...props} />);
 
 //   it("should render foo text correctly", () => {
 //     props.foo = "harvey was here";
 //     const { getByTestId } = renderComponent();
 
-//     const component = getByTestId("Title");
+//     const component = getByTestId("Text");
 
 //     expect(component).toHaveTextContent("harvey was here");
 //   });
