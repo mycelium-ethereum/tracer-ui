@@ -106,7 +106,7 @@ SmallPadding.args = {
 
 export const NestedCard: Story<CardProps> = (args) => (
     <Card>
-        <h2>Card Title</h2>
+        <h1>Card Title</h1>
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi,
             tempore. Adipisci amet ipsa at reiciendis distinctio quam eius
@@ -115,7 +115,7 @@ export const NestedCard: Story<CardProps> = (args) => (
         </p>
 
         <Card {...args}>
-            <h3>Card Subtitle</h3>
+            <h2>Card Subtitle</h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quis.
