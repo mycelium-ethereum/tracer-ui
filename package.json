@@ -21,7 +21,7 @@
         "generate-atom": "node ./util/create-component atoms",
         "generate-molecule": "node ./util/create-component molecules",
         "generate-organism": "node ./util/create-component organisms",
-        "chromatic": "npx chromatic"
+        "chromatic": "npx chromatic --exit-zero-on-changes"
     },
     "repository": {
         "type": "git"
