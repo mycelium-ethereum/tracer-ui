@@ -5,9 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProps } from "./Icon.types";
 import { tracerIcons } from "./iconsConfig";
 
-const Icon: React.FC<IconProps> = ({ name, size = "20", color = "black" }) => {
+const Icon: React.FC<IconProps> = ({ name, size, color = "black" }) => {
     const icon = tracerIcons[name];
-    return <FontAwesomeIcon data-testid="Icon" icon={icon} color={color} />;
+    return (
+        <FontAwesomeIcon
+            data-testid="Icon"
+            icon={icon}
+            color={color}
+            size={size}
+        />
+    );
 };
 
 export default Icon;

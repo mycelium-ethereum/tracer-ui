@@ -18,9 +18,25 @@ export default {
         },
         size: {
             control: {
-                type: "number",
+                type: "select",
+                options: [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "1x",
+                    "2x",
+                    "3x",
+                    "4x",
+                    "5x",
+                    "6x",
+                    "7x",
+                    "8x",
+                    "9x",
+                    "10x",
+                ],
             },
-            defaultValue: "20",
+            defaultValue: "md",
         },
         color: {
             control: {
@@ -34,5 +50,23 @@ export default {
 const Template: Story<IconProps> = (args) => <Icon {...args}></Icon>;
 
 // Reuse that template for creating different stories
-export const Primary = Template.bind({});
-Primary.args = {};
+export const SmallCheckCircle = Template.bind({});
+SmallCheckCircle.args = {
+    name: "check-circle",
+    size: "sm",
+    color: "green",
+};
+
+export const LargeLock = Template.bind({});
+LargeLock.args = {
+    name: "lock",
+    size: "lg",
+    color: "gold",
+};
+
+export const HugeSearch = Template.bind({});
+HugeSearch.args = {
+    name: "search",
+    size: "5x",
+    color: "black",
+};
