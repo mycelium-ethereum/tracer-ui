@@ -3,6 +3,7 @@ import React from "react";
 import Card from "./Card";
 import { CardProps } from "./Card.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { Text } from "../";
 
 export default {
     title: "atoms/Card",
@@ -33,7 +34,7 @@ export default {
         padding: {
             control: {
                 type: "select",
-                options: ["sm", "md", "lg"],
+                options: ["xs", "sm", "md", "lg"],
             },
             defaultValue: "md",
             description: "The padding of the card.",
@@ -66,13 +67,13 @@ export default {
 
 const Template: Story<CardProps> = (args) => (
     <Card {...args}>
-        <h1>Card Title</h1>
-        <p>
+        <Text.Title>Card Title</Text.Title>
+        <Text.Body>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga
             provident distinctio temporibus maxime vitae cupiditate inventore
             repellat numquam, incidunt esse quam pariatur saepe iusto minima
             architecto, at sint earum.
-        </p>
+        </Text.Body>
     </Card>
 );
 
@@ -106,20 +107,20 @@ SmallPadding.args = {
 
 export const NestedCard: Story<CardProps> = (args) => (
     <Card>
-        <h1>Card Title</h1>
-        <p>
+        <Text.Title>Card Title</Text.Title>
+        <Text.Body>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi,
             tempore. Adipisci amet ipsa at reiciendis distinctio quam eius
             delectus soluta architecto esse est quibusdam, quaerat officiis
             fugiat neque impedit! Vero!
-        </p>
+        </Text.Body>
 
         <Card {...args}>
-            <h2>Card Subtitle</h2>
-            <p>
+            <Text.Subtitle>Card Subtitle</Text.Subtitle>
+            <Text.Body>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quis.
-            </p>
+            </Text.Body>
         </Card>
     </Card>
 );

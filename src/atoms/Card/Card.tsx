@@ -29,11 +29,31 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
     margin: 0 auto;
     width: ${(props) => (props.fluid ? "100%" : "calc(100% - 2rem)")};
     max-width: ${(props) => props.maxWidth};
-    border-radius: ${(props) => (props.square ? "0" : "1.5rem")};
+    border-radius: ${(props) => {
+        if (props.square) {
+            return "0";
+        }
+        if (props.padding === "xs") {
+            return "0.5rem";
+        }
+        if (props.padding === "sm") {
+            return "1rem";
+        }
+        if (props.padding === "md") {
+            return "1.5rem";
+        }
+        if (props.padding === "lg") {
+            return "2rem";
+        }
+        return "0";
+    }};
+
     box-shadow: ${(props) =>
         props.shadow ? "0 0.5rem 1rem rgba(0, 0, 0, 0.1)" : "none"};
     padding: ${(props) => {
         switch (props.padding) {
+            case "xs":
+                return "0.5rem";
             case "sm":
                 return "1rem";
             case "md":

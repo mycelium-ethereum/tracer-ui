@@ -5,6 +5,6 @@ export interface CardProps {
     square?: boolean;
     color?: "active" | "highlight";
     shadow?: boolean;
-    padding?: "sm" | "md" | "lg";
+    padding?: "xs" | "sm" | "md" | "lg";
     border?: boolean;
 }
