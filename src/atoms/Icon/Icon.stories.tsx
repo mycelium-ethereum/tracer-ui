@@ -3,6 +3,7 @@ import React from "react";
 import Icon from "./Icon";
 import { IconProps } from "./Icon.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { tracerIcons } from "./iconsConfig";
 
 export default {
     title: "atoms/Icon",
@@ -11,7 +12,7 @@ export default {
         name: {
             control: {
                 type: "select",
-                options: ["check-circle"],
+                options: Object.keys(tracerIcons),
             },
             defaultValue: "check-circle",
         },
