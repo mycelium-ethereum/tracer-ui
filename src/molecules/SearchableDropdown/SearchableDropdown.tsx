@@ -91,6 +91,7 @@ const ListItem = styled.div`
     :hover {
         background-color: ${(props) => props.theme.colors.cell.highlight};
     }
+    cursor: pointer;
 `;
 
 const ItemTitle = styled(Text.Body)`
