@@ -10,6 +10,7 @@ import {
 } from "./Text.types";
 
 const Headline = styled.h1<HeadlineProps>`
+    margin: 0;
     font-size: 40px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text.active};
@@ -30,6 +31,7 @@ const Headline = styled.h1<HeadlineProps>`
 `;
 
 const Title = styled.h2<TitleProps>`
+    margin: 0;
     font-size: 24px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text.active};
@@ -50,6 +52,7 @@ const Title = styled.h2<TitleProps>`
 `;
 
 const Subtitle = styled.h3<SubtitleProps>`
+    margin: 0;
     font-size: 20px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text.active};
@@ -70,6 +73,7 @@ const Subtitle = styled.h3<SubtitleProps>`
 `;
 
 const Body = styled.p<BodyProps>`
+    margin: 0;
     font-size: 16px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text.active};
@@ -86,6 +90,7 @@ const Body = styled.p<BodyProps>`
 `;
 
 const Footer = styled.p<FooterProps>`
+    margin: 0;
     font-size: 14px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text.active};

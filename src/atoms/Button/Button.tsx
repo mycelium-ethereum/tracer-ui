@@ -45,7 +45,6 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
           &:active {
             background-color: ${theme.colors.action.active};
             color: ${theme.colors.action.text};
-            border: 1px solid ${theme.colors.action.active};
           }
           &:disabled {
             background-color: ${theme.colors.action.inactive};

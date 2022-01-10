@@ -4,12 +4,13 @@ import styled, { DefaultTheme, StyledComponentProps } from "styled-components";
 
 import { InputProps } from "./Input.types";
 
-const Input: React.FC<InputProps> = (props) => (
+const Input: React.FC<InputProps> = React.forwardRef((props, ref) => (
     <StyledInput
+        ref={ref}
         data-testid="input"
         {...(props as StyledComponentProps<"input", DefaultTheme, {}, never>)}
     />
-);
+));
 
 export default Input;
 
