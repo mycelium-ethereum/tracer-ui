@@ -11,6 +11,7 @@ const Input: React.FC<InputProps> = React.forwardRef((props, ref) => (
         {...(props as StyledComponentProps<"input", DefaultTheme, {}, never>)}
     />
 ));
+Input.displayName = "Input";
 
 export default Input;
 
