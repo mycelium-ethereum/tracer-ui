@@ -4,6 +4,8 @@ export interface AllocationSliderProps {
     tokenSymbol: string;
     tokenImageSrc: string;
     percentage: number;
+    isLocked: boolean;
     onChange: (percentage: number) => void;
     onRemove: () => void;
+    onClickLock: () => void;
 }

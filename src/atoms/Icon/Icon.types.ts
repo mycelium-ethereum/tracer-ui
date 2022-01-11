@@ -15,6 +15,8 @@ export type IconColor =
     | "tertiary"
     | "footnote"
     | "highlight"
+    | "action-text"
+    | "focus-text"
     | "alert"
     | "danger"
     | "success";

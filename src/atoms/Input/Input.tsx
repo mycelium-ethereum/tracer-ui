@@ -1,21 +1,16 @@
 // Generated with util/create-component.js
 import React from "react";
 import styled, { DefaultTheme, StyledComponentProps } from "styled-components";
-import { Icon } from "../Icon";
 
 import { InputProps } from "./Input.types";
 
 const Input: React.FC<InputProps> = React.forwardRef(
-    ({ icon, ...rest }, ref) => (
-        <Container>
-            {icon ? (
-                <IconContainer>
-                    <Icon name={icon} color="tertiary" />
-                </IconContainer>
-            ) : null}
+    ({ leftSlot, rightSlot, disabled, ...rest }, ref) => (
+        <Container disabled={disabled}>
+            {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
             <StyledInput
                 ref={ref}
-                hasIcon={!!icon}
+                disabled={disabled}
                 data-testid="input"
                 {...(rest as StyledComponentProps<
                     "input",
@@ -24,6 +19,7 @@ const Input: React.FC<InputProps> = React.forwardRef(
                     never
                 >)}
             />
+            {rightSlot ? <RightSlot>{rightSlot}</RightSlot> : null}
         </Container>
     ),
 );
@@ -31,33 +27,54 @@ Input.displayName = "Input";
 
 export default Input;
 
-const Container = styled.div`
-    position: relative;
-    width: 100%;
-`;
-
-interface StyledInputProps {
-    hasIcon: boolean;
+interface ContainerProps {
+    disabled?: boolean;
 }
 
-const StyledInput = styled.input<StyledInputProps>`
+const Container = styled.span<ContainerProps>`
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     padding: 10px 18px;
-    padding-left: ${({ hasIcon }) => (hasIcon ? "44px" : "18px")};
+    color: ${({ theme }) => theme.colors.text.primary};
+    border-radius: 12px;
+    background: ${({ disabled, theme }) =>
+        disabled ? theme.colors.cell.tertiary : theme.colors.cell.secondary};
+    border: 1px solid ${({ theme }) => theme.colors.focus.active};
+    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
+`;
+
+const StyledInput = styled.input`
+    width: 100%;
     font-size: 0.9rem;
     font-family: inherit;
-    color: ${({ theme }) => theme.colors.text.primary};
-    width: 100%;
-    border-radius: 12px;
-    background: ${({ theme }) => theme.colors.cell.secondary};
-    border: 1px solid ${({ theme }) => theme.colors.focus.active};
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    background: transparent;
     &:disabled {
         cursor: not-allowed;
-        background: ${({ theme }) => theme.colors.cell.tertiary};
+    }
+    &::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &[type="number"] {
+        -moz-appearance: textfield;
     }
 `;
 
-const IconContainer = styled.div`
-    position: absolute;
-    left: 18px;
-    top: 10px;
+const LeftSlot = styled.div`
+    margin-right: 10px;
+    color: ${({ theme }) => theme.colors.text.secondary};
+`;
+
+const RightSlot = styled.div`
+    margin-left: 10px;
+    color: ${({ theme }) => theme.colors.text.secondary};
 `;

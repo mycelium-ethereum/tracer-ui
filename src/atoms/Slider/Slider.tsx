@@ -4,7 +4,13 @@ import styled from "styled-components";
 
 import { SliderProps } from "./Slider.types";
 
-const Slider: React.FC<SliderProps> = ({ value, min, max, step, onChange }) => (
+const Slider: React.FC<SliderProps> = ({
+    value,
+    min = 0,
+    max = 100,
+    step = 1,
+    onChange,
+}) => (
     <div data-testid="slider">
         <StyledSlider
             type="range"

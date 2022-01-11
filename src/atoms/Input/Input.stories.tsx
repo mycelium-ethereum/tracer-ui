@@ -3,7 +3,7 @@ import React from "react";
 import Input from "./Input";
 import { InputProps } from "./Input.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { tracerIcons } from "../Icon/iconsConfig";
+import { Icon } from "../Icon";
 
 export default {
     title: "atoms/Input",
@@ -13,9 +13,13 @@ export default {
             defaultValue: "Placeholder",
             control: { type: "text" },
         },
-        icon: {
-            control: { type: "select" },
-            options: Object.keys(tracerIcons),
+        leftSlot: {
+            control: { type: "text" },
+            defaultValue: "",
+        },
+        rightSlot: {
+            control: { type: "text" },
+            defaultValue: "",
         },
         disabled: {
             defaultValue: false,
@@ -36,8 +40,20 @@ Disabled.args = {
     disabled: true,
 };
 
+export const Currency = Template.bind({});
+Currency.args = {
+    leftSlot: "$",
+    placeholder: "0.00",
+};
+
+export const Percentage = Template.bind({});
+Percentage.args = {
+    rightSlot: "%",
+    placeholder: "0.00",
+};
+
 export const SearchBar = Template.bind({});
 SearchBar.args = {
-    icon: "search",
     placeholder: "Search",
+    leftSlot: <Icon name="search" color="tertiary" />,
 };
