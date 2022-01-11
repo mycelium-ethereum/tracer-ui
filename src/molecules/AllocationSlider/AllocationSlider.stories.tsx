@@ -74,5 +74,14 @@ const Template: Story<AllocationSliderProps> = ({
 };
 
 // Reuse that template for creating different stories
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Unlocked = Template.bind({});
+Unlocked.args = {
+    isLocked: false,
+    percentage: 25,
+};
+
+export const Locked = Template.bind({});
+Locked.args = {
+    isLocked: true,
+    percentage: 75,
+};
