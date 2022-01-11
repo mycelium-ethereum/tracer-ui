@@ -26,10 +26,10 @@ const StyledSlider = styled.input`
             ((Number(value) - Number(min)) / (Number(max) - Number(min))) * 100;
         return `linear-gradient(
             to right, 
-            ${props.theme.colors.action.inactive} 0%, 
-            ${props.theme.colors.action.inactive} ${percent}%, 
-            ${props.theme.colors.cell.highlight} ${percent}%, 
-            ${props.theme.colors.cell.highlight} 100%
+            ${props.theme.colors.action.active} 0%, 
+            ${props.theme.colors.action.active} ${percent}%, 
+            ${props.theme.colors.focus.active} ${percent}%, 
+            ${props.theme.colors.focus.active} 100%
         )`;
     }};
     border-radius: 8px;
@@ -41,7 +41,7 @@ const StyledSlider = styled.input`
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        background: ${(props) => props.theme.colors.action.active};
+        background: ${(props) => props.theme.colors.action.hover};
         border: none;
         border-radius: 50%;
         height: 10px;
@@ -50,7 +50,7 @@ const StyledSlider = styled.input`
         cursor: pointer;
     }
     &::-moz-range-thumb {
-        background: ${(props) => props.theme.colors.action.active};
+        background: ${(props) => props.theme.colors.action.hover};
         border: none;
         border-radius: 50%;
         height: 10px;
