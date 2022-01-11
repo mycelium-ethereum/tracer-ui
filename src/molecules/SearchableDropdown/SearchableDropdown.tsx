@@ -60,6 +60,7 @@ const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
             <Popover placement="bottom-start" content={<PopoverContent />}>
                 <Input
                     ref={setSearchBarEl}
+                    icon="search"
                     placeholder={placeholder}
                     value={search}
                     onChange={(e) => setSearch((e.target as any).value)}
