@@ -29,50 +29,41 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     variant: props.variant || "primary",
     size: props.size || "medium",
 }))<StyledButtonProps>`
-  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  border-radius: 12px;
   border: none;
   width: 100%;
   line-height: 1.5rem;
+  transition: background-color 0.1s ease-in-out;
   ${({ variant, theme }) => {
       switch (variant) {
           case "primary":
               return `
-          background-color: ${theme.colors.action.active};
-          color: ${theme.colors.action.text};
-          &:hover {
-            background-color: ${theme.colors.action.hover};
-          }
-          &:active {
-            background-color: ${theme.colors.action.active};
-            color: ${theme.colors.action.text};
-            border: 1px solid ${theme.colors.action.active};
-          }
-          &:disabled {
-            background-color: ${theme.colors.action.inactive};
-          }
-        `;
-          case "secondary":
+                background-color: ${theme.colors.action.active};
+                color: ${theme.colors.action.text};
+                &:hover {
+                    background-color: ${theme.colors.action.hover};
+                }
+                &:active {
+                    background-color: ${theme.colors.action.active};
+                }
+                &:disabled {
+                    background-color: ${theme.colors.action.inactive};
+                    color: ${theme.colors.action.reverse};
+                }
+                `;
+          case "focus":
               return `
-          background-color: ${theme.colors.cell.background};
-          color: ${theme.colors.text.active};
-          border: 1px solid ${theme.colors.cell.border};
-          &:disabled {
-            background-color: ${theme.colors.cell.inactive};
-          }
-          &:hover {
-            background-color: ${theme.colors.cell.highlight};
-          }
-        `;
-          case "ghost":
-              return `
-          background-color: rgba(255, 255, 255, 0.2);
-          color: #FFF;
-          border: 1px solid #FFF;
-          &:disabled {
-            border-color: #999;
-            color: #999;
-          }
-          `;
+                background-color: ${theme.colors.focus.active};
+                color: ${theme.colors.focus.text};
+                &:hover {
+                    background-color: ${theme.colors.focus.hover};
+                }
+                &:disabled {
+                    background-color: ${theme.colors.focus.inactive};
+                    color: ${theme.colors.focus.reverse};
+                }
+                `;
       }
   }}
 
