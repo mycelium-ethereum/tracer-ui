@@ -16,7 +16,10 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
     onRemove,
 }) => {
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        onChange(Number(event.target.value));
+        let newValue = Number(event.target.value);
+        if (newValue > 100) newValue = 100;
+        if (newValue < 0) newValue = 0;
+        onChange(newValue);
     }
     return (
         <Container data-testid="AllocationSlider">
@@ -31,6 +34,9 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
                         <Input
                             disabled={isLocked}
                             type="number"
+                            max={100}
+                            min={0}
+                            step={0.01}
                             value={percentage}
                             onChange={handleInputChange}
                             rightSlot={"%"}
