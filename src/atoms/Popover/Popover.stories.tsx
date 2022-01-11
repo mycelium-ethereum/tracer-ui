@@ -6,6 +6,7 @@ import { PopoverProps } from "./Popover.types";
 import { ComponentMeta, Story } from "@storybook/react";
 import { Card } from "../Card";
 import { placements } from "@popperjs/core";
+import { Text } from "../Text";
 
 export default {
     title: "atoms/Popover",
@@ -34,9 +35,11 @@ export default {
 // Create a master template for mapping args to render the Popover component
 
 const ExampleContent: React.FC = () => (
-    <Card padding="xs" shadow fluid>
-        <h3>Popover Content</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <Card padding="sm" fluid>
+        <Text.Subtitle variant="bold">Popover Content</Text.Subtitle>
+        <Text.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </Text.Body>
     </Card>
 );
 

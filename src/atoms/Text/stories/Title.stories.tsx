@@ -14,6 +14,19 @@ export default {
                 options: ["regular", "light", "bold", "bolder"],
             },
         },
+        color: {
+            control: {
+                type: "select",
+                options: [
+                    "primary",
+                    "secondary",
+                    "tertiary",
+                    "footnote",
+                    "highlight",
+                ],
+            },
+            defaultValue: "primary",
+        },
     },
 } as ComponentMeta<typeof Text.Title>;
 

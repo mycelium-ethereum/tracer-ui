@@ -5,31 +5,17 @@ import { lightTheme, darkTheme } from "../src/theme";
 import "./global.css";
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  layout: "centered",
-  darkMode: {
-    dark: {
-      ...themes.dark,
-      appBg: darkTheme.colors.cell.active,
-      appContentBg: darkTheme.colors.cell.background,
-      barBg: darkTheme.colors.cell.background,
-    },
-    light: {
-      ...themes.normal,
-      appBg: lightTheme.colors.cell.active,
-      appContentBg: lightTheme.colors.cell.background,
-      barBg: lightTheme.colors.cell.background,
-    },
-  },
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    layout: "centered",
 };
 
 export const decorators = [
-  (Story) => {
-    const isDark = useDarkMode();
-    return (
-      <ThemeProvider isDark={isDark}>
-        <Story />
-      </ThemeProvider>
-    );
-  },
+    (Story) => {
+        const isDark = useDarkMode();
+        return (
+            <ThemeProvider isDark={isDark}>
+                <Story />
+            </ThemeProvider>
+        );
+    },
 ];

@@ -9,10 +9,12 @@ import {
     FooterProps,
 } from "./Text.types";
 
-const Headline = styled.h1<HeadlineProps>`
+const Headline = styled.h1.attrs<HeadlineProps>((props) => ({
+    color: props.color || "primary",
+}))<HeadlineProps>`
     font-size: 40px;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text.active};
+    color: ${(props) => props.theme.colors.text[props.color]};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "light":
@@ -29,10 +31,12 @@ const Headline = styled.h1<HeadlineProps>`
     }};
 `;
 
-const Title = styled.h2<TitleProps>`
+const Title = styled.h2.attrs<HeadlineProps>((props) => ({
+    color: props.color || "primary",
+}))<TitleProps>`
     font-size: 24px;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text.active};
+    color: ${(props) => props.theme.colors.text[props.color]};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "light":
@@ -49,10 +53,12 @@ const Title = styled.h2<TitleProps>`
     }};
 `;
 
-const Subtitle = styled.h3<SubtitleProps>`
+const Subtitle = styled.h3.attrs<HeadlineProps>((props) => ({
+    color: props.color || "primary",
+}))<SubtitleProps>`
     font-size: 20px;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text.active};
+    color: ${(props) => props.theme.colors.text[props.color]};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "light":
@@ -69,10 +75,12 @@ const Subtitle = styled.h3<SubtitleProps>`
     }};
 `;
 
-const Body = styled.p<BodyProps>`
+const Body = styled.p.attrs<HeadlineProps>((props) => ({
+    color: props.color || "primary",
+}))<BodyProps>`
     font-size: 16px;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text.active};
+    color: ${(props) => props.theme.colors.text[props.color]};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "regular":
@@ -85,10 +93,12 @@ const Body = styled.p<BodyProps>`
     }};
 `;
 
-const Footer = styled.p<FooterProps>`
+const Footer = styled.p.attrs<HeadlineProps>((props) => ({
+    color: props.color || "primary",
+}))<FooterProps>`
     font-size: 14px;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text.active};
+    color: ${(props) => props.theme.colors.text[props.color]};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "regular":
