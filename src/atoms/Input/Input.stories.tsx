@@ -3,6 +3,7 @@ import React from "react";
 import Input from "./Input";
 import { InputProps } from "./Input.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { tracerIcons } from "../Icon/iconsConfig";
 
 export default {
     title: "atoms/Input",
@@ -11,6 +12,10 @@ export default {
         placeholder: {
             defaultValue: "Placeholder",
             control: { type: "text" },
+        },
+        icon: {
+            control: { type: "select" },
+            options: Object.keys(tracerIcons),
         },
         disabled: {
             defaultValue: false,
@@ -29,4 +34,10 @@ Default.args = {};
 export const Disabled = Template.bind({});
 Disabled.args = {
     disabled: true,
+};
+
+export const SearchBar = Template.bind({});
+SearchBar.args = {
+    icon: "search",
+    placeholder: "Search",
 };
