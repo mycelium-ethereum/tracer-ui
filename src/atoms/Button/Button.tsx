@@ -59,6 +59,9 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                 &:hover {
                     background-color: ${theme.colors.focus.hover};
                 }
+                &:active {
+                    background-color: ${theme.colors.focus.active};
+                }
                 &:disabled {
                     background-color: ${theme.colors.focus.inactive};
                     color: ${theme.colors.focus.reverse};
