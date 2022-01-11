@@ -4,12 +4,7 @@ import styled from "styled-components";
 
 import { ListProps } from "./List.types";
 
-const List: React.FC<ListProps> = ({
-    children,
-    onClickItem,
-    separator,
-    checkered,
-}) => {
+const List: React.FC<ListProps> = ({ children, onClickItem, separator }) => {
     if (!children) return null;
     return (
         <StyledUnorderedList data-testid="list">
@@ -18,7 +13,6 @@ const List: React.FC<ListProps> = ({
                 return (
                     <StyledListItem
                         key={index}
-                        altColor={checkered && index % 2 === 1}
                         onClick={() => onClickItem(index)}
                     >
                         {index > 0 && separator ? <hr /> : null}
@@ -39,20 +33,12 @@ const StyledUnorderedList = styled.ul`
     padding: 0;
 `;
 
-type StyledListItemProps = {
-    altColor?: boolean;
-};
-
-const StyledListItem = styled.li<StyledListItemProps>`
+const StyledListItem = styled.li`
     display: block;
-    background-color: ${(props) =>
-        props.altColor
-            ? props.theme.colors.cell.highlight
-            : props.theme.colors.cell.active};
 
     & > hr {
         margin: 0;
         border: 0;
-        border-top: 1px solid ${(props) => props.theme.colors.cell.border};
+        border-top: 1px solid ${(props) => props.theme.colors.focus.active};
     }
 `;

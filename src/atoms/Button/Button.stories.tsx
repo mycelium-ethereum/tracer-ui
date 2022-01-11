@@ -27,7 +27,7 @@ export default {
             defaultValue: "primary",
             control: {
                 type: "select",
-                options: ["primary", "secondary", "ghost"],
+                options: ["primary", "focus"],
             },
         },
     },
@@ -43,14 +43,8 @@ Primary.args = {
     variant: "primary",
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-    children: "Secondary Button",
-    variant: "secondary",
-};
-
-export const Ghost = Template.bind({});
-Ghost.args = {
-    children: "Ghost Button",
-    variant: "ghost",
+export const Focus = Template.bind({});
+Focus.args = {
+    children: "Focus Button",
+    variant: "focus",
 };

@@ -32,7 +32,7 @@ const Popover: React.FC<PopoverProps> = ({
 
     const handleClick = (e: React.MouseEvent) => {
         if (trigger === "click" && childEl.contains(e.target as Node)) {
-            setIsVisible(!isVisible);
+            setIsVisible(true);
         }
     };
     const handleClickOutside = (e: MouseEvent) => {

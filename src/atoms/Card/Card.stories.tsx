@@ -26,15 +26,10 @@ export default {
             defaultValue: false,
             description: "If true, the card will have a square border.",
         },
-        shadow: {
-            control: { type: "boolean" },
-            defaultValue: false,
-            description: "If true, the card will have a shadow.",
-        },
         padding: {
             control: {
                 type: "select",
-                options: ["xs", "sm", "md", "lg"],
+                options: ["none", "sm", "md", "lg"],
             },
             defaultValue: "md",
             description: "The padding of the card.",
@@ -47,9 +42,9 @@ export default {
         color: {
             control: {
                 type: "select",
-                options: ["active", "highlight"],
+                options: ["primary", "secondary", "tertiary"],
             },
-            defaultValue: "active",
+            defaultValue: "primary",
             description: "The color of the card.",
         },
     },
@@ -77,21 +72,24 @@ const Template: Story<CardProps> = (args) => (
     </Card>
 );
 
-export const Default = Template.bind({});
-
-export const Highlight = Template.bind({});
-Highlight.args = {
-    color: "highlight",
+export const Primary = Template.bind({});
+Primary.args = {
+    color: "primary",
 };
 
-export const Shadow = Template.bind({});
-Shadow.args = {
-    shadow: true,
+export const Secondary = Template.bind({});
+Secondary.args = {
+    color: "secondary",
+};
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+    color: "tertiary",
 };
 
 export const HalfWidth = Template.bind({});
 HalfWidth.args = {
-    maxWidth: "500px",
+    maxWidth: "50%",
 };
 
 export const FluidAndSquare = Template.bind({});
@@ -100,9 +98,10 @@ FluidAndSquare.args = {
     square: true,
 };
 
-export const SmallPadding = Template.bind({});
-SmallPadding.args = {
-    padding: "sm",
+export const NoPadding = Template.bind({});
+NoPadding.args = {
+    padding: "none",
+    shadow: true,
 };
 
 export const NestedCard: Story<CardProps> = (args) => (
@@ -125,7 +124,7 @@ export const NestedCard: Story<CardProps> = (args) => (
     </Card>
 );
 NestedCard.args = {
-    color: "highlight",
+    color: "tertiary",
     padding: "sm",
     fluid: true,
 };
