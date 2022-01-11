@@ -5,6 +5,16 @@ import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 
 export interface IconProps {
     name: keyof typeof tracerIcons;
-    color?: string;
+    color?: IconColor;
     size?: SizeProp;
 }
+
+export type IconColor =
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "footnote"
+    | "highlight"
+    | "alert"
+    | "danger"
+    | "success";

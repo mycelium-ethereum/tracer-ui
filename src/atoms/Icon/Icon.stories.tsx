@@ -40,8 +40,19 @@ export default {
         },
         color: {
             control: {
-                type: "color",
+                type: "select",
+                options: [
+                    "primary",
+                    "secondary",
+                    "tertiary",
+                    "footnote",
+                    "highlight",
+                    "alert",
+                    "danger",
+                    "success",
+                ],
             },
+            defaultValue: "primary",
         },
     },
 } as ComponentMeta<typeof Icon>;
@@ -54,19 +65,19 @@ export const SmallCheckCircle = Template.bind({});
 SmallCheckCircle.args = {
     name: "check-circle",
     size: "sm",
-    color: "green",
+    color: "success",
 };
 
 export const LargeLock = Template.bind({});
 LargeLock.args = {
     name: "lock",
     size: "lg",
-    color: "gold",
+    color: "alert",
 };
 
 export const HugeSearch = Template.bind({});
 HugeSearch.args = {
     name: "search",
     size: "5x",
-    color: "black",
+    color: "secondary",
 };
