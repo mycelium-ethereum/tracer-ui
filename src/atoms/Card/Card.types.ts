@@ -3,8 +3,7 @@ export interface CardProps {
     maxWidth?: string;
     fluid?: boolean;
     square?: boolean;
-    color?: "active" | "highlight";
-    shadow?: boolean;
-    padding?: "xs" | "sm" | "md" | "lg";
+    color?: "primary" | "secondary" | "tertiary";
+    padding?: "none" | "sm" | "md" | "lg";
     border?: boolean;
 }

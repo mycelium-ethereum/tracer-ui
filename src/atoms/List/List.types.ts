@@ -2,5 +2,4 @@
 export interface ListProps {
     onClickItem?: (index: number) => void;
     separator?: boolean;
-    checkered?: boolean;
 }
