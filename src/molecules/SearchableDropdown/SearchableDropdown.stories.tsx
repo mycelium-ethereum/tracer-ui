@@ -21,7 +21,41 @@ export default {
     },
 } as ComponentMeta<typeof SearchableDropdown>;
 
-export const MarketList: Story<SearchableDropdownProps> = (args) => (
+export const Simple: Story<SearchableDropdownProps> = (args) => (
+    <div style={{ width: "600px" }}>
+        <SearchableDropdown
+            {...args}
+            options={[
+                {
+                    value: "ethereum",
+                    searchTerms: ["ethereum"],
+                    title: "Ethereum",
+                    subtitle: "ETH",
+                },
+                {
+                    value: "bitcoin",
+                    searchTerms: ["bitcoin", "btc"],
+                    title: "Bitcoin",
+                    subtitle: "BTC",
+                },
+                {
+                    value: "litecoin",
+                    searchTerms: ["litecoin", "ltc"],
+                    title: "Litecoin",
+                    subtitle: "LTC",
+                },
+                {
+                    value: "ripple",
+                    searchTerms: ["ripple", "xrp"],
+                    title: "Ripple",
+                    subtitle: "XRP",
+                },
+            ]}
+        ></SearchableDropdown>
+    </div>
+);
+
+export const ImagesAndButtons: Story<SearchableDropdownProps> = (args) => (
     <div style={{ width: "600px" }}>
         <SearchableDropdown
             {...args}

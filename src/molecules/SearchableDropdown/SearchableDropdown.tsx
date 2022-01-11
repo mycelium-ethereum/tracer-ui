@@ -85,11 +85,11 @@ const PopoverCard = styled.div<PopoverCardProps>`
 `;
 
 const ListItem = styled.div`
-    background-color: ${(props) => props.theme.colors.cell.active};
+    background-color: ${(props) => props.theme.colors.cell.primary};
     padding: 8px;
     display: flex;
     :hover {
-        background-color: ${(props) => props.theme.colors.cell.highlight};
+        background-color: ${(props) => props.theme.colors.cell.secondary};
     }
     cursor: pointer;
 `;
@@ -107,7 +107,7 @@ const ContentContainer = styled.div`
 const RightContentContainer = styled.div``;
 
 const LeftImage = styled.img`
-    margin: 0px 12px;
+    margin: 0px 12px 0px 0px;
     max-width: 40px;
     max-height: 40px;
 `;
