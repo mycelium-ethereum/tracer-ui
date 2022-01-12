@@ -18,7 +18,11 @@ const Progress: React.FC<ProgressProps> = ({
                         leftBorder={index !== 0}
                         onClick={() => onClickStep(index)}
                     >
-                        <Icon name="check-circle" color="success" size="lg" />
+                        <Icon
+                            name="check-circle-solid"
+                            color="success"
+                            size="lg"
+                        />
                         &nbsp;&nbsp;{text}
                     </DoneStep>
                 );
