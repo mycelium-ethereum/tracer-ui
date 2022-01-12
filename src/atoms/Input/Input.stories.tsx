@@ -4,8 +4,6 @@ import Input from "./Input";
 import { InputProps } from "./Input.types";
 import { ComponentMeta, Story } from "@storybook/react";
 import { Icon } from "../Icon";
-import { Card } from "../Card";
-import { Text } from "../Text";
 
 export default {
     title: "atoms/Input",
@@ -48,10 +46,10 @@ export default {
 const Template: Story<InputProps> = (args) => <Input {...args}></Input>;
 
 // Reuse that template for creating different stories
-export const Primary = Template.bind({});
-Primary.args = {
-    variant: "primary",
-    placeholder: "Primary Input",
+export const Focus = Template.bind({});
+Focus.args = {
+    variant: "focus",
+    placeholder: "Focus Input",
 };
 
 export const Alert = Template.bind({});

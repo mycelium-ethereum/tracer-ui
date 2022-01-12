@@ -5,5 +5,5 @@ export interface InputProps extends React.HTMLProps<HTMLInputElement> {
     leftSlot?: React.ReactNode;
     rightSlot?: React.ReactNode;
     textAlign?: "left" | "center" | "right";
-    variant?: "primary" | "alert" | "danger";
+    variant?: "focus" | "alert" | "danger";
 }

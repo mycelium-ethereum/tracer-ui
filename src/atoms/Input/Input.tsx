@@ -11,7 +11,7 @@ const Input: React.FC<InputProps> = React.forwardRef((props, ref) => {
         <Container
             disabled={disabled}
             ref={ref}
-            variant={variant || "primary"}
+            variant={variant || "focus"}
             textAlign={textAlign || "left"}
         >
             {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
@@ -59,7 +59,7 @@ const Container = styled.span<ContainerProps>`
                 background-color: ${theme.colors.cell.secondary};
                 color: ${theme.colors.text.tertiary};
                 `;
-        } else if (variant === "primary") {
+        } else if (variant === "focus") {
             return `
                 border-color: ${theme.colors.focus.active};
                 background-color: ${theme.colors.cell.primary};
