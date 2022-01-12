@@ -52,23 +52,21 @@ const Template: Story<AllocationSliderProps> = ({
     const [{ percentage, isLocked }, updateArgs] = useArgs();
     return (
         <div style={{ minWidth: "800px" }}>
-            <Card>
-                <AllocationSlider
-                    {...args}
-                    percentage={percentage}
-                    onChange={(newValue) => {
-                        if (!isLocked) {
-                            onChange(newValue);
-                            updateArgs({ percentage: newValue });
-                        }
-                    }}
-                    onClickLock={() => {
-                        onClickLock();
-                        updateArgs({ isLocked: !isLocked });
-                    }}
-                    tokenImageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png"
-                ></AllocationSlider>
-            </Card>
+            <AllocationSlider
+                {...args}
+                percentage={percentage}
+                onChange={(newValue) => {
+                    if (!isLocked) {
+                        onChange(newValue);
+                        updateArgs({ percentage: newValue });
+                    }
+                }}
+                onClickLock={() => {
+                    onClickLock();
+                    updateArgs({ isLocked: !isLocked });
+                }}
+                tokenImageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png"
+            ></AllocationSlider>
         </div>
     );
 };
