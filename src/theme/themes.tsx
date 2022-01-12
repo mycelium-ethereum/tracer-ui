@@ -33,11 +33,13 @@ export interface TracerTheme {
             hover: string;
             active: string;
             text: string;
+            cell: string;
         };
         danger: {
             hover: string;
             active: string;
             text: string;
+            cell: string;
         };
         success: {
             hover: string;
@@ -83,11 +85,13 @@ export const lightTheme: TracerTheme = {
             hover: "#FF700B",
             active: "#FF931E",
             text: "#FF931E",
+            cell: "#FFF1E2",
         },
         danger: {
             hover: "#FF2A21",
             active: "#FF5621",
             text: "#FF5621",
+            cell: "#FFE0D7",
         },
         success: {
             hover: "#4FC423",

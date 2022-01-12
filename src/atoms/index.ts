@@ -7,3 +7,4 @@ export * from "./Slider";
 export * from "./Icon";
 export * from "./Popover";
 export * from "./Text";
+export * from "./ToggleButton";
