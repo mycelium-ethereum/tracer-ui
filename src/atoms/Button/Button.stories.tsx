@@ -24,10 +24,10 @@ export default {
             },
         },
         variant: {
-            defaultValue: "primary",
+            defaultValue: "action",
             control: {
                 type: "select",
-                options: ["primary", "focus", "alert", "danger"],
+                options: ["action", "focus", "alert", "danger"],
             },
         },
     },
@@ -37,16 +37,16 @@ export default {
 const Template: Story<ButtonProps> = (args) => <Button {...args}></Button>;
 
 // Reuse that template for creating different stories
-export const Primary = Template.bind({});
-Primary.args = {
-    children: "Primary Button",
-    variant: "primary",
+export const Action = Template.bind({});
+Action.args = {
+    children: "Action Button",
+    variant: "action",
 };
 
-export const PrimaryDisabled = Template.bind({});
-PrimaryDisabled.args = {
-    children: "Primary Button",
-    variant: "primary",
+export const ActionDisabled = Template.bind({});
+ActionDisabled.args = {
+    children: "Action Button",
+    variant: "action",
     disabled: true,
 };
 
