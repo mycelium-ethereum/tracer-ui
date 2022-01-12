@@ -4,12 +4,18 @@ import styled, { DefaultTheme, StyledComponentProps } from "styled-components";
 
 import { InputProps } from "./Input.types";
 
-const Input: React.FC<InputProps> = React.forwardRef(
-    ({ leftSlot, rightSlot, disabled, ...rest }, ref) => (
-        <Container disabled={disabled}>
+const Input: React.FC<InputProps> = React.forwardRef((props, ref) => {
+    const { leftSlot, rightSlot, textAlign, variant, disabled, ...rest } =
+        props;
+    return (
+        <Container
+            disabled={disabled}
+            ref={ref}
+            variant={variant || "primary"}
+            textAlign={textAlign || "left"}
+        >
             {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
             <StyledInput
-                ref={ref}
                 disabled={disabled}
                 data-testid="input"
                 {...(rest as StyledComponentProps<
@@ -21,14 +27,16 @@ const Input: React.FC<InputProps> = React.forwardRef(
             />
             {rightSlot ? <RightSlot>{rightSlot}</RightSlot> : null}
         </Container>
-    ),
-);
+    );
+});
 Input.displayName = "Input";
 
 export default Input;
 
 interface ContainerProps {
     disabled?: boolean;
+    variant: InputProps["variant"];
+    textAlign: InputProps["textAlign"];
 }
 
 const Container = styled.span<ContainerProps>`
@@ -39,12 +47,38 @@ const Container = styled.span<ContainerProps>`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding: 10px 18px;
-    color: ${({ theme }) => theme.colors.text.primary};
     border-radius: 12px;
-    background: ${({ disabled, theme }) =>
-        disabled ? theme.colors.cell.tertiary : theme.colors.cell.secondary};
-    border: 1px solid ${({ theme }) => theme.colors.focus.active};
-    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
+    border: 1px solid;
+    text-align: ${(props) => props.textAlign};
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};
+
+    ${({ disabled, theme, variant }) => {
+        if (disabled) {
+            return `
+                border-color: ${theme.colors.focus.active};
+                background-color: ${theme.colors.cell.secondary};
+                color: ${theme.colors.text.tertiary};
+                `;
+        } else if (variant === "primary") {
+            return `
+                border-color: ${theme.colors.focus.active};
+                background-color: ${theme.colors.cell.primary};
+                color: ${theme.colors.focus.text};
+                `;
+        } else if (variant === "alert") {
+            return `
+                border-color: ${theme.colors.alert.active};
+                background-color: ${theme.colors.alert.cell};
+                color: ${theme.colors.alert.text};
+                `;
+        } else if (variant === "danger") {
+            return `
+                border-color: ${theme.colors.danger.active};
+                background-color: ${theme.colors.danger.cell};
+                color: ${theme.colors.danger.text};
+                `;
+        }
+    }}
 `;
 
 const StyledInput = styled.input`
@@ -56,6 +90,8 @@ const StyledInput = styled.input`
     padding: 0;
     outline: none;
     background: transparent;
+    color: inherit;
+    text-align: inherit;
     &:disabled {
         cursor: not-allowed;
     }
