@@ -3,7 +3,6 @@ import React from "react";
 import AllocationSlider from "./AllocationSlider";
 import { AllocationSliderProps } from "./AllocationSlider.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { Card } from "../../atoms";
 import { useArgs } from "@storybook/addons";
 
 export default {
