@@ -22,6 +22,10 @@ const Icon: React.FC<IconProps> = ({ name, size, color = "primary" }) => {
                 return theme.colors.text.footnote;
             case "highlight":
                 return theme.colors.text.highlight;
+            case "action-text":
+                return theme.colors.action.text;
+            case "focus-text":
+                return theme.colors.focus.text;
             case "alert":
                 return theme.colors.alert.text;
             case "danger":

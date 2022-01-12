@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Input, Popover, List, Text } from "../../atoms";
+import { Input, Popover, List, Text, Icon } from "../../atoms";
 
 import { SearchableDropdownProps } from "./SearchableDropdown.types";
 
@@ -60,7 +60,7 @@ const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
             <Popover placement="bottom-start" content={<PopoverContent />}>
                 <Input
                     ref={setSearchBarEl}
-                    icon="search"
+                    leftSlot={<Icon name="search" color="tertiary" />}
                     placeholder={placeholder}
                     value={search}
                     onChange={(e) => setSearch((e.target as any).value)}
