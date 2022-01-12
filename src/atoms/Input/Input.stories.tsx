@@ -9,6 +9,13 @@ export default {
     title: "atoms/Input",
     component: Input,
     argTypes: {
+        variant: {
+            defaultValue: "primary",
+            control: {
+                type: "select",
+                options: ["primary", "focus", "alert", "danger"],
+            },
+        },
         placeholder: {
             defaultValue: "Placeholder",
             control: { type: "text" },
@@ -25,6 +32,13 @@ export default {
             defaultValue: false,
             control: { type: "boolean" },
         },
+        textAlign: {
+            defaultValue: "left",
+            control: {
+                type: "select",
+                options: ["left", "center", "right"],
+            },
+        },
     },
 } as ComponentMeta<typeof Input>;
 
@@ -32,12 +46,43 @@ export default {
 const Template: Story<InputProps> = (args) => <Input {...args}></Input>;
 
 // Reuse that template for creating different stories
-export const Default = Template.bind({});
-Default.args = {};
+export const Focus = Template.bind({});
+Focus.args = {
+    variant: "focus",
+    placeholder: "Focus Input",
+};
+
+export const Alert = Template.bind({});
+Alert.args = {
+    variant: "alert",
+    placeholder: "Alert Input",
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+    variant: "danger",
+    placeholder: "Danger Input",
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+    variant: "primary",
+    placeholder: "Disabled Input",
     disabled: true,
+};
+
+export const TextAlignCenter = Template.bind({});
+TextAlignCenter.args = {
+    variant: "primary",
+    placeholder: "Text Align Center",
+    textAlign: "center",
+};
+
+export const TextAlignRight = Template.bind({});
+TextAlignRight.args = {
+    variant: "primary",
+    placeholder: "Right Aligned Input",
+    textAlign: "right",
 };
 
 export const Currency = Template.bind({});
