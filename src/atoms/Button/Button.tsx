@@ -37,7 +37,7 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
   transition: background-color 0.1s ease-in-out;
   ${({ variant, theme }) => {
       switch (variant) {
-          case "primary":
+          case "action":
               return `
                 background-color: ${theme.colors.action.active};
                 color: ${theme.colors.action.text};
