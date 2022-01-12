@@ -3,6 +3,6 @@ import React from "react";
 // Generated with util/create-component.js
 export interface ButtonProps
     extends Omit<React.HTMLProps<HTMLButtonElement>, "size"> {
-    variant?: "primary" | "focus";
+    variant?: "primary" | "focus" | "alert" | "danger";
     size?: "small" | "medium" | "large";
 }

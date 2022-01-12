@@ -27,7 +27,7 @@ export default {
             defaultValue: "primary",
             control: {
                 type: "select",
-                options: ["primary", "focus"],
+                options: ["primary", "focus", "alert", "danger"],
             },
         },
     },
@@ -43,8 +43,34 @@ Primary.args = {
     variant: "primary",
 };
 
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+    children: "Primary Button",
+    variant: "primary",
+    disabled: true,
+};
+
 export const Focus = Template.bind({});
 Focus.args = {
     children: "Focus Button",
     variant: "focus",
+};
+
+export const FocusDisabled = Template.bind({});
+FocusDisabled.args = {
+    children: "Focus Button",
+    variant: "focus",
+    disabled: true,
+};
+
+export const Alert = Template.bind({});
+Alert.args = {
+    children: "Alert Button",
+    variant: "alert",
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+    children: "Danger Button",
+    variant: "danger",
 };

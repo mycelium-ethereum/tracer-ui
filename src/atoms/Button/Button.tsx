@@ -67,6 +67,42 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                     color: ${theme.colors.focus.reverse};
                 }
                 `;
+          case "alert":
+              return `
+                background-color: ${theme.colors.alert.cell};
+                color: ${theme.colors.alert.text};
+                border: 1px solid ${theme.colors.alert.text};
+                &:hover {
+                    color: ${theme.colors.alert.hover};
+                    border: 1px solid ${theme.colors.alert.hover};
+                }
+                &:active {
+                    color: ${theme.colors.alert.text};
+                    border: 1px solid ${theme.colors.alert.text};
+                }
+                &:disabled {
+                    color: ${theme.colors.alert.text};
+                    border: 1px solid ${theme.colors.alert.text};
+                }
+            `;
+          case "danger":
+              return `
+                background-color: ${theme.colors.danger.cell};
+                color: ${theme.colors.danger.text};
+                border: 1px solid ${theme.colors.danger.text};
+                &:hover {
+                    color: ${theme.colors.danger.hover};
+                    border: 1px solid ${theme.colors.danger.hover};
+                }   
+                &:active {
+                    color: ${theme.colors.danger.text};
+                    border: 1px solid ${theme.colors.danger.text};
+                }
+                &:disabled {
+                    color: ${theme.colors.danger.text};
+                    border: 1px solid ${theme.colors.danger.text};
+                }
+            `;
       }
   }}
 
