@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Input, Popover, List, Text, Icon, InfoRow } from "../../atoms";
+import { Input, Popover, List, Icon, InfoRow } from "../../atoms";
 
 import { SearchableDropdownProps } from "./SearchableDropdown.types";
 
