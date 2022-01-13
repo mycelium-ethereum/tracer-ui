@@ -8,3 +8,4 @@ export * from "./Icon";
 export * from "./Popover";
 export * from "./Text";
 export * from "./ToggleButton";
+export * from "./InfoRow";

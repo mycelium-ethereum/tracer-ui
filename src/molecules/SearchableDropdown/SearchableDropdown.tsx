@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Input, Popover, List, Text, Icon } from "../../atoms";
+import { Input, Popover, List, Icon, InfoRow } from "../../atoms";
 
 import { SearchableDropdownProps } from "./SearchableDropdown.types";
 
@@ -40,15 +40,13 @@ const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
                         key={option.value}
                         onClick={() => onClickItem(option.value)}
                     >
-                        <LeftImage src={option.imageSrc} />
-                        <ContentContainer>
-                            <ItemTitle>{option.title}</ItemTitle>
-                            <Text.Footer>{option.subtitle}</Text.Footer>
-                        </ContentContainer>
-
-                        <RightContentContainer>
+                        <InfoRow
+                            title={option.title}
+                            subtitle={option.subtitle}
+                            imageSrc={option.imageSrc}
+                        >
                             {option.rightContent}
-                        </RightContentContainer>
+                        </InfoRow>
                     </ListItem>
                 ))}
             </List>
@@ -87,28 +85,8 @@ const PopoverCard = styled.div<PopoverCardProps>`
 
 const ListItem = styled.div`
     background-color: ${(props) => props.theme.colors.cell.primary};
-    padding: 8px;
-    display: flex;
     :hover {
         background-color: ${(props) => props.theme.colors.cell.secondary};
     }
     cursor: pointer;
-`;
-
-const ItemTitle = styled(Text.Body)`
-    font-weight: 500;
-`;
-
-const ContentContainer = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-`;
-
-const RightContentContainer = styled.div``;
-
-const LeftImage = styled.img`
-    margin: 0px 12px 0px 0px;
-    max-width: 40px;
-    max-height: 40px;
 `;
