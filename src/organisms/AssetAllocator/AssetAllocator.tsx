@@ -53,10 +53,11 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
     };
 
     const removeMarket = (assetId: string) => {
-        allocations = allocations.filter(
+        const newWeightings = calculateNewAllocations(assetId, 0);
+        const newAllocations = newWeightings.filter(
             (allocation) => allocation.assetId !== assetId,
         );
-        onAllocationsChange(allocations);
+        onAllocationsChange(newAllocations);
     };
 
     const openDropdown = () => setDropdownOpen(true);
@@ -70,108 +71,75 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
         }
     };
 
-    const handlePercentageChange = (assetId: string, percentage: number) => {
-        const oldAllocation = allocations.find(
-            (alloc) => alloc.assetId === assetId,
-        );
-
-        // Amount moved from movable assets to changed asset
-        const delta = percentage - oldAllocation.percentage;
-        const amountToDistribute = -delta;
-
-        const allocDeltas: { [assetId: string]: number } = {};
-        const movableAllocs: Allocation[] = [];
-        allocations.forEach((allocation) => {
-            if (allocation.assetId === assetId) {
-                allocDeltas[allocation.assetId] = delta;
-            } else if (isImmovableAsset(allocation)) {
-                allocDeltas[allocation.assetId] = 0;
-            } else {
-                movableAllocs.push(allocation);
-            }
-        });
-
-        // console.log({ movableAllocs });
-        // There is nowhere to move the delta, so do nothing
-        if (movableAllocs.length === 0) return;
-
-        // Distribute the delta across the movable assets
-        // Keeping the proportions of the assets the same
-
-        if (delta > 0) {
-            // Moving towards zero
-            const total = movableAllocs.reduce((acc, alloc) => {
-                return acc + alloc.percentage;
-            }, 0);
-            movableAllocs.forEach((alloc) => {
-                allocDeltas[alloc.assetId] =
-                    (alloc.percentage / total) * -delta;
-            });
-        } else {
-            // Moving towards 100, so use the percent away from 100
-            const total = movableAllocs.reduce((acc, alloc) => {
-                return acc + (100 - alloc.percentage);
-            }, 0);
-            movableAllocs.forEach((alloc) => {
-                allocDeltas[alloc.assetId] =
-                    ((100 - alloc.percentage) / total) * -delta;
-            });
-        }
-
-        // Round to the nearest 0.01
-        Object.keys(allocDeltas).forEach((assetId) => {
-            allocDeltas[assetId] = Math.round(allocDeltas[assetId] * 100) / 100;
-        });
-
-        // Ensure that the sum of all deltas is 0
-        const allocDeltaSum = Object.values(allocDeltas).reduce(
-            (acc, val) => acc + val,
-            0,
-        );
-        // Use the first movable asset to adjust the rest
-        const firstMovableAssetId = movableAllocs[0].assetId;
-        allocDeltas[firstMovableAssetId] -= allocDeltaSum;
-
-        const newAllocDeltaSum = Object.values(allocDeltas).reduce(
-            (acc, val) => acc + val,
-            0,
-        );
-        console.log({ allocDeltas, newAllocDeltaSum });
-
-        const newAllocations = allocations.map((allocation) => {
-            return {
-                ...allocation,
-                percentage:
-                    allocation.percentage + allocDeltas[allocation.assetId],
-            };
-        });
+    const handlePercentageChange = (assetId: string, percent: number) => {
+        const newAllocations = calculateNewAllocations(assetId, percent);
         onAllocationsChange(newAllocations);
-
-        // onAllocationsChange(newAllocations);
-        function isImmovableAsset(allocation: Allocation) {
-            const isLocked = lockedAssetIds.includes(allocation.assetId);
-            if (isLocked) return true;
-            if (delta > 0) {
-                return allocation.percentage === 0;
-            } else {
-                return allocation.percentage === 100;
-            }
-        }
     };
 
-    type AllocById = { [assetId: string]: number };
-    const distributeDeltaRecursively = (
-        allocations: AllocById,
-        remainingDelta: number,
-    ): AllocById => {
-        if (remainingDelta === 0) return allocations;
-        const deltaPerAsset = remainingDelta / Object.keys(allocations).length;
-        // Find if any assets will max out
-        if (deltaPerAsset > 0) {
-            // Moving towards 100
+    const calculateNewAllocations = (
+        changedAssetId: string,
+        newAssetPercentage: number,
+    ) => {
+        // Get the percentage remaining after the locked and changed allocations
+        const allocsById: { [assetId: string]: number } = {};
+        let percentRemaining = 100;
+        let allocsToMove: Allocation[] = [];
+        allocations.forEach((alloc) => {
+            if (alloc.assetId === changedAssetId) {
+                allocsById[alloc.assetId] = newAssetPercentage;
+                percentRemaining -= newAssetPercentage;
+            } else if (lockedAssetIds.includes(alloc.assetId)) {
+                allocsById[alloc.assetId] = alloc.percentage;
+                percentRemaining -= alloc.percentage;
+            } else {
+                allocsToMove.push(alloc);
+            }
+        });
+
+        if (allocsToMove.length === 0) return allocations;
+
+        const currentTotalPercent = allocsToMove.reduce((total, alloc) => {
+            return total + alloc.percentage;
+        }, 0);
+
+        if (currentTotalPercent === 0) {
+            allocsToMove.forEach((alloc) => {
+                allocsById[alloc.assetId] = 0;
+            });
         } else {
-            // Moving towards 0
+            // Distribute what remains to the remaining allocations proportionally
+            allocsToMove.forEach((alloc) => {
+                const newPercent =
+                    (percentRemaining * alloc.percentage) / currentTotalPercent;
+                const roundedPercent = Math.round(newPercent * 100) / 100;
+                allocsById[alloc.assetId] = roundedPercent;
+            });
         }
+
+        // Ensure that the total percentage is 100% (rounding errors can cause it to be off)
+        const sum = Object.keys(allocsById).reduce((total, id) => {
+            return total + allocsById[id];
+        }, 0);
+        if (sum !== 100) {
+            const diff = 100 - sum;
+            const firstMovedAlloc = allocsToMove[0];
+            allocsById[firstMovedAlloc.assetId] += diff;
+        }
+
+        // Update the allocations
+        const newAllocations = allocations.map((alloc) => ({
+            assetId: alloc.assetId,
+            percentage: allocsById[alloc.assetId],
+        }));
+
+        // Check for allocations outside the range
+        for (const alloc of newAllocations) {
+            if (alloc.percentage < 0 || alloc.percentage > 100) {
+                return allocations;
+            }
+        }
+
+        return newAllocations;
     };
 
     const renderDropdown = () => {
