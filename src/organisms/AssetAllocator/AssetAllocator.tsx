@@ -144,13 +144,12 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
 
     const renderDropdown = () => {
         const assetsForDropdown = assets.filter((asset) => {
-            const matchesSearch =
-                asset.symbol.includes(search) || asset.name.includes(search);
             const alreadySelected = allocations.some(
                 (aloc) => aloc.assetId === asset.id,
             );
-            return matchesSearch && !alreadySelected;
+            return assetMatchesSearch(asset) && !alreadySelected;
         });
+
         return (
             <Dropdown
                 width={containerRef.current?.offsetWidth}
@@ -184,6 +183,14 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                 </List>
             </Dropdown>
         );
+    };
+
+    const assetMatchesSearch = (asset: Asset) => {
+        const searchTerms = [
+            asset.symbol.toLowerCase(),
+            asset.name.toLowerCase(),
+        ];
+        return searchTerms.some((term) => term.includes(search.toLowerCase()));
     };
 
     return (
