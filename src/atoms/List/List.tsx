@@ -1,19 +1,24 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 import { ListProps } from "./List.types";
 
-const List: React.FC<ListProps> = ({ children, onClickItem, separator }) => {
+const List: React.FC<ListProps> = React.forwardRef((props, ref) => {
+    const { children, onClickItem, separator, ...rest } = props;
     if (!children) return null;
     return (
-        <StyledUnorderedList data-testid="list">
+        <StyledUnorderedList
+            data-testid="list"
+            ref={ref}
+            {...(rest as StyledComponent<"ul", DefaultTheme, {}, never>)}
+        >
             {React.Children.map(children, (child, index) => {
                 if (!React.isValidElement(child)) return null;
                 return (
                     <StyledListItem
                         key={index}
-                        onClick={() => onClickItem(index)}
+                        onClick={() => onClickItem && onClickItem(index)}
                     >
                         {index > 0 && separator ? <hr /> : null}
                         {React.cloneElement(child, child.props)}
@@ -22,7 +27,7 @@ const List: React.FC<ListProps> = ({ children, onClickItem, separator }) => {
             })}
         </StyledUnorderedList>
     );
-};
+});
 
 export default List;
 

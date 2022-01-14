@@ -6,4 +6,5 @@ export interface CardProps {
     color?: "primary" | "secondary" | "tertiary";
     padding?: "none" | "sm" | "md" | "lg";
     border?: boolean;
+    onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

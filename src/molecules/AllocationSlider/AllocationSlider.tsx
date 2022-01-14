@@ -12,6 +12,7 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
     tokenName,
     tokenSymbol,
     isLocked,
+    removeButtonText,
     onClickLock,
     onRemove,
 }) => {
@@ -51,12 +52,17 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
                     <div>
                         <Button variant="focus" size="small" onClick={onRemove}>
                             <Icon name="times" color="focus-text" />
-                            &nbsp; Remove
+                            &nbsp; {removeButtonText}
                         </Button>
                     </div>
                 </InputsContainer>
             </InfoRow>
-            <Slider value={percentage} onChange={onChange} step={0.01} />
+            <Slider
+                value={percentage}
+                onChange={onChange}
+                step={0.01}
+                disabled={isLocked}
+            />
         </Container>
     );
 };
@@ -82,6 +88,7 @@ const NameAndSymbol = styled.div`
     flex-direction: column;
     justify-content: center;
     flex: 1;
+    margin-left: 16px;
 `;
 
 const InputsContainer = styled.div`
