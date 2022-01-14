@@ -1,11 +1,14 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 import { CardProps } from "./Card.types";
 
 const Card: React.FC<CardProps> = ({ children, ...props }) => (
-    <StyledCard data-testid="card" {...props}>
+    <StyledCard
+        data-testid="card"
+        {...(props as StyledComponent<"div", DefaultTheme, {}, never>)}
+    >
         {children}
     </StyledCard>
 );
