@@ -77,6 +77,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
 
         // Amount moved from movable assets to changed asset
         const delta = percentage - oldAllocation.percentage;
+        const amountToDistribute = -delta;
 
         const allocDeltas: { [assetId: string]: number } = {};
         const movableAllocs: Allocation[] = [];
@@ -155,6 +156,21 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
             } else {
                 return allocation.percentage === 100;
             }
+        }
+    };
+
+    type AllocById = { [assetId: string]: number };
+    const distributeDeltaRecursively = (
+        allocations: AllocById,
+        remainingDelta: number,
+    ): AllocById => {
+        if (remainingDelta === 0) return allocations;
+        const deltaPerAsset = remainingDelta / Object.keys(allocations).length;
+        // Find if any assets will max out
+        if (deltaPerAsset > 0) {
+            // Moving towards 100
+        } else {
+            // Moving towards 0
         }
     };
 
