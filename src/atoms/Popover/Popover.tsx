@@ -19,14 +19,6 @@ const Popover: React.FC<PopoverProps> = ({
     const [popperEl, setPopperEl] = useState<HTMLDivElement | null>(null);
     const { styles, attributes } = usePopper(childEl, popperEl, {
         placement,
-        modifiers: [
-            {
-                name: "offset",
-                options: {
-                    offset: [0, 8],
-                },
-            },
-        ],
     });
 
     return (
