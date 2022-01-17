@@ -5,6 +5,7 @@ import { Card, Button, Icon, List, Popover, Input, InfoRow } from "../../atoms";
 
 import { AssetAllocatorProps, Asset, Allocation } from "./AssetAllocator.types";
 import styled from "styled-components";
+import { roundToDecimal } from "../../helpers";
 
 const AssetAllocator: React.FC<AssetAllocatorProps> = ({
     assets,
@@ -111,8 +112,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
             allocsToMove.forEach((alloc) => {
                 const newPercent =
                     (percentRemaining * alloc.percentage) / currentTotalPercent;
-                const roundedPercent = Math.round(newPercent * 100) / 100;
-                allocsById[alloc.assetId] = roundedPercent;
+                allocsById[alloc.assetId] = roundToDecimal(newPercent, 2);
             });
         }
 
@@ -123,7 +123,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
         if (sum !== 100) {
             const diff = 100 - sum;
             const firstMovedAlloc = allocsToMove[0];
-            allocsById[firstMovedAlloc.assetId] += diff;
+            allocsById[firstMovedAlloc.assetId] += roundToDecimal(diff, 2);
         }
 
         // Update the allocations
