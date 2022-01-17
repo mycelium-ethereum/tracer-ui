@@ -28,6 +28,7 @@ const List: React.FC<ListProps> = React.forwardRef((props, ref) => {
         </StyledUnorderedList>
     );
 });
+List.displayName = "List";
 
 export default List;
 

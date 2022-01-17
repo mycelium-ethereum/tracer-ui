@@ -121,7 +121,7 @@ export const OverText: Story<PopoverProps> = (args) => {
 
     return (
         <div style={{ width: "600px", textAlign: "center" }}>
-            <Popover content={<ExampleContent />} {...args}>
+            <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
                 <h2
                     onMouseEnter={() => updateArgs({ isOpen: true })}
                     onMouseLeave={() => updateArgs({ isOpen: false })}

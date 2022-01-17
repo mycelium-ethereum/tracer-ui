@@ -84,7 +84,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
         // Get the percentage remaining after the locked and changed allocations
         const allocsById: { [assetId: string]: number } = {};
         let percentRemaining = 100;
-        let allocsToMove: Allocation[] = [];
+        const allocsToMove: Allocation[] = [];
         allocations.forEach((alloc) => {
             if (alloc.assetId === changedAssetId) {
                 allocsById[alloc.assetId] = newAssetPercentage;
@@ -158,7 +158,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                 <List separator>
                     {assetsForDropdown.map((asset) => {
                         return (
-                            <ListItem>
+                            <ListItem key={asset.id}>
                                 <InfoRow
                                     key={asset.id}
                                     title={asset.name}
