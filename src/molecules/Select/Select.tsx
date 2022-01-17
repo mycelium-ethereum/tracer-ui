@@ -1,11 +1,9 @@
 // Generated with util/create-component.js
 import React from "react";
-import { Icon, Popover, InfoRow, List, Text } from "../../atoms";
+import { Icon, Popover, InfoRow, List } from "../../atoms";
 import styled from "styled-components";
 
 import { SelectProps } from "./Select.types";
-
-const { Footer } = Text;
 
 const Select: React.FC<SelectProps> = ({
     placeholder,
@@ -29,7 +27,10 @@ const Select: React.FC<SelectProps> = ({
         <DropdownCard width={selectRef?.current?.offsetWidth}>
             <List separator>
                 {options.map((option) => (
-                    <ListItem onClick={() => handleSelectOption(option.value)}>
+                    <ListItem
+                        key={option.value}
+                        onClick={() => handleSelectOption(option.value)}
+                    >
                         <InfoRow
                             key={option.value}
                             title={option.title}
