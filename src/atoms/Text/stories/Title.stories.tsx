@@ -27,6 +27,16 @@ export default {
             },
             defaultValue: "primary",
         },
+        align: {
+            control: {
+                type: "select",
+                options: ["left", "center", "right"],
+            },
+            defaultValue: "left",
+        },
+        margin: {
+            control: "text",
+        },
     },
 } as ComponentMeta<typeof Text.Title>;
 

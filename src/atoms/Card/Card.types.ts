@@ -6,4 +6,5 @@ export interface CardProps extends React.HTMLProps<HTMLDivElement> {
     color?: "primary" | "secondary" | "tertiary";
     padding?: "none" | "sm" | "md" | "lg";
     border?: boolean;
+    shadow?: "none" | "sm" | "md" | "lg";
 }

@@ -19,6 +19,7 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
     maxWidth: props.maxWidth,
     color: props.color || "primary",
     padding: props.padding || "md",
+    shadow: props.shadow || "sm",
 }))<CardProps>`
     background-color: ${(props) => {
         switch (props.color) {
@@ -42,8 +43,19 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
         }
         return "16px";
     }};
+    box-shadow: ${(props) => {
+        switch (props.shadow) {
+            case "sm":
+                return "0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);";
+            case "md":
+                return "0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);";
+            case "lg":
+                return "0px 4px 8px rgba(0, 0, 0, 0.06), 0px 8px 16px rgba(0, 0, 0, 0.1);";
+            case "none":
+                return "none";
+        }
+    }};
 
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     padding: ${(props) => {
         switch (props.padding) {
             case "none":
