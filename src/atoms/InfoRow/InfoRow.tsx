@@ -10,12 +10,13 @@ const InfoRow: React.FC<InfoRowProps> = ({
     title,
     subtitle,
     children,
+    ...rest
 }) => (
-    <Row data-testid="InfoRow">
+    <Row data-testid="InfoRow" {...rest}>
         {imageSrc ? <Image src={imageSrc} /> : null}
         <TextContainer>
             <Text.Body variant="bold">{title}</Text.Body>
-            <Text.Footer>{subtitle}</Text.Footer>
+            {subtitle && <Text.Footer>{subtitle}</Text.Footer>}
         </TextContainer>
         <RightSlot>{children}</RightSlot>
     </Row>
@@ -26,7 +27,6 @@ export default InfoRow;
 const Row = styled.div`
     display: flex;
     flex-direction: row;
-    padding: 16px;
 `;
 
 const Image = styled.img`
@@ -37,8 +37,13 @@ const Image = styled.img`
 const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     flex: 1;
     margin-left: 14px;
 `;
 
-const RightSlot = styled.div``;
+const RightSlot = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
