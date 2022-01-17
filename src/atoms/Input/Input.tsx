@@ -10,12 +10,12 @@ const Input: React.FC<InputProps> = React.forwardRef((props, ref) => {
     return (
         <Container
             disabled={disabled}
-            ref={ref}
             variant={variant || "focus"}
             textAlign={textAlign || "left"}
         >
             {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
             <StyledInput
+                ref={ref}
                 disabled={disabled}
                 data-testid="input"
                 {...(rest as StyledComponentProps<

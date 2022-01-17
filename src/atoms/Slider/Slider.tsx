@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 import { SliderProps } from "./Slider.types";
 
@@ -10,9 +10,11 @@ const Slider: React.FC<SliderProps> = ({
     max = 100,
     step = 1,
     onChange,
+    ...rest
 }) => (
     <div data-testid="slider">
         <StyledSlider
+            {...(rest as StyledComponent<"input", DefaultTheme, {}, never>)}
             type="range"
             value={value}
             min={min}

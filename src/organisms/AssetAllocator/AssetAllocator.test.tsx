@@ -2,11 +2,11 @@
 // import React from "react";
 // import { render } from "@testing-library/react";
 
-// import SearchableDropdown from "./SearchableDropdown";
-// import { SearchableDropdownProps } from "./SearchableDropdown.types";
+// import AssetAllocator from "./AssetAllocator";
+// import { AssetAllocatorProps } from "./AssetAllocator.types";
 
 // describe("Test Component", () => {
-//   let props: SearchableDropdownProps;
+//   let props: AssetAllocatorProps;
 
 //   beforeEach(() => {
 //     props = {
@@ -14,13 +14,13 @@
 //     };
 //   });
 
-//   const renderComponent = () => render(<SearchableDropdown {...props} />);
+//   const renderComponent = () => render(<AssetAllocator {...props} />);
 
 //   it("should render foo text correctly", () => {
 //     props.foo = "harvey was here";
 //     const { getByTestId } = renderComponent();
 
-//     const component = getByTestId("SearchableDropdown");
+//     const component = getByTestId("AssetAllocator");
 
 //     expect(component).toHaveTextContent("harvey was here");
 //   });

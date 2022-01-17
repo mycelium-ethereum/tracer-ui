@@ -3,6 +3,6 @@ import { Placement } from "@popperjs/core";
 
 export interface PopoverProps {
     content: JSX.Element;
-    trigger?: "click" | "hover";
     placement: Placement;
+    isOpen: boolean;
 }

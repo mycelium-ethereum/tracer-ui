@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import styled from "styled-components";
@@ -12,10 +12,9 @@ const Portal = ({ children }: { children: React.ReactNode }) =>
 const Popover: React.FC<PopoverProps> = ({
     children,
     content,
-    trigger = "click",
     placement = "bottom",
+    isOpen,
 }) => {
-    const [isVisible, setIsVisible] = useState(false);
     const [childEl, setChildEl] = useState<HTMLDivElement | null>(null);
     const [popperEl, setPopperEl] = useState<HTMLDivElement | null>(null);
     const { styles, attributes } = usePopper(childEl, popperEl, {
@@ -30,51 +29,12 @@ const Popover: React.FC<PopoverProps> = ({
         ],
     });
 
-    const handleClick = (e: React.MouseEvent) => {
-        if (trigger === "click" && childEl.contains(e.target as Node)) {
-            setIsVisible(true);
-        }
-    };
-    const handleClickOutside = (e: MouseEvent) => {
-        if (
-            trigger === "click" &&
-            !popperEl.contains(e.target as Node) &&
-            !childEl.contains(e.target as Node)
-        ) {
-            setIsVisible(false);
-        }
-    };
-    const handleMouseEnter = (e: React.MouseEvent) => {
-        if (trigger === "hover" && childEl.contains(e.target as Node)) {
-            setIsVisible(true);
-        }
-    };
-    const handleMouseLeave = (e: React.MouseEvent) => {
-        if (trigger === "hover" && childEl.contains(e.target as Node)) {
-            setIsVisible(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener("click", handleClickOutside, true);
-        return () => {
-            document.removeEventListener("click", handleClickOutside, true);
-        };
-    });
-
     return (
         <div data-testid="popover">
-            <div
-                ref={setChildEl}
-                onClick={handleClick}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                {children}
-            </div>
+            <div ref={setChildEl}>{children}</div>
             <Portal>
                 <PopperCard
-                    visible={isVisible}
+                    visible={isOpen}
                     ref={setPopperEl}
                     style={styles.popper}
                     {...attributes.popper}
