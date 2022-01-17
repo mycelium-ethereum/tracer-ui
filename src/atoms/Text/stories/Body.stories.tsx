@@ -34,6 +34,9 @@ export default {
             },
             defaultValue: "left",
         },
+        margin: {
+            control: "text",
+        },
     },
 } as ComponentMeta<typeof Text.Body>;
 
