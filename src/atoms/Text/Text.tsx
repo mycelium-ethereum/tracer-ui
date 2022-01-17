@@ -16,6 +16,7 @@ const Headline = styled.h1.attrs<HeadlineProps>((props) => ({
     font-size: 40px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text[props.color]};
+    text-align: ${(props) => props.align || "left"};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "light":
@@ -39,6 +40,7 @@ const Title = styled.h2.attrs<HeadlineProps>((props) => ({
     font-size: 24px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text[props.color]};
+    text-align: ${(props) => props.align || "left"};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "light":
@@ -62,6 +64,7 @@ const Subtitle = styled.h3.attrs<HeadlineProps>((props) => ({
     font-size: 20px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text[props.color]};
+    text-align: ${(props) => props.align || "left"};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "light":
@@ -85,6 +88,7 @@ const Body = styled.p.attrs<HeadlineProps>((props) => ({
     font-size: 16px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text[props.color]};
+    text-align: ${(props) => props.align || "left"};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "regular":
@@ -105,6 +109,7 @@ const Footer = styled.p.attrs<HeadlineProps>((props) => ({
     font-size: 14px;
     font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.colors.text[props.color]};
+    text-align: ${(props) => props.align || "left"};
     font-weight: ${(props) => {
         switch (props.variant) {
             case "regular":

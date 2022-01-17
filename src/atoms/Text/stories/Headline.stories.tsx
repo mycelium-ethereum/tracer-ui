@@ -27,6 +27,13 @@ export default {
             },
             defaultValue: "primary",
         },
+        align: {
+            control: {
+                type: "select",
+                options: ["left", "center", "right"],
+            },
+            defaultValue: "left",
+        },
     },
 } as ComponentMeta<typeof Text.Headline>;
 
