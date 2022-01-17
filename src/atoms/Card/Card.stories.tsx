@@ -47,6 +47,13 @@ export default {
             defaultValue: "primary",
             description: "The color of the card.",
         },
+        shadow: {
+            control: {
+                type: "select",
+                options: ["sm", "md", "lg", "none"],
+            },
+            defaultValue: "sm",
+        },
     },
     parameters: {
         layout: "fullscreen",
