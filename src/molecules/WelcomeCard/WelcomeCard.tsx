@@ -25,7 +25,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
         </Subtitle>
         <HeroContainer>
             {heroItems.map((item, index) => (
-                <div>
+                <div key={`hero_card_${index}`}>
                     <Card color="secondary" shadow="md">
                         <CardImage src={item.imgSrc} alt={item.imgAlt} />
                         <Body color="secondary" align="center">
