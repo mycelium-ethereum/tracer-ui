@@ -6,6 +6,7 @@ import {
     faPlus,
     faTimes,
     faCheckCircle as faCheckCircleSolid,
+    faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const tracerIcons = {
@@ -17,4 +18,5 @@ export const tracerIcons = {
     search: faSearch,
     plus: faPlus,
     times: faTimes,
+    chevronDown: faChevronDown,
 };

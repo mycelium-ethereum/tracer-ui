@@ -298,6 +298,7 @@ type DropdownProps = {
 };
 
 const Dropdown = styled.div<DropdownProps>`
+    margin-top: 8px;
     background-color: ${(props) => props.theme.colors.cell.background};
     border-radius: 0px 0px 16px 16px;
     box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.1),
@@ -308,6 +309,7 @@ const Dropdown = styled.div<DropdownProps>`
 
 const ListItem = styled.div`
     background-color: ${(props) => props.theme.colors.cell.primary};
+    padding: 16px;
     :hover {
         background-color: ${(props) => props.theme.colors.cell.secondary};
     }
