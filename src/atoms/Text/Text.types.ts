@@ -1,11 +1,8 @@
 // Generated with util/create-component.js
 
-type TextColor =
-    | "primary"
-    | "secondary"
-    | "tertiary"
-    | "footnote"
-    | "highlight";
+import { TracerTheme } from "src/theme";
+
+type TextColor = TracerTheme['colors']['text'];
 
 export interface HeadlineProps {
     variant?: "light" | "regular" | "bold" | "bolder";
