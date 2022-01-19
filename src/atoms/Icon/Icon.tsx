@@ -1,12 +1,13 @@
 // Generated with util/create-component.js
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from 'styled-components';
 
 import { IconColor, IconProps } from "./Icon.types";
 import { tracerIcons } from "./iconsConfig";
 import { useTheme } from "styled-components";
 
-const Icon: React.FC<IconProps> = ({ name, size, color = "primary" }) => {
+const Icon = styled(({ name, size, color = "primary", className }) => {
     const icon = tracerIcons[name];
     const theme = useTheme();
 
@@ -42,8 +43,11 @@ const Icon: React.FC<IconProps> = ({ name, size, color = "primary" }) => {
             icon={icon}
             color={resolveColor(color)}
             size={size}
+            className={className}
         />
     );
-};
+})<IconProps>`
+
+`
 
 export default Icon;
