@@ -17,9 +17,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
         disabled={disabled}
     >
         <Icon name={checked ? "check-circle" : "circle"} />
-        <Text.Body color="secondary" margin="0 16px">
+        <Text color="secondary" margin="0 16px">
             {label}
-        </Text.Body>
+        </Text>
     </Container>
 );
 

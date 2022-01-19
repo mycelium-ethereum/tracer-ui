@@ -1,5 +1,7 @@
 // Generated with util/create-component.js
 
+import { DefaultTheme, StyledComponent } from "styled-components";
+
 type TextColor =
     | "primary"
     | "secondary"
@@ -7,37 +9,14 @@ type TextColor =
     | "footnote"
     | "highlight";
 
-export interface HeadlineProps {
-    variant?: "light" | "regular" | "bold" | "bolder";
-    color?: TextColor;
-    align?: "left" | "center" | "right";
-    margin?: string;
-}
+type TextSize = "footer" | "body" | "subtitle" | "title" | "headline";
 
-export interface TitleProps {
-    variant?: "light" | "regular" | "bold" | "bolder";
+export interface TextProps {
+    size?: TextSize;
+    weight?: "light" | "regular" | "bold" | "bolder";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
-}
-
-export interface SubtitleProps {
-    variant?: "light" | "regular" | "bold" | "bolder";
-    color?: TextColor;
-    align?: "left" | "center" | "right";
-    margin?: string;
-}
-
-export interface BodyProps {
-    variant?: "regular" | "bold";
-    color?: TextColor;
-    align?: "left" | "center" | "right";
-    margin?: string;
-}
-
-export interface FooterProps {
-    variant?: "regular" | "bold";
-    color?: TextColor;
-    align?: "left" | "center" | "right";
-    margin?: string;
+    font?: "body" | "heading";
+    as?: string;
 }

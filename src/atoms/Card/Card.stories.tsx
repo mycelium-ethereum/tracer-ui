@@ -69,13 +69,13 @@ export default {
 
 const Template: Story<CardProps> = (args) => (
     <Card {...args}>
-        <Text.Title>Card Title</Text.Title>
-        <Text.Body>
+        <Text size="title">Card Title</Text>
+        <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga
             provident distinctio temporibus maxime vitae cupiditate inventore
             repellat numquam, incidunt esse quam pariatur saepe iusto minima
             architecto, at sint earum.
-        </Text.Body>
+        </Text>
     </Card>
 );
 
@@ -113,20 +113,20 @@ NoPadding.args = {
 
 export const NestedCard: Story<CardProps> = (args) => (
     <Card>
-        <Text.Title>Card Title</Text.Title>
-        <Text.Body>
+        <Text size="title">Card Title</Text>
+        <Text>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi,
             tempore. Adipisci amet ipsa at reiciendis distinctio quam eius
             delectus soluta architecto esse est quibusdam, quaerat officiis
             fugiat neque impedit! Vero!
-        </Text.Body>
+        </Text>
 
         <Card {...args}>
-            <Text.Subtitle>Card Subtitle</Text.Subtitle>
-            <Text.Body>
+            <Text size="subtitle">Card Subtitle</Text>
+            <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quis.
-            </Text.Body>
+            </Text>
         </Card>
     </Card>
 );

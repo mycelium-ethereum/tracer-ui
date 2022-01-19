@@ -3,8 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { Card, Text, Button } from "../../atoms";
 
-const { Title, Subtitle, Body } = Text;
-
 import { WelcomeCardProps } from "./WelcomeCard.types";
 
 const WelcomeCard: React.FC<WelcomeCardProps> = ({
@@ -17,27 +15,27 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
     buttonHref,
 }) => (
     <Card data-testid="WelcomeCard" maxWidth="878px" padding="lg">
-        <Title variant="bold" align="center" margin="0 0 40px 0">
+        <Text size="title" weight="bold" align="center" margin="0 0 40px 0">
             {title}
-        </Title>
-        <Subtitle align="center" margin="16px 0">
+        </Text>
+        <Text size="subtitle" align="center" margin="16px 0">
             {subtitle}
-        </Subtitle>
+        </Text>
         <HeroContainer>
             {heroItems.map((item, index) => (
                 <div key={`hero_card_${index}`}>
                     <Card color="secondary" shadow="md">
                         <CardImage src={item.imgSrc} alt={item.imgAlt} />
-                        <Body color="secondary" align="center">
+                        <Text color="secondary" align="center">
                             {item.label}
-                        </Body>
+                        </Text>
                     </Card>
                 </div>
             ))}
         </HeroContainer>
-        <Body color="secondary" margin="24px 0">
+        <Text color="secondary" margin="24px 0">
             {footerText}
-        </Body>
+        </Text>
         <ButtonContainer>
             <Button variant="action" onClick={onButtonClick} href={buttonHref}>
                 {buttonText}

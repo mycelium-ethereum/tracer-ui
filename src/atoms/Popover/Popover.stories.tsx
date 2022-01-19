@@ -37,10 +37,8 @@ export default {
 
 const ExampleContent: React.FC = () => (
     <Card padding="sm" fluid>
-        <Text.Subtitle variant="bold">Popover Content</Text.Subtitle>
-        <Text.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Text.Body>
+        <Text weight="bold">Popover Content</Text>
+        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
     </Card>
 );
 

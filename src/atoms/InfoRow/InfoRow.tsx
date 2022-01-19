@@ -15,8 +15,8 @@ const InfoRow: React.FC<InfoRowProps> = ({
     <Row data-testid="InfoRow" {...rest}>
         {imageSrc ? <Image src={imageSrc} /> : null}
         <TextContainer>
-            <Text.Body variant="bold">{title}</Text.Body>
-            {subtitle && <Text.Footer>{subtitle}</Text.Footer>}
+            <Text weight="bold">{title}</Text>
+            {subtitle && <Text size="footer">{subtitle}</Text>}
         </TextContainer>
         <RightSlot>{children}</RightSlot>
     </Row>

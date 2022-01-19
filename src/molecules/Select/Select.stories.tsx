@@ -7,33 +7,47 @@ import { useArgs } from "@storybook/addons";
 import { testImages } from "../../storybookUtils/controlsData";
 import { Text } from "../../atoms";
 
-const { Footer } = Text;
-
 const optionOptions: Record<string, SelectOption[]> = {
     collateral: [
         {
             title: "Ethereum",
             value: "ethereum",
             imageSrc: testImages.assets.ethereum,
-            rightContent: <Footer color="secondary">ETH</Footer>,
+            rightContent: (
+                <Text size="footer" color="secondary">
+                    ETH
+                </Text>
+            ),
         },
         {
             title: "Bitcoin",
             value: "bitcoin",
             imageSrc: testImages.assets.bitcoin,
-            rightContent: <Footer color="secondary">BTC</Footer>,
+            rightContent: (
+                <Text size="footer" color="secondary">
+                    BTC
+                </Text>
+            ),
         },
         {
             title: "Litecoin",
             value: "litecoin",
             imageSrc: testImages.assets.litecoin,
-            rightContent: <Footer color="secondary">LTC</Footer>,
+            rightContent: (
+                <Text size="footer" color="secondary">
+                    LTC
+                </Text>
+            ),
         },
         {
             title: "Ripple",
             value: "ripple",
             imageSrc: testImages.assets.ripple,
-            rightContent: <Footer color="secondary">XRP</Footer>,
+            rightContent: (
+                <Text size="footer" color="secondary">
+                    XRP
+                </Text>
+            ),
         },
     ],
     priceFeed: [
@@ -41,36 +55,36 @@ const optionOptions: Record<string, SelectOption[]> = {
             title: "AAVE/USDC",
             value: "aave-usdc",
             rightContent: (
-                <Footer color="footnote">
+                <Text size="footer" color="footnote">
                     0x3a9a0c0f9b8c5e0c7c0f9b8c5e0c7c0f9b8c5e0c
-                </Footer>
+                </Text>
             ),
         },
         {
             title: "BTC/ETH",
             value: "btc-eth",
             rightContent: (
-                <Footer color="footnote">
+                <Text size="footer" color="footnote">
                     0x3a9a0c0f9b8c5e0c7c0f9b8c5e0c7c0f9b8c5e0c
-                </Footer>
+                </Text>
             ),
         },
         {
             title: "CNY/USD",
             value: "cny-usd",
             rightContent: (
-                <Footer color="footnote">
+                <Text size="footer" color="footnote">
                     0x3a9a0c0f9b8c5e0c7c0f9b8c5e0c7c0f9b8c5e0c
-                </Footer>
+                </Text>
             ),
         },
         {
             title: "UNI/USDC",
             value: "uni-usdc",
             rightContent: (
-                <Footer color="footnote">
+                <Text size="footer" color="footnote">
                     0x3a9a0c0f9b8c5e0c7c0f9b8c5e0c7c0f9b8c5e0c
-                </Footer>
+                </Text>
             ),
         },
     ],

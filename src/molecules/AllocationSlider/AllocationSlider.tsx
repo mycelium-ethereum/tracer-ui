@@ -27,8 +27,8 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
             <InfoRow>
                 <TokenImage src={tokenImageSrc} />
                 <NameAndSymbol>
-                    <Text.Body variant="bold">{tokenName}</Text.Body>
-                    <Text.Footer>{tokenSymbol}</Text.Footer>
+                    <Text weight="bold">{tokenName}</Text>
+                    <Text size="footer">{tokenSymbol}</Text>
                 </NameAndSymbol>
                 <InputsContainer>
                     <PercentageContainer>
