@@ -5,13 +5,21 @@ import styled, { DefaultTheme, StyledComponentProps } from "styled-components";
 import { InputProps } from "./Input.types";
 
 const Input: React.FC<InputProps> = React.forwardRef((props, ref) => {
-    const { leftSlot, rightSlot, textAlign, variant, disabled, ...rest } =
-        props;
+    const {
+        leftSlot,
+        rightSlot,
+        textAlign,
+        variant,
+        disabled,
+        style,
+        ...rest
+    } = props;
     return (
         <Container
             disabled={disabled}
             variant={variant || "focus"}
             textAlign={textAlign || "left"}
+            style={style}
         >
             {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
             <StyledInput
