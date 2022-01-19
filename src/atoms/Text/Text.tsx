@@ -33,7 +33,7 @@ const Headline = styled.h1.attrs<HeadlineProps>((props) => ({
     }};
 `;
 
-const Title = styled.h2.attrs<HeadlineProps>((props) => ({
+const Title = styled.h2.attrs<TitleProps>((props) => ({
     color: props.color || "primary",
 }))<TitleProps>`
     margin: ${(props) => props.margin || "0"};
@@ -57,7 +57,7 @@ const Title = styled.h2.attrs<HeadlineProps>((props) => ({
     }};
 `;
 
-const Subtitle = styled.h3.attrs<HeadlineProps>((props) => ({
+const Subtitle = styled.h3.attrs<SubtitleProps>((props) => ({
     color: props.color || "primary",
 }))<SubtitleProps>`
     margin: ${(props) => props.margin || "0"};
@@ -81,7 +81,7 @@ const Subtitle = styled.h3.attrs<HeadlineProps>((props) => ({
     }};
 `;
 
-const Body = styled.p.attrs<HeadlineProps>((props) => ({
+const Body = styled.p.attrs<BodyProps>((props) => ({
     color: props.color || "primary",
 }))<BodyProps>`
     margin: ${(props) => props.margin || "0"};
@@ -101,7 +101,7 @@ const Body = styled.p.attrs<HeadlineProps>((props) => ({
     }};
 `;
 
-const Footer = styled.p.attrs<HeadlineProps>((props) => ({
+const Footer = styled.p.attrs<FooterProps>((props) => ({
     color: props.color || "primary",
 }))<FooterProps>`
     margin: ${(props) => props.margin || "0"};
