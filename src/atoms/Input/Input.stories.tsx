@@ -4,6 +4,7 @@ import Input from "./Input";
 import { InputProps } from "./Input.types";
 import { ComponentMeta, Story } from "@storybook/react";
 import { Icon } from "../Icon";
+import { useRef } from "react";
 
 export default {
     title: "atoms/Input",
@@ -13,7 +14,7 @@ export default {
             defaultValue: "primary",
             control: {
                 type: "select",
-                options: ["primary", "focus", "alert", "danger"],
+                options: ["focus", "alert", "danger"],
             },
         },
         placeholder: {

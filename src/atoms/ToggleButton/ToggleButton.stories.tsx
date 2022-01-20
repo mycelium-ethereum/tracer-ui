@@ -38,9 +38,9 @@ const Template: Story<ToggleButtonProps> = ({ onChange, ...args }) => {
         <ToggleButton
             {...args}
             checked={checked}
-            onChange={(newVal) => {
-                onChange(newVal);
-                updateArgs({ checked: newVal });
+            onChange={(e) => {
+                onChange(e);
+                updateArgs({ checked: e.target.checked });
             }}
         ></ToggleButton>
     );

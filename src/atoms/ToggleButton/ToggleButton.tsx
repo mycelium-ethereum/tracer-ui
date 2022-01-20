@@ -5,54 +5,92 @@ import styled from "styled-components";
 import { ToggleButtonProps } from "./ToggleButton.types";
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({
-    onChange,
+    size,
+    children,
     checked,
-    size = "medium",
-    ...rest
+    defaultChecked,
+    disabled,
+    form,
+    name,
+    onChange,
 }) => (
     <StyledToggleButton
-        data-testid="toggle-button"
-        onClick={() => onChange(!checked)}
+        buttonSize={size || "medium"}
         checked={checked}
-        size={size}
-        {...rest}
-    ></StyledToggleButton>
+        disabled={disabled}
+        form={form}
+    >
+        <input
+            type="checkbox"
+            checked={checked}
+            defaultChecked={defaultChecked}
+            form={form}
+            name={name}
+            onChange={onChange}
+            disabled={disabled}
+        />
+        {children}
+    </StyledToggleButton>
 );
 
 export default ToggleButton;
 
 interface StyledToggleButtonProps {
+    buttonSize: "small" | "medium" | "large";
     checked: boolean;
-    size: "small" | "medium" | "large";
+    disabled: boolean;
 }
 
-const StyledToggleButton = styled.button<StyledToggleButtonProps>`
+const StyledToggleButton = styled.label<StyledToggleButtonProps>`
     padding: 8px 16px;
     border-radius: 12px;
-    background: ${({ theme, checked }) =>
-        checked ? theme.colors.action.active : theme.colors.cell.primary};
-    color: ${({ theme, checked }) =>
-        checked ? theme.colors.action.text : theme.colors.focus.active};
-    border: ${({ theme, checked }) =>
-        checked ? "none" : `1px solid ${theme.colors.focus.active}`};
-    cursor: pointer;
+    background: ${({ theme, checked, disabled }) => {
+        if (disabled) {
+            return theme.colors.focus.inactive;
+        } else if (checked) {
+            return theme.colors.action.active;
+        } else {
+            return theme.colors.cell.primary;
+        }
+    }};
+    color: ${({ theme, checked, disabled }) => {
+        if (disabled) {
+            return theme.colors.text.tertiary;
+        } else if (checked) {
+            return theme.colors.action.text;
+        } else {
+            return theme.colors.text.primary;
+        }
+    }};
     transition: background-color 0.1s ease-in-out;
+    transition: color 0.1s ease-in-out;
+
+    border: ${({ theme, checked, disabled }) => {
+        if (disabled) return "none";
+        if (checked) return "none";
+        return `1px solid ${theme.colors.focus.active}`;
+    }};
+    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     &:hover {
-        background-color: ${({ theme, checked }) =>
-            checked ? theme.colors.action.hover : theme.colors.cell.primary};
-        color: ${({ theme, checked }) =>
-            checked ? theme.colors.action.text : theme.colors.focus.hover};
-        border: ${({ theme, checked }) =>
-            checked ? "none" : `1px solid ${theme.colors.focus.hover}`};
+        background-color: ${({ theme, checked, disabled }) => {
+            if (disabled) return theme.colors.focus.inactive;
+            if (checked) return theme.colors.action.hover;
+            return theme.colors.cell.primary;
+        }};
+        color: ${({ theme, checked, disabled }) => {
+            if (disabled) return theme.colors.text.tertiary;
+            if (checked) return theme.colors.action.text;
+            return theme.colors.text.secondary;
+        }}};
+        border: ${({ theme, checked, disabled }) => {
+            if (disabled) return "none";
+            if (checked) return "none";
+            return `1px solid ${theme.colors.focus.hover}`;
+        }};
+
     }
-    &:disabled {
-        background-color: ${({ theme }) => theme.colors.focus.inactive};
-        color: ${({ theme }) => theme.colors.focus.active};
-        border: none;
-        cursor: not-allowed;
-    }
-    padding: ${({ size }) => {
-        switch (size) {
+    padding: ${({ buttonSize }) => {
+        switch (buttonSize) {
             case "small":
                 return "8px 16px";
             case "medium":
@@ -63,8 +101,8 @@ const StyledToggleButton = styled.button<StyledToggleButtonProps>`
                 return "12px 24px";
         }
     }};
-    font-size: ${({ size }) => {
-        switch (size) {
+    font-size: ${({ buttonSize }) => {
+        switch (buttonSize) {
             case "small":
                 return "0.8rem";
             case "medium":
@@ -75,4 +113,8 @@ const StyledToggleButton = styled.button<StyledToggleButtonProps>`
                 return "1rem";
         }
     }};
+
+    & > input {
+        display: none;
+    }
 `;

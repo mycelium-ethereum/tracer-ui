@@ -1,37 +1,55 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled, { DefaultTheme, StyledComponentProps } from "styled-components";
+import styled from "styled-components";
 
 import { InputProps } from "./Input.types";
 
-const Input: React.FC<InputProps> = React.forwardRef((props, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
         leftSlot,
         rightSlot,
         textAlign,
         variant,
         disabled,
-        style,
-        ...rest
+        placeholder,
+        value,
+        form,
+        name,
+        min,
+        max,
+        step,
+        type,
+        readOnly,
+        required,
+        onChange,
+        onBlur,
+        onFocus,
     } = props;
     return (
         <Container
             disabled={disabled}
             variant={variant || "focus"}
             textAlign={textAlign || "left"}
-            style={style}
+            form={form}
         >
             {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
             <StyledInput
-                ref={ref}
+                placeholder={placeholder}
                 disabled={disabled}
                 data-testid="input"
-                {...(rest as StyledComponentProps<
-                    "input",
-                    DefaultTheme,
-                    {},
-                    never
-                >)}
+                value={value}
+                form={form}
+                name={name}
+                readOnly={readOnly}
+                required={required}
+                min={min}
+                max={max}
+                step={step}
+                type={type}
+                onChange={onChange}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                ref={ref}
             />
             {rightSlot ? <RightSlot>{rightSlot}</RightSlot> : null}
         </Container>
@@ -47,7 +65,7 @@ interface ContainerProps {
     textAlign: InputProps["textAlign"];
 }
 
-const Container = styled.span<ContainerProps>`
+const Container = styled.label<ContainerProps>`
     position: relative;
     display: flex;
     width: 100%;
@@ -115,10 +133,8 @@ const StyledInput = styled.input`
 
 const LeftSlot = styled.div`
     margin-right: 10px;
-    color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
 const RightSlot = styled.div`
     margin-left: 10px;
-    color: ${({ theme }) => theme.colors.text.secondary};
 `;
