@@ -59,7 +59,7 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
             </InfoRow>
             <Slider
                 value={percentage}
-                onChange={onChange}
+                onChange={(ev) => onChange(Number(ev.target.value))}
                 step={0.01}
                 disabled={isLocked}
             />

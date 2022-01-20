@@ -5,53 +5,33 @@ import styled from "styled-components";
 import { InputProps } from "./Input.types";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-    const {
-        leftSlot,
-        rightSlot,
-        textAlign,
-        variant,
-        disabled,
-        placeholder,
-        value,
-        form,
-        name,
-        min,
-        max,
-        step,
-        type,
-        readOnly,
-        required,
-        onChange,
-        onBlur,
-        onFocus,
-    } = props;
     return (
         <Container
-            disabled={disabled}
-            variant={variant || "focus"}
-            textAlign={textAlign || "left"}
-            form={form}
+            disabled={props.disabled}
+            variant={props.variant || "focus"}
+            textAlign={props.textAlign || "left"}
+            form={props.form}
         >
-            {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
+            {props.leftSlot ? <LeftSlot>{props.leftSlot}</LeftSlot> : null}
             <StyledInput
-                placeholder={placeholder}
-                disabled={disabled}
+                placeholder={props.placeholder}
+                disabled={props.disabled}
                 data-testid="input"
-                value={value}
-                form={form}
-                name={name}
-                readOnly={readOnly}
-                required={required}
-                min={min}
-                max={max}
-                step={step}
-                type={type}
-                onChange={onChange}
-                onBlur={onBlur}
-                onFocus={onFocus}
+                value={props.value}
+                form={props.form}
+                name={props.name}
+                readOnly={props.readOnly}
+                required={props.required}
+                min={props.min}
+                max={props.max}
+                step={props.step}
+                type={props.type}
+                onChange={props.onChange}
+                onBlur={props.onBlur}
+                onFocus={props.onFocus}
                 ref={ref}
             />
-            {rightSlot ? <RightSlot>{rightSlot}</RightSlot> : null}
+            {props.rightSlot ? <RightSlot>{props.rightSlot}</RightSlot> : null}
         </Container>
     );
 });
@@ -74,7 +54,7 @@ const Container = styled.label<ContainerProps>`
     -moz-box-sizing: border-box;
     padding: 10px 18px;
     border-radius: 12px;
-    border: 1px solid;
+    border: 1px solid ${(props) => props.theme.colors.focus.active};
     text-align: ${(props) => props.textAlign};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};
 

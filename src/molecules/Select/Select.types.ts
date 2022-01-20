@@ -10,6 +10,6 @@ export type SelectOption = {
 export interface SelectProps {
     placeholder?: string;
     options: SelectOption[];
-    onChange: (value: string) => void;
+    onChange?: (value: string) => void;
     value?: string;
 }

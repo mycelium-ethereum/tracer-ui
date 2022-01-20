@@ -19,7 +19,7 @@ const Select: React.FC<SelectProps> = ({
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleSelectOption = (value: string) => {
-        onChange(value);
+        onChange && onChange(value);
         setIsOpen(false);
     };
 

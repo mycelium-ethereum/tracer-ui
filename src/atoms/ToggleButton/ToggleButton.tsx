@@ -81,13 +81,12 @@ const StyledToggleButton = styled.label<StyledToggleButtonProps>`
             if (disabled) return theme.colors.text.tertiary;
             if (checked) return theme.colors.action.text;
             return theme.colors.text.secondary;
-        }}};
+        }};
         border: ${({ theme, checked, disabled }) => {
             if (disabled) return "none";
             if (checked) return "none";
             return `1px solid ${theme.colors.focus.hover}`;
         }};
-
     }
     padding: ${({ buttonSize }) => {
         switch (buttonSize) {
@@ -113,6 +112,7 @@ const StyledToggleButton = styled.label<StyledToggleButtonProps>`
                 return "1rem";
         }
     }};
+    user-select: none;
 
     & > input {
         display: none;
