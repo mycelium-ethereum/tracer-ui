@@ -9,22 +9,35 @@ const Select: React.FC<SelectProps> = ({
     placeholder,
     value,
     options,
+    disabled,
+    form,
+    name,
     onChange,
 }) => {
     const [isOpen, setIsOpen] = React.useState(false);
-    const selectRef = React.useRef<HTMLDivElement>(null);
+    const selectBoxRef = React.useRef<HTMLDivElement>(null);
+    const selectRef = React.useRef<HTMLSelectElement>(null);
 
     const selectedOption = options.find((option) => option.value === value);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
+    const handleSelectBoxClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (disabled) return;
+        toggleDropdown();
+    };
+
     const handleSelectOption = (value: string) => {
-        onChange && onChange(value);
+        // Change the value of the select
+        const ev = new Event("change", { bubbles: true });
+        (ev as any).simulated = true;
+        selectRef.current.value = value;
+        selectRef.current.dispatchEvent(ev);
         setIsOpen(false);
     };
 
     const DropdownContent = (
-        <DropdownCard width={selectRef?.current?.offsetWidth}>
+        <DropdownCard width={selectBoxRef?.current?.offsetWidth}>
             <List separator>
                 {options.map((option) => (
                     <ListItem
@@ -45,43 +58,72 @@ const Select: React.FC<SelectProps> = ({
         </DropdownCard>
     );
     return (
-        <Popover
-            content={DropdownContent}
-            isOpen={isOpen}
-            placement="bottom-start"
-        >
-            <SelectBox
-                data-testid="Select"
-                ref={selectRef}
-                onClick={toggleDropdown}
-                squareBottom={isOpen}
+        <Container>
+            <Popover
+                content={DropdownContent}
+                isOpen={isOpen}
+                placement="bottom-start"
             >
-                {selectedOption?.title || placeholder}
-                <IconBox>
-                    <Icon name="chevronDown" />
-                </IconBox>
-            </SelectBox>
-        </Popover>
+                <SelectBox
+                    data-testid="Select"
+                    ref={selectBoxRef}
+                    onClick={handleSelectBoxClick}
+                    squareBottom={isOpen}
+                    disabled={disabled}
+                >
+                    {selectedOption?.title || placeholder}
+                    <IconBox>
+                        <Icon
+                            name="chevronDown"
+                            color={disabled ? "tertiary" : "primary"}
+                        />
+                    </IconBox>
+                </SelectBox>
+            </Popover>
+            <select
+                ref={selectRef}
+                defaultValue={value}
+                onChange={onChange}
+                name={name}
+                form={form}
+                disabled={disabled}
+            >
+                {options.map((option) => (
+                    <option value={option.value}>{option.title}</option>
+                ))}
+            </select>
+        </Container>
     );
 };
 
 export default Select;
 
+const Container = styled.div`
+    & > select {
+        display: none;
+    }
+`;
+
 type SelectBoxProps = {
     squareBottom?: boolean;
+    disabled?: boolean;
 };
 
 const SelectBox = styled.div<SelectBoxProps>`
     position: relative;
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.cell.primary};
+    background-color: ${({ theme, disabled }) =>
+        disabled ? theme.colors.cell.tertiary : theme.colors.cell.primary};
+    color: ${({ theme, disabled }) =>
+        disabled ? theme.colors.text.tertiary : theme.colors.text.primary};
     border: 1px solid ${({ theme }) => theme.colors.focus.active};
     border-radius: ${({ squareBottom }) =>
         squareBottom ? "12px 12px 0 0" : "12px"};
     padding: 9px 17px;
-    cursor: pointer;
+    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 600;
+    user-select: none;
 `;
 
 const IconBox = styled.div`
