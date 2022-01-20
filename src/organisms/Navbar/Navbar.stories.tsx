@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 import Nav from "./index";
-import { NavbarProps } from "./Navbar.types";
+import { NavbarProps, NavLinksProps } from "./Navbar.types";
 import { ComponentMeta, Story } from "@storybook/react";
 
 export default {
@@ -34,11 +34,11 @@ export default {
 } as ComponentMeta<typeof Nav.Navbar>;
 
 // Create a master template for mapping args to render the Navbar component
-const Template: Story<NavbarProps> = (args) => (
+const Template: Story<NavbarProps & { selectedLink: number, links: string[], linksPosition: NavLinksProps['position'] }> = (args) => (
     <Nav.Navbar {...args} >
         <Nav.HeaderSiteSwitcher />
-        <Nav.NavLinks selectedItem={(args as any).selectedLink} position={(args as any).linksPosition}> 
-            {(args as any).links.map((link: string) => (<a key={link}>{link}</a>))}
+        <Nav.NavLinks selectedItem={args.selectedLink} position={args.linksPosition}> 
+            {args.links.map((link: string) => (<a key={link}>{link}</a>))}
         </Nav.NavLinks>
     </Nav.Navbar>
 )
