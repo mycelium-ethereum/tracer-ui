@@ -38,7 +38,7 @@ const Template: Story<NavbarProps> = (args) => (
     <Nav.Navbar {...args} >
         <Nav.HeaderSiteSwitcher />
         <Nav.NavLinks selectedItem={(args as any).selectedLink} position={(args as any).linksPosition}> 
-            {(args as any).links.map((link: string) => (<a>{link}</a>))}
+            {(args as any).links.map((link: string) => (<a key={link}>{link}</a>))}
         </Nav.NavLinks>
     </Nav.Navbar>
 )
