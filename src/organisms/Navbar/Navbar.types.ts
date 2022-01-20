@@ -8,7 +8,5 @@ export interface HeaderSiteSwitcherProps {
 }
 
 export interface NavLinksProps {
-    position?: 'left' | 'center' | 'right'
+    position?: "left" | "center" | "right";
 }
-
-

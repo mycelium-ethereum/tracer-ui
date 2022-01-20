@@ -6,22 +6,22 @@ import TCRBox from "./TCRBox";
 import { TCRBoxProps } from "./TCRBox.types";
 
 describe("Test Component", () => {
-  let props: TCRBoxProps;
+    let props: TCRBoxProps;
 
-  beforeEach(() => {
-    props = {
-      foo: "bar"
-    };
-  });
+    beforeEach(() => {
+        props = {
+            foo: "bar",
+        };
+    });
 
-  const renderComponent = () => render(<TCRBox {...props} />);
+    const renderComponent = () => render(<TCRBox {...props} />);
 
-  it("should render foo text correctly", () => {
-    props.foo = "harvey was here";
-    const { getByTestId } = renderComponent();
+    it("should render foo text correctly", () => {
+        props.foo = "harvey was here";
+        const { getByTestId } = renderComponent();
 
-    const component = getByTestId("TCRBox");
+        const component = getByTestId("TCRBox");
 
-    expect(component).toHaveTextContent("harvey was here");
-  });
+        expect(component).toHaveTextContent("harvey was here");
+    });
 });

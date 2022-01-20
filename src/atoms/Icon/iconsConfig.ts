@@ -15,12 +15,12 @@ import {
     faTwitter,
     faGithub,
     faDiscourse,
-} from "@fortawesome/free-brands-svg-icons"
+} from "@fortawesome/free-brands-svg-icons";
 
 export const tracerIcons = {
     "check-circle": faCheckCircle,
     "check-circle-solid": faCheckCircleSolid,
-    'down-chevron': faChevronDown,
+    "down-chevron": faChevronDown,
     circle: faCircle,
     lock: faLock,
     unlock: faUnlock,

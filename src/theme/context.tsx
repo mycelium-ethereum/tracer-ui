@@ -3,7 +3,7 @@ import { lightTheme, darkTheme, TracerTheme } from "./themes";
 import {
     ThemeProvider as StyledComponentsThemeProvider,
     ThemeContext,
-    createGlobalStyle
+    createGlobalStyle,
 } from "styled-components";
 
 interface ThemeProviderProps {
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
         max-width: 1320px;
       }
     }
-`
+`;
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     isDark,

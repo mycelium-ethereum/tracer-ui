@@ -4,5 +4,5 @@ import { TCRBoxProps } from "../../atoms/TCRBox/TCRBox.types";
 export interface NavDropdownOptionProps {
     href: string;
     label: string;
-    boxColor: TCRBoxProps['color'];
+    boxColor: TCRBoxProps["color"];
 }

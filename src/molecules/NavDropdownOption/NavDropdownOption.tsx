@@ -1,17 +1,12 @@
 // Generated with util/create-component.js
 import React from "react";
 import { TCRBox } from "../../atoms/TCRBox";
-import styled from 'styled-components';
-import Text from '../../atoms/Text/Text';
+import styled from "styled-components";
+import Text from "../../atoms/Text/Text";
 import { NavDropdownOptionProps } from "./NavDropdownOption.types";
 
 const NavDropdownOption = styled(({ href, label, boxColor, className }) => (
-    <a
-        className={className}
-        href={href}
-        rel="noreferrer"
-        target="_blank"
-    >
+    <a className={className} href={href} rel="noreferrer" target="_blank">
         <TCRBox color={boxColor} />
         <span className="text">
             <Text.Body>Tracer</Text.Body>
@@ -27,7 +22,7 @@ const NavDropdownOption = styled(({ href, label, boxColor, className }) => (
     border-radius: 0.5rem;
     text-decoration: none;
     &:hover {
-        background: #00007A80;
+        background: #00007a80;
     }
 
     .text {
@@ -39,4 +34,3 @@ const NavDropdownOption = styled(({ href, label, boxColor, className }) => (
 `;
 
 export default NavDropdownOption;
-

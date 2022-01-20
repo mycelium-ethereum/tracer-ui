@@ -6,22 +6,22 @@
 // import { NavDropdownOptionProps } from "./NavDropdownOption.types";
 
 // describe("Test Component", () => {
-  // let props: NavDropdownOptionProps;
+// let props: NavDropdownOptionProps;
 
-  // beforeEach(() => {
-    // props = {
-      // foo: "bar"
-    // };
-  // });
+// beforeEach(() => {
+// props = {
+// foo: "bar"
+// };
+// });
 
-  // const renderComponent = () => render(<NavDropdownOption {...props} />);
+// const renderComponent = () => render(<NavDropdownOption {...props} />);
 
-  // it("should render foo text correctly", () => {
-    // props.foo = "harvey was here";
-    // const { getByTestId } = renderComponent();
+// it("should render foo text correctly", () => {
+// props.foo = "harvey was here";
+// const { getByTestId } = renderComponent();
 
-    // const component = getByTestId("NavDropdownOption");
+// const component = getByTestId("NavDropdownOption");
 
-    // expect(component).toHaveTextContent("harvey was here");
-  // });
+// expect(component).toHaveTextContent("harvey was here");
+// });
 // });

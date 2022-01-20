@@ -2,7 +2,7 @@
 
 import { TracerTheme } from "src/theme";
 
-type TextColor = TracerTheme['colors']['text'];
+type TextColor = TracerTheme["colors"]["text"];
 
 export interface HeadlineProps {
     variant?: "light" | "regular" | "bold" | "bolder";
