@@ -19,4 +19,5 @@ export type IconColor =
     | "focus-text"
     | "alert"
     | "danger"
-    | "success";
+    | "success"
+    | "inherit";

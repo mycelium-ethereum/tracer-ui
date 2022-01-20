@@ -33,6 +33,8 @@ const Icon = styled(({ name, size, color = "primary", className }) => {
                 return theme.colors.danger.text;
             case "success":
                 return theme.colors.success.text;
+            case "inherit":
+                return 'inherit';
             default:
                 return theme.colors.text.primary;
         }

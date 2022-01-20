@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { Icon, Text } from "../../atoms";
 import {NavDropdownOption} from "../../molecules/NavDropdownOption";
-import TracerLogo from "../../assets/tracer_logo.png";
+import { ReactComponent as TracerLogo } from "../../assets/tracer_logo.svg";
 import styled from 'styled-components';
 
-import { NavDropdownProps } from "./NavDropdown.types";
+import { HeaderSiteSwitcherProps } from "./Navbar.types";
 
 const icons = [
     {
@@ -94,7 +94,7 @@ const Dropdown = styled.div`
     transition-duration: 700ms;
     width: 350px;
     padding: 0 1rem;
-    top: 4.5rem;
+    top: 3rem;
     left: 0;
     transform: scale(0);
 
@@ -107,7 +107,7 @@ const Dropdown = styled.div`
     }
 `
 
-const TCRLogo = styled.img`
+const TCRLogo = styled(TracerLogo)`
     width: 6rem;
     height: auto;
     cursor: pointer;
@@ -119,6 +119,7 @@ const Toggle = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: #fff;
 
     ${Icon} {
         transition: 0.3s;
@@ -160,7 +161,6 @@ const NavDropdown = styled(({ className }) => {
                 <TCRLogo
                     className="logo"
                     alt="Tracer Logo"
-                    src={TracerLogo}
                 />
             </a>
             <Toggle
@@ -173,6 +173,7 @@ const NavDropdown = styled(({ className }) => {
                     id="toggle"
                     className={`${open ? 'open' : ''}`}
                     name="down-chevron" 
+                    color="inherit"
                     size="sm" 
                 />
             </Toggle>
@@ -201,7 +202,7 @@ const NavDropdown = styled(({ className }) => {
             </Dropdown>
         </div>
     )
-})<NavDropdownProps>`
+})<HeaderSiteSwitcherProps>`
     position: relative;
     display: flex;
 `

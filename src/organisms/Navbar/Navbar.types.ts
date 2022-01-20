@@ -2,3 +2,13 @@
 export interface NavbarProps {
     foo: string;
 }
+
+export interface HeaderSiteSwitcherProps {
+    foo: string;
+}
+
+export interface NavLinksProps {
+    position?: 'left' | 'center' | 'right'
+}
+
+

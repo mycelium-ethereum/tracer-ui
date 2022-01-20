@@ -102,4 +102,7 @@ export const lightTheme: TracerTheme = {
 };
 
 // TODO: Add dark theme
-export const darkTheme: TracerTheme = lightTheme;
+export const darkTheme: TracerTheme = {
+    ...lightTheme,
+    isDark: true
+}
