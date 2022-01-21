@@ -1,39 +1,37 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled, { DefaultTheme, StyledComponentProps } from "styled-components";
+import styled from "styled-components";
 
 import { InputProps } from "./Input.types";
 
-const Input: React.FC<InputProps> = React.forwardRef((props, ref) => {
-    const {
-        leftSlot,
-        rightSlot,
-        textAlign,
-        variant,
-        disabled,
-        style,
-        ...rest
-    } = props;
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     return (
         <Container
-            disabled={disabled}
-            variant={variant || "focus"}
-            textAlign={textAlign || "left"}
-            style={style}
+            disabled={props.disabled}
+            variant={props.variant || "focus"}
+            textAlign={props.textAlign || "left"}
+            form={props.form}
         >
-            {leftSlot ? <LeftSlot>{leftSlot}</LeftSlot> : null}
+            {props.leftSlot ? <LeftSlot>{props.leftSlot}</LeftSlot> : null}
             <StyledInput
-                ref={ref}
-                disabled={disabled}
+                placeholder={props.placeholder}
+                disabled={props.disabled}
                 data-testid="input"
-                {...(rest as StyledComponentProps<
-                    "input",
-                    DefaultTheme,
-                    {},
-                    never
-                >)}
+                value={props.value}
+                form={props.form}
+                name={props.name}
+                readOnly={props.readOnly}
+                required={props.required}
+                min={props.min}
+                max={props.max}
+                step={props.step}
+                type={props.type}
+                onChange={props.onChange}
+                onBlur={props.onBlur}
+                onFocus={props.onFocus}
+                ref={ref}
             />
-            {rightSlot ? <RightSlot>{rightSlot}</RightSlot> : null}
+            {props.rightSlot ? <RightSlot>{props.rightSlot}</RightSlot> : null}
         </Container>
     );
 });
@@ -47,7 +45,7 @@ interface ContainerProps {
     textAlign: InputProps["textAlign"];
 }
 
-const Container = styled.span<ContainerProps>`
+const Container = styled.label<ContainerProps>`
     position: relative;
     display: flex;
     width: 100%;
@@ -56,7 +54,7 @@ const Container = styled.span<ContainerProps>`
     -moz-box-sizing: border-box;
     padding: 10px 18px;
     border-radius: 12px;
-    border: 1px solid;
+    border: 1px solid ${(props) => props.theme.colors.focus.active};
     text-align: ${(props) => props.textAlign};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};
 
@@ -115,10 +113,8 @@ const StyledInput = styled.input`
 
 const LeftSlot = styled.div`
     margin-right: 10px;
-    color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
 const RightSlot = styled.div`
     margin-left: 10px;
-    color: ${({ theme }) => theme.colors.text.secondary};
 `;

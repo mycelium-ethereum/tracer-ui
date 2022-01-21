@@ -10,19 +10,23 @@ const Slider: React.FC<SliderProps> = ({
     max = 100,
     step = 1,
     onChange,
+    onChangeNumber,
     ...rest
 }) => (
-    <div data-testid="slider">
-        <StyledSlider
-            {...(rest as StyledComponent<"input", DefaultTheme, {}, never>)}
-            type="range"
-            value={value}
-            min={min}
-            max={max}
-            step={step}
-            onChange={(ev) => onChange(Number(ev.target.value))}
-        />
-    </div>
+    <StyledSlider
+        {...(rest as StyledComponent<"input", DefaultTheme, {}, never>)}
+        data-testid="slider"
+        type="range"
+        value={value}
+        min={min}
+        max={max}
+        step={step}
+        onChange={(ev) => {
+            ev.persist();
+            onChange && onChange(ev);
+            onChangeNumber && onChangeNumber(Number(ev.target.value));
+        }}
+    />
 );
 
 export default Slider;

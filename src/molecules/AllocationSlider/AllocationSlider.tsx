@@ -38,7 +38,7 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
                             max={100}
                             min={0}
                             step={0.01}
-                            value={percentage}
+                            value={percentage.toString()}
                             onChange={handleInputChange}
                             rightSlot={"%"}
                         />
@@ -59,7 +59,7 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
             </InfoRow>
             <Slider
                 value={percentage}
-                onChange={onChange}
+                onChange={(ev) => onChange(Number(ev.target.value))}
                 step={0.01}
                 disabled={isLocked}
             />

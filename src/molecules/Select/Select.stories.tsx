@@ -126,9 +126,9 @@ const Template: Story<SelectProps> = ({ onChange, ...args }) => {
             <Select
                 {...args}
                 value={value}
-                onChange={(newVal) => {
-                    updateArgs({ value: newVal });
-                    onChange(newVal);
+                onChange={(ev) => {
+                    updateArgs({ value: ev.target.value });
+                    onChange(ev);
                 }}
             ></Select>
         </div>
@@ -146,6 +146,13 @@ export const Collateral = Template.bind({});
 Collateral.args = {
     placeholder: "Select a collateral",
     options: "collateral",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    placeholder: "Disabled select",
+    options: "priceFeed",
+    disabled: true,
 };
 
 export const LongList = Template.bind({});

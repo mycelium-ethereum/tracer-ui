@@ -7,18 +7,26 @@ import { CheckboxProps } from "./Checkbox.types";
 
 const Checkbox: React.FC<CheckboxProps> = ({
     checked,
-    label,
     onChange,
     disabled,
+    children,
+    defaultChecked,
+    form,
+    name,
 }) => (
-    <Container
-        data-test-id="checkbox"
-        onClick={() => (disabled ? null : onChange(!checked))}
-        disabled={disabled}
-    >
+    <Container data-test-id="checkbox" disabled={disabled}>
+        <input
+            type="checkbox"
+            checked={checked}
+            onChange={onChange}
+            disabled={disabled}
+            defaultChecked={defaultChecked}
+            form={form}
+            name={name}
+        />
         <Icon name={checked ? "check-circle" : "circle"} />
         <Text.Body color="secondary" margin="0 16px">
-            {label}
+            {children}
         </Text.Body>
     </Container>
 );
@@ -29,15 +37,19 @@ type ContainerProps = {
     disabled?: boolean;
 };
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.label<ContainerProps>`
     display: flex;
     flex-direction: row;
     align-items: center;
     opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
     transition: opacity 0.1s ease-in-out;
-    &: active {
+    &:active {
         opacity: ${(props) => (props.disabled ? 0.5 : 0.5)};
     }
     user-select: none;
+
+    & > input {
+        display: none;
+    }
 `;
