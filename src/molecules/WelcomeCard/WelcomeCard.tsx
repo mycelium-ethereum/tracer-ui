@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 import styled from "styled-components";
-import { Card, Text, Button } from "../../atoms";
+import { Card, Text } from "../../atoms";
 
 const { Title, Subtitle, Body } = Text;
 
@@ -11,10 +11,8 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
     title,
     subtitle,
     heroItems,
-    footerText,
-    buttonText,
-    onButtonClick,
-    buttonHref,
+    description,
+    children,
 }) => (
     <Card data-testid="WelcomeCard" maxWidth="878px" padding="lg">
         <Title variant="bold" align="center" margin="0 0 40px 0">
@@ -36,19 +34,9 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
             ))}
         </HeroContainer>
         <Body color="secondary" margin="24px 0">
-            {footerText}
+            {description}
         </Body>
-        <ButtonContainer>
-            <Button
-                fluid
-                variant="action"
-                as={buttonHref ? "a" : "button"}
-                href={buttonHref}
-                onClick={onButtonClick}
-            >
-                {buttonText}
-            </Button>
-        </ButtonContainer>
+        {children}
     </Card>
 );
 
