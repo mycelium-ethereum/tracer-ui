@@ -61,6 +61,7 @@ export default {
             defaultValue:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum odio magna nullam risus imperdiet. Vel, dictum scelerisque congue velit quis lacus odio id. Ipsum aenean ornare ultricies purus elit eros, dapibus. A est sit mi dolor.",
         },
+        children: { control: false },
     },
 } as ComponentMeta<typeof WelcomeCard>;
 
