@@ -8,6 +8,8 @@ import { Card } from "../Card";
 import { placements } from "@popperjs/core";
 import { Text } from "../Text";
 import { useArgs } from "@storybook/addons";
+import { Input } from "../Input";
+import { Slider } from "../Slider";
 
 export default {
     title: "atoms/Popover",
@@ -147,4 +149,23 @@ export const OverText: Story<PopoverProps> = (args) => {
 OverText.args = {
     placement: "bottom",
     isOpen: true,
+};
+
+export const OverInput: Story<PopoverProps> = (args) => {
+    const [{ isOpen }, updateArgs] = useArgs();
+
+    return (
+        <div style={{ width: "600px", textAlign: "center" }}>
+            <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
+                <h2
+                    onMouseEnter={() => updateArgs({ isOpen: true })}
+                    onMouseLeave={() => updateArgs({ isOpen: false })}
+                >
+                    Lorem ipsu
+                </h2>
+            </Popover>
+            <Input placeholder="This should go under the popover" />
+            <Slider value={45} />
+        </div>
+    );
 };
