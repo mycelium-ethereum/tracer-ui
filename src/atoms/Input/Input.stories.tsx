@@ -12,9 +12,9 @@ export default {
         variant: {
             control: {
                 type: "select",
-                options: ["focus", "alert", "danger"],
+                options: ["primary", "secondary", "alert", "danger"],
             },
-            defaultValue: "focus",
+            defaultValue: "primary",
         },
         placeholder: {
             defaultValue: "Placeholder",

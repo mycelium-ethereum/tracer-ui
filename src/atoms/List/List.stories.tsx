@@ -16,6 +16,12 @@ export default {
             },
             defaultValue: false,
         },
+        itemPadding: {
+            control: {
+                type: "text",
+            },
+            defaultValue: "0",
+        },
     },
 } as ComponentMeta<typeof List>;
 
@@ -29,8 +35,8 @@ const Template: Story<ListProps> = (args) => {
         <div style={{ width: "500px" }}>
             <Card padding="none">
                 <List {...args}>
-                    {listItems.map((item, idx) => (
-                        <ListItem key={idx}>{item}</ListItem>
+                    {listItems.map((item) => (
+                        <span>{item}</span>
                     ))}
                 </List>
             </Card>
@@ -38,15 +44,15 @@ const Template: Story<ListProps> = (args) => {
     );
 };
 
-const ListItem = styled.span`
-    display: block;
-    color: ${(props) => props.theme.colors.text.active};
-    padding: 0.5rem 1rem;
-`;
-
 export const Default = Template.bind({});
 
 export const Separator = Template.bind({});
 Separator.args = {
+    separator: true,
+};
+
+export const Padding = Template.bind({});
+Padding.args = {
+    itemPadding: "10px",
     separator: true,
 };

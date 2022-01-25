@@ -8,7 +8,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     return (
         <Container
             disabled={props.disabled}
-            variant={props.variant || "focus"}
+            variant={props.variant || "primary"}
             textAlign={props.textAlign || "left"}
             form={props.form}
         >
@@ -57,18 +57,19 @@ const Container = styled.label<ContainerProps>`
     border: 1px solid ${(props) => props.theme.colors.focus.active};
     text-align: ${(props) => props.textAlign};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};
+    opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 
-    ${({ disabled, theme, variant }) => {
-        if (disabled) {
-            return `
-                border-color: ${theme.colors.focus.active};
-                background-color: ${theme.colors.cell.secondary};
-                color: ${theme.colors.text.tertiary};
-                `;
-        } else if (variant === "focus") {
+    ${({ theme, variant }) => {
+        if (variant === "primary") {
             return `
                 border-color: ${theme.colors.focus.active};
                 background-color: ${theme.colors.cell.primary};
+                color: ${theme.colors.focus.text};
+                `;
+        } else if (variant === "secondary") {
+            return `
+                border-color: ${theme.colors.focus.active};
+                background-color: ${theme.colors.cell.secondary};
                 color: ${theme.colors.focus.text};
                 `;
         } else if (variant === "alert") {
@@ -76,12 +77,20 @@ const Container = styled.label<ContainerProps>`
                 border-color: ${theme.colors.alert.active};
                 background-color: ${theme.colors.alert.cell};
                 color: ${theme.colors.alert.text};
+                & ::placeholder { color: ${theme.colors.alert.text}; }
+                & :-ms-input-placeholder { color: ${theme.colors.alert.text}; }
+                & ::-moz-placeholder { color: ${theme.colors.alert.text}; }
+                & ::-ms-input-placeholder { color: ${theme.colors.alert.text}; }
                 `;
         } else if (variant === "danger") {
             return `
                 border-color: ${theme.colors.danger.active};
                 background-color: ${theme.colors.danger.cell};
                 color: ${theme.colors.danger.text};
+                & ::placeholder { color: ${theme.colors.danger.text}; }
+                & ::-webkit-input-placeholder { color: ${theme.colors.danger.text}; }
+                & ::-moz-placeholder { color: ${theme.colors.danger.text}; }
+                & ::-ms-input-placeholder { color: ${theme.colors.danger.text}; }
                 `;
         }
     }}

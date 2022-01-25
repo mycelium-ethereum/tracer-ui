@@ -39,7 +39,13 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
             {footerText}
         </Body>
         <ButtonContainer>
-            <Button variant="action" onClick={onButtonClick} href={buttonHref}>
+            <Button
+                fluid
+                variant="action"
+                as={buttonHref ? "a" : "button"}
+                href={buttonHref}
+                onClick={onButtonClick}
+            >
                 {buttonText}
             </Button>
         </ButtonContainer>

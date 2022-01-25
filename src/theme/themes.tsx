@@ -47,6 +47,10 @@ export interface TracerTheme {
             text: string;
         };
     };
+    fontFamily: {
+        primary: string;
+        secondary: string;
+    };
 }
 
 export const lightTheme: TracerTheme = {
@@ -98,6 +102,10 @@ export const lightTheme: TracerTheme = {
             active: "#4FE021",
             text: "#4FE021",
         },
+    },
+    fontFamily: {
+        primary: "'Inter', sans-serif",
+        secondary: "'Source Sans Pro', sans-serif",
     },
 };
 
