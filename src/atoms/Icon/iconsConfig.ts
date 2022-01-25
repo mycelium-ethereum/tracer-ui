@@ -20,7 +20,6 @@ import {
 export const tracerIcons = {
     "check-circle": faCheckCircle,
     "check-circle-solid": faCheckCircleSolid,
-    "down-chevron": faChevronDown,
     circle: faCircle,
     lock: faLock,
     unlock: faUnlock,

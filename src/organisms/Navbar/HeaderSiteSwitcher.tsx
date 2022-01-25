@@ -166,7 +166,7 @@ const NavDropdown = styled(({ className }) => {
                 <Icon
                     id="toggle"
                     className={`${open ? "open" : ""}`}
-                    name="down-chevron"
+                    name="chevronDown"
                     color="inherit"
                     size="sm"
                 />
