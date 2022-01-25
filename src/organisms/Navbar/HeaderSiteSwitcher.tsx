@@ -132,7 +132,8 @@ const NavDropdown = styled(({ className }) => {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        const handleClickOutside = (event: any) => { // eslint-disable-line
+        // eslint-disable-next-line
+        const handleClickOutside = (event: any) => {
             const dropdown = document.getElementById("site-switcher");
             if (dropdown) {
                 console.debug("Closing site-switcher");
