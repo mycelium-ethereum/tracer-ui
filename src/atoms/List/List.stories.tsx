@@ -3,7 +3,6 @@ import React from "react";
 import List from "./List";
 import { ListProps } from "./List.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import styled from "styled-components";
 import { Card } from "..";
 
 export default {
@@ -36,7 +35,7 @@ const Template: Story<ListProps> = (args) => {
             <Card padding="none">
                 <List {...args}>
                     {listItems.map((item) => (
-                        <span>{item}</span>
+                        <span key={item}>{item}</span>
                     ))}
                 </List>
             </Card>
