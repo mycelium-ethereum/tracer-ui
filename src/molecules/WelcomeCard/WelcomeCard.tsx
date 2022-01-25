@@ -60,8 +60,3 @@ const CardImage = styled.img`
     margin: 0 auto;
     margin-bottom: 1rem;
 `;
-
-const ButtonContainer = styled.div`
-    margin: 0 auto;
-    max-width: 308px;
-`;
