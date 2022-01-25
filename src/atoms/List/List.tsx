@@ -5,7 +5,7 @@ import styled, { DefaultTheme, StyledComponent } from "styled-components";
 import { ListProps } from "./List.types";
 
 const List: React.FC<ListProps> = React.forwardRef((props, ref) => {
-    const { children, onClickItem, separator, selectedItem, ...rest } = props;
+    const { children, onClickItem, separator, ...rest } = props;
     if (!children) return null;
     return (
         <StyledUnorderedList
@@ -19,7 +19,6 @@ const List: React.FC<ListProps> = React.forwardRef((props, ref) => {
                     <StyledListItem
                         key={index}
                         onClick={() => onClickItem && onClickItem(index)}
-                        className={index === selectedItem ? "selected" : ""}
                     >
                         {index > 0 && separator ? <hr /> : null}
                         {React.cloneElement(child, child.props)}

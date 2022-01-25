@@ -48,26 +48,36 @@ const NavLinks = styled(List).attrs<NavLinksProps>((props) => ({
                 return "end";
         }
     }};
+`;
 
-    li {
-        display: flex;
-        transition: 0.3s;
-        margin: 0.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        font-size: 16px;
-        cursor: pointer;
-        &:hover {
-            opacity: 0.8;
+const NavLink = styled.a.attrs<{
+    selected: boolean;
+}>((props) => ({
+    ...props,
+    selected: props.selected,
+}))<{ selected: boolean }>`
+    display: flex;
+    transition: 0.3s;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+
+    background: ${({ selected, theme }) => {
+        if (selected) {
+            return theme.isDark ? "#00000080" : "#00007A";
+        } else {
+            return;
         }
-    }
-
-    li.selected {
-        background: ${({ theme }) => (theme.isDark ? "#00000080" : "#00007A")};
-    }
+    }};
 `;
 
 export default {
     Navbar,
     NavLinks,
+    NavLink,
 };
