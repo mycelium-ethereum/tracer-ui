@@ -10,7 +10,7 @@ import {
 } from "./Text.types";
 
 const getSharedStyles = (props: any) => `
-    font-family: ${props.theme.fontFamily[props.fontFamily || "primary"]};
+    font-family: ${props.theme.fontFamily[props.fontFamily || "body"]};
     margin: ${props.margin || "0"};
     color: ${props.theme.colors.text[props.color || "primary"]};
     text-align: ${props.align || "left"};

@@ -43,6 +43,7 @@ interface StyledToggleButtonProps {
 
 const StyledToggleButton = styled.label<StyledToggleButtonProps>`
     padding: 8px 16px;
+    font-family: ${(props) => props.theme.fontFamily.heading};
     border-radius: 12px;
     background: ${({ theme, checked, disabled }) => {
         if (disabled) {

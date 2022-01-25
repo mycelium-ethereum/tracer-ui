@@ -82,6 +82,7 @@
         "@fortawesome/react-fontawesome": "^0.1.16",
         "@popperjs/core": "^2.11.2",
         "react-popper": "^2.2.5",
-        "react-popper-2": "npm:react-popper@^2.2.5"
+        "react-popper-2": "npm:react-popper@^2.2.5",
+        "rollup-plugin-import-css": "^3.0.2"
     }
 }

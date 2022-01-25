@@ -32,7 +32,7 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     variant: props.variant || "primary",
     size: props.size || "medium",
 }))<StyledButtonProps>`
-    font-family: ${(props) => props.theme.fontFamily.secondary};
+    font-family: ${(props) => props.theme.fontFamily.heading};
     border-radius: 12px;
     border: none;
     width: ${(props) => (props.fluid ? "100%" : "auto")};
