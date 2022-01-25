@@ -35,7 +35,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
                 </div>
             ))}
         </HeroContainer>
-        <Body color="secondary" margin="24px 0">
+        <Body color="primary" margin="24px 0">
             {footerText}
         </Body>
         <ButtonContainer>

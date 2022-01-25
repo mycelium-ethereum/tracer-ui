@@ -70,6 +70,7 @@
         "rollup-plugin-copy": "^3.3.0",
         "rollup-plugin-peer-deps-external": "^2.2.0",
         "rollup-plugin-postcss": "^3.1.2",
+        "rollup-plugin-svg": "^2.0.0",
         "rollup-plugin-typescript2": "^0.27.0",
         "storybook-dark-mode": "^1.0.8",
         "styled-components": "^5.1.1",
@@ -83,6 +84,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/react-fontawesome": "^0.1.16",
         "@popperjs/core": "^2.11.2",
+        "@svgr/rollup": "^6.2.0",
         "@svgr/webpack": "5.1.0",
         "react-popper": "^2.2.5",
         "react-popper-2": "npm:react-popper@^2.2.5"

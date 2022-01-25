@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Icon, Text } from "../../atoms";
 import { NavDropdownOption } from "../../molecules/NavDropdownOption";
-import { ReactComponent as TracerLogo } from "../../assets/tracer_logo.svg";
+import TracerLogo from "../../assets/tracer_logo.svg";
 import styled from "styled-components";
 
 import { HeaderSiteSwitcherProps } from "./Navbar.types";
@@ -155,7 +155,7 @@ const NavDropdown = styled(({ className }) => {
     return (
         <div id="site-switcher" className={className}>
             <a href="/">
-                <TCRLogo className="logo" alt="Tracer Logo" />
+                <TCRLogo className="logo" />
             </a>
             <Toggle
                 onClick={(e) => {
