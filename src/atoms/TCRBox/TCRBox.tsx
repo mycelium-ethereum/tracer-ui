@@ -11,7 +11,6 @@ const TCRBox = styled(({ className }) => (
     height: 48px;
     width: 48px;
     color: ${({ color }) => {
-        console.log(color);
         switch (color) {
             case "green":
                 return "#1AAA8D";

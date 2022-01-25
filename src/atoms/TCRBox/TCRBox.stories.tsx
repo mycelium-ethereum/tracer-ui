@@ -15,6 +15,9 @@ export default {
                 options: ["purple", "blue", "green"],
             },
         },
+        theme: { control: false },
+        as: { control: false },
+        forwardedAs: { control: false },
     },
 } as ComponentMeta<typeof TCRBox>;
 
