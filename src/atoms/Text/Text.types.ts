@@ -9,7 +9,7 @@ type TextColor =
 
 export interface HeadlineProps {
     variant?: "light" | "regular" | "bold" | "bolder";
-    fontFamily?: "primary" | "secondary";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
@@ -17,7 +17,7 @@ export interface HeadlineProps {
 
 export interface TitleProps {
     variant?: "light" | "regular" | "bold" | "bolder";
-    fontFamily?: "primary" | "secondary";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
@@ -25,7 +25,7 @@ export interface TitleProps {
 
 export interface SubtitleProps {
     variant?: "light" | "regular" | "bold" | "bolder";
-    fontFamily?: "primary" | "secondary";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
@@ -33,7 +33,7 @@ export interface SubtitleProps {
 
 export interface BodyProps {
     variant?: "light" | "regular" | "bold" | "bolder";
-    fontFamily?: "primary" | "secondary";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
@@ -41,7 +41,7 @@ export interface BodyProps {
 
 export interface FooterProps {
     variant?: "light" | "regular" | "bold" | "bolder";
-    fontFamily?: "primary" | "secondary";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;

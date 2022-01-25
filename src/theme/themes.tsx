@@ -48,8 +48,8 @@ export interface TracerTheme {
         };
     };
     fontFamily: {
-        primary: string;
-        secondary: string;
+        body: string;
+        heading: string;
     };
 }
 
@@ -104,8 +104,8 @@ export const lightTheme: TracerTheme = {
         },
     },
     fontFamily: {
-        primary: "'Inter', sans-serif",
-        secondary: "'Source Sans Pro', sans-serif",
+        body: "'Inter', sans-serif",
+        heading: "'Source Sans Pro', sans-serif",
     },
 };
 
