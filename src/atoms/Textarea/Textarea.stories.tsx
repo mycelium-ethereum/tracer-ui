@@ -16,6 +16,13 @@ export default {
             defaultValue: false,
             control: { type: "boolean" },
         },
+        variant: {
+            control: {
+                type: "select",
+                options: ["primary", "secondary", "alert", "danger"],
+            },
+            defaultValue: "primary",
+        },
     },
 } as ComponentMeta<typeof Textarea>;
 

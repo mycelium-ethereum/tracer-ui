@@ -16,7 +16,9 @@ const InfoRow: React.FC<InfoRowProps> = ({
         {imageSrc ? <Image src={imageSrc} /> : null}
         <TextContainer>
             <Text.Body variant="bold">{title}</Text.Body>
-            {subtitle && <Text.Footer>{subtitle}</Text.Footer>}
+            {subtitle && (
+                <Text.Footer color="secondary">{subtitle}</Text.Footer>
+            )}
         </TextContainer>
         <RightSlot>{children}</RightSlot>
     </Row>

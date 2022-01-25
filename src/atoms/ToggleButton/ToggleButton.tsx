@@ -66,8 +66,8 @@ const StyledToggleButton = styled.label<StyledToggleButtonProps>`
     transition: color 0.1s ease-in-out;
 
     border: ${({ theme, checked, disabled }) => {
-        if (disabled) return "none";
-        if (checked) return "none";
+        if (disabled) return "1px solid transparent";
+        if (checked) return "1px solid transparent";
         return `1px solid ${theme.colors.focus.active}`;
     }};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -83,8 +83,8 @@ const StyledToggleButton = styled.label<StyledToggleButtonProps>`
             return theme.colors.text.secondary;
         }};
         border: ${({ theme, checked, disabled }) => {
-            if (disabled) return "none";
-            if (checked) return "none";
+            if (disabled) return "1px solid transparent";
+            if (checked) return "1px solid transparent";
             return `1px solid ${theme.colors.focus.hover}`;
         }};
     }

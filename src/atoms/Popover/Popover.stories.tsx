@@ -49,6 +49,7 @@ const Template: Story<PopoverProps> = (args) => {
     return (
         <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
             <Button
+                fluid
                 onClick={() => {
                     updateArgs({ isOpen: !isOpen });
                 }}
@@ -85,6 +86,7 @@ export const NestedOverflowHidden: Story<PopoverProps> = (args) => {
         >
             <Popover content={<ExampleContent />} {...args}>
                 <Button
+                    fluid
                     size="small"
                     onClick={() => updateArgs({ isOpen: !isOpen })}
                 >
@@ -103,6 +105,7 @@ export const Hoverable: Story<PopoverProps> = (args) => {
     return (
         <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
             <Button
+                fluid
                 onMouseEnter={() => {
                     updateArgs({ isOpen: true });
                 }}

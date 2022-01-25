@@ -36,6 +36,14 @@ export default {
         },
         margin: {
             control: "text",
+            defaultValue: "0",
+        },
+        fontFamily: {
+            control: {
+                type: "select",
+                options: ["primary", "secondary"],
+            },
+            defaultValue: "primary",
         },
     },
 } as ComponentMeta<typeof Text.Title>;

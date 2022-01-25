@@ -5,4 +5,5 @@ export interface ButtonProps
     extends Omit<React.HTMLProps<HTMLButtonElement>, "size"> {
     variant?: "action" | "focus" | "alert" | "danger";
     size?: "small" | "medium" | "large";
+    fluid?: boolean;
 }
