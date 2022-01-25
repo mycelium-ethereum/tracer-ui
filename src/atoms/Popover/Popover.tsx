@@ -40,4 +40,5 @@ type PopperCardProps = {
 
 const PopperCard = styled.div<PopperCardProps>`
     visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+    z-index: 9999;
 `;
