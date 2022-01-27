@@ -10,11 +10,11 @@ export default {
     component: Input,
     argTypes: {
         variant: {
-            defaultValue: "primary",
             control: {
                 type: "select",
-                options: ["primary", "focus", "alert", "danger"],
+                options: ["primary", "secondary", "alert", "danger"],
             },
+            defaultValue: "primary",
         },
         placeholder: {
             defaultValue: "Placeholder",
@@ -66,21 +66,18 @@ Danger.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    variant: "primary",
     placeholder: "Disabled Input",
     disabled: true,
 };
 
 export const TextAlignCenter = Template.bind({});
 TextAlignCenter.args = {
-    variant: "primary",
     placeholder: "Text Align Center",
     textAlign: "center",
 };
 
 export const TextAlignRight = Template.bind({});
 TextAlignRight.args = {
-    variant: "primary",
     placeholder: "Right Aligned Input",
     textAlign: "right",
 };

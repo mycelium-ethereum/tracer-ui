@@ -6,6 +6,7 @@ type TextColor = keyof TracerTheme["colors"]["text"];
 
 export interface HeadlineProps {
     variant?: "light" | "regular" | "bold" | "bolder";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
@@ -13,6 +14,7 @@ export interface HeadlineProps {
 
 export interface TitleProps {
     variant?: "light" | "regular" | "bold" | "bolder";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
@@ -20,20 +22,23 @@ export interface TitleProps {
 
 export interface SubtitleProps {
     variant?: "light" | "regular" | "bold" | "bolder";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
 }
 
 export interface BodyProps {
-    variant?: "regular" | "bold";
+    variant?: "light" | "regular" | "bold" | "bolder";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;
 }
 
 export interface FooterProps {
-    variant?: "regular" | "bold";
+    variant?: "light" | "regular" | "bold" | "bolder";
+    fontFamily?: "body" | "heading";
     color?: TextColor;
     align?: "left" | "center" | "right";
     margin?: string;

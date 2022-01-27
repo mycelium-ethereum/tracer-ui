@@ -23,7 +23,7 @@ export default {
             defaultValue: false,
             description: "Disabled state of the checkbox",
         },
-        label: {
+        children: {
             control: {
                 type: "text",
             },
@@ -46,9 +46,9 @@ const Template: Story<CheckboxProps> = ({ onChange, ...args }) => {
         <Checkbox
             {...args}
             checked={checked}
-            onChange={(newVal) => {
-                updateArgs({ checked: newVal });
-                onChange(newVal);
+            onChange={(e) => {
+                updateArgs({ checked: e.target.checked });
+                onChange(e);
             }}
         ></Checkbox>
     );
@@ -57,25 +57,25 @@ const Template: Story<CheckboxProps> = ({ onChange, ...args }) => {
 // Reuse that template for creating different stories
 export const Checked = Template.bind({});
 Checked.args = {
-    label: "Checkbox",
+    children: "Checkbox",
     checked: true,
 };
 
 export const Unchecked = Template.bind({});
 Unchecked.args = {
-    label: "Checkbox",
+    children: "Checkbox",
     checked: false,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    label: "Checkbox",
+    children: "Disabled Checkbox",
     checked: false,
     disabled: true,
 };
 
 export const TermsAndConditions = Template.bind({});
 TermsAndConditions.args = {
-    label: "I agree to the terms and conditions",
+    children: "I agree to the terms and conditions",
     checked: false,
 };

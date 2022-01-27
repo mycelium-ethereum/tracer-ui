@@ -8,8 +8,11 @@ export type SelectOption = {
 };
 
 export interface SelectProps {
-    placeholder?: string;
     options: SelectOption[];
-    onChange: (value: string) => void;
+    placeholder?: string;
     value?: string;
+    disabled?: boolean;
+    name?: string;
+    form?: string;
+    onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }

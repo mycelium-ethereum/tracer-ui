@@ -36,6 +36,14 @@ export default {
         },
         margin: {
             control: "text",
+            defaultValue: "0",
+        },
+        fontFamily: {
+            control: {
+                type: "select",
+                options: ["primary", "secondary"],
+            },
+            defaultValue: "primary",
         },
     },
 } as ComponentMeta<typeof Text.Title>;
@@ -46,6 +54,11 @@ const Template: Story<FooterProps> = (args) => (
 );
 
 // Reuse that template for creating different stories
+export const Light = Template.bind({});
+Light.args = {
+    variant: "light",
+};
+
 export const Regular = Template.bind({});
 Regular.args = {
     variant: "regular",
@@ -54,4 +67,9 @@ Regular.args = {
 export const Bold = Template.bind({});
 Bold.args = {
     variant: "bold",
+};
+
+export const Bolder = Template.bind({});
+Bolder.args = {
+    variant: "bolder",
 };

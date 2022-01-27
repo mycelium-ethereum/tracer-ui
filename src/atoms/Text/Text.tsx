@@ -9,117 +9,55 @@ import {
     FooterProps,
 } from "./Text.types";
 
-const Headline = styled.h1.attrs<HeadlineProps>((props) => ({
-    color: props.color || "primary",
-}))<HeadlineProps>`
-    margin: ${(props) => props.margin || "0"};
+const getSharedStyles = (props: any) => `
+    font-family: ${props.theme.fontFamily[props.fontFamily || "body"]};
+    margin: ${props.margin || "0"};
+    color: ${props.theme.colors.text[props.color || "primary"]};
+    text-align: ${props.align || "left"};
+    font-weight: ${(() => {
+        switch (props.variant) {
+            case "light":
+                return "300";
+            case "regular":
+                return "400";
+            case "bold":
+                return "700";
+            case "bolder":
+                return "900";
+            default:
+                return "400";
+        }
+    })()};
+`;
+
+const Headline = styled.h1<HeadlineProps>`
+    ${(props) => getSharedStyles(props)}
     font-size: 40px;
-    font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text[props.color]};
-    text-align: ${(props) => props.align || "left"};
-    font-weight: ${(props) => {
-        switch (props.variant) {
-            case "light":
-                return "300";
-            case "regular":
-                return "400";
-            case "bold":
-                return "700";
-            case "bolder":
-                return "900";
-            default:
-                return "400";
-        }
-    }};
+    line-height: 60px;
 `;
 
-const Title = styled.h2.attrs<TitleProps>((props) => ({
-    color: props.color || "primary",
-}))<TitleProps>`
-    margin: ${(props) => props.margin || "0"};
+const Title = styled.h2<TitleProps>`
+    ${(props) => getSharedStyles(props)}
     font-size: 24px;
-    font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text[props.color]};
-    text-align: ${(props) => props.align || "left"};
-    font-weight: ${(props) => {
-        switch (props.variant) {
-            case "light":
-                return "300";
-            case "regular":
-                return "400";
-            case "bold":
-                return "700";
-            case "bolder":
-                return "800";
-            default:
-                return "400";
-        }
-    }};
+    line-height: 36px;
 `;
 
-const Subtitle = styled.h3.attrs<SubtitleProps>((props) => ({
-    color: props.color || "primary",
-}))<SubtitleProps>`
-    margin: ${(props) => props.margin || "0"};
+const Subtitle = styled.h3<SubtitleProps>`
+    ${(props) => getSharedStyles(props)}
     font-size: 20px;
-    font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text[props.color]};
-    text-align: ${(props) => props.align || "left"};
-    font-weight: ${(props) => {
-        switch (props.variant) {
-            case "light":
-                return "300";
-            case "regular":
-                return "400";
-            case "bold":
-                return "700";
-            case "bolder":
-                return "900";
-            default:
-                return "400";
-        }
-    }};
+    line-height: 30px;
 `;
 
-const Body = styled.p.attrs<BodyProps>((props) => ({
-    color: props.color || "primary",
-}))<BodyProps>`
-    margin: ${(props) => props.margin || "0"};
+const Body = styled.p<BodyProps>`
+    ${(props) => getSharedStyles(props)}
     font-size: 16px;
-    font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text[props.color]};
-    text-align: ${(props) => props.align || "left"};
-    font-weight: ${(props) => {
-        switch (props.variant) {
-            case "regular":
-                return "400";
-            case "bold":
-                return "700";
-            default:
-                return "400";
-        }
-    }};
+    line-height: 24px;
 `;
 
-const Footer = styled.p.attrs<FooterProps>((props) => ({
-    color: props.color || "primary",
-}))<FooterProps>`
-    margin: ${(props) => props.margin || "0"};
-    font-size: 12px;
+const Footer = styled.p<FooterProps>`
+    ${(props) => getSharedStyles(props)}
     font-size: 14px;
-    font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.colors.text[props.color]};
-    text-align: ${(props) => props.align || "left"};
-    font-weight: ${(props) => {
-        switch (props.variant) {
-            case "regular":
-                return "400";
-            case "bold":
-                return "700";
-            default:
-                return "400";
-        }
-    }};
+    line-height: 20px;
 `;
 
 export default {

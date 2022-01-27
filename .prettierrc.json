@@ -1,5 +1,19 @@
 {
     "tabWidth": 4,
     "trailingComma": "all",
-    "semi": true
+    "semi": true,
+    "overrides": [
+        {
+            "files": "*.json",
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }

@@ -5,6 +5,7 @@ import {
     ThemeContext,
     createGlobalStyle,
 } from "styled-components";
+import "./global.css";
 
 interface ThemeProviderProps {
     isDark?: boolean;

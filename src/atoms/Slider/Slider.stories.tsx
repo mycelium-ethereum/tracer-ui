@@ -35,9 +35,9 @@ const Template: Story<SliderProps> = ({ onChange, ...args }) => {
         <Slider
             {...args}
             value={value}
-            onChange={(newValue) => {
-                onChange(newValue);
-                updateArgs({ value: newValue });
+            onChange={(ev) => {
+                onChange(ev);
+                updateArgs({ value: Number(ev.target.value) });
             }}
         ></Slider>
     );

@@ -7,8 +7,5 @@ export interface WelcomeCardProps {
         imgSrc: string;
         imgAlt?: string;
     }[];
-    footerText: string;
-    buttonText: string;
-    onButtonClick?: () => void;
-    buttonHref?: string;
+    description: string;
 }

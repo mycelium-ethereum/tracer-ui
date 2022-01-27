@@ -56,12 +56,12 @@ export default {
                 options: Object.keys(heroOptions),
             },
         },
-        footerText: {
+        description: {
             control: "text",
             defaultValue:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum odio magna nullam risus imperdiet. Vel, dictum scelerisque congue velit quis lacus odio id. Ipsum aenean ornare ultricies purus elit eros, dapibus. A est sit mi dolor.",
         },
-        buttonText: { control: "text", defaultValue: "Button text" },
+        children: { control: false },
     },
 } as ComponentMeta<typeof WelcomeCard>;
 
@@ -82,16 +82,30 @@ export const DataFeeds = Template.bind({});
 DataFeeds.args = {
     title: "Welcome to the Tracer Data Feeds Factory",
     subtitle: "To deploy new Data Feed, you’ll need the following",
-    footer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum odio magna nullam risus imperdiet. Vel, dictum scelerisque congue velit quis lacus odio id. Ipsum aenean ornare ultricies purus elit eros, dapibus. A est sit mi dolor.",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum odio magna nullam risus imperdiet. Vel, dictum scelerisque congue velit quis lacus odio id. Ipsum aenean ornare ultricies purus elit eros, dapibus. A est sit mi dolor.",
     heroItems: heroOptions["Data Feeds"],
-    buttonText: "Continue",
 };
 
 export const Pools = Template.bind({});
 Pools.args = {
     title: "Welcome to the Tracer Pools Factory",
     subtitle: "To deploy new Pool, you’ll need the following",
-    footer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum odio magna nullam risus imperdiet. Vel, dictum scelerisque congue velit quis lacus odio id. Ipsum aenean ornare ultricies purus elit eros, dapibus. A est sit mi dolor.",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum odio magna nullam risus imperdiet. Vel, dictum scelerisque congue velit quis lacus odio id. Ipsum aenean ornare ultricies purus elit eros, dapibus. A est sit mi dolor.",
     heroItems: heroOptions["Pools"],
-    buttonText: "Continue",
+};
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
+    title: "Welcome to the Tracer Pools Factory",
+    subtitle: "To deploy new Pool, you’ll need the following",
+    description: "The elements below are children of the WelcomeCard",
+    heroItems: heroOptions["Pools"],
+    children: (
+        <div>
+            <p>Here is some text that is inside the WelcomeCard.</p>
+            <a href="#">Here is a link</a>
+        </div>
+    ),
 };

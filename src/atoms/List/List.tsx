@@ -5,7 +5,7 @@ import styled, { DefaultTheme, StyledComponent } from "styled-components";
 import { ListProps } from "./List.types";
 
 const List: React.FC<ListProps> = React.forwardRef((props, ref) => {
-    const { children, onClickItem, separator, ...rest } = props;
+    const { children, onClickItem, separator, itemPadding, ...rest } = props;
     if (!children) return null;
     return (
         <StyledUnorderedList
@@ -21,7 +21,9 @@ const List: React.FC<ListProps> = React.forwardRef((props, ref) => {
                         onClick={() => onClickItem && onClickItem(index)}
                     >
                         {index > 0 && separator ? <hr /> : null}
-                        {React.cloneElement(child, child.props)}
+                        <Child padding={itemPadding}>
+                            {React.cloneElement(child, child.props)}
+                        </Child>
                     </StyledListItem>
                 );
             })}
@@ -47,4 +49,12 @@ const StyledListItem = styled.li`
         border: 0;
         border-top: 1px solid ${(props) => props.theme.colors.focus.active};
     }
+`;
+
+type ChildProps = {
+    padding?: string;
+};
+
+const Child = styled.div<ChildProps>`
+    padding: ${(props) => props.padding || "0"};
 `;
