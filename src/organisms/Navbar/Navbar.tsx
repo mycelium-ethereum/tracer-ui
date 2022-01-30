@@ -60,20 +60,13 @@ const NavLink = styled.a.attrs<{
     transition: 0.3s;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
     font-size: 16px;
     cursor: pointer;
     &:hover {
         opacity: 0.8;
     }
-
-    background: ${({ selected, theme }) => {
-        if (selected) {
-            return theme.isDark ? "#00000080" : "#00007A";
-        } else {
-            return;
-        }
-    }};
+    text-decoration-line: ${(props) => (props.selected ? "underline" : "none")};
+    text-underline-offset: 4px;
 `;
 
 export default {
