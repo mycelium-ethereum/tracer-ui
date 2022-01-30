@@ -4,7 +4,8 @@ export interface NavbarProps {
 }
 
 export interface HeaderSiteSwitcherProps {
-    foo: string;
+    className?: string;
+    href: string;
 }
 
 export interface NavLinksProps {

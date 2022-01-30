@@ -42,7 +42,7 @@ const Template: Story<
     }
 > = (args) => (
     <Nav.Navbar {...args}>
-        <Nav.HeaderSiteSwitcher />
+        <Nav.HeaderSiteSwitcher href="#" />
         <Nav.NavLinks position={args.linksPosition}>
             {args.links.map((link: string, index) => (
                 <Nav.NavLink selected={index === args.selectedLink} key={link}>
