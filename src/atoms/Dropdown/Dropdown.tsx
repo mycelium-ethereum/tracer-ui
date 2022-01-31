@@ -91,7 +91,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             <DropdownPreview>{previewText}</DropdownPreview>
             <DropdownItems>
                 {options.map((option) => (
-                    <DropdownItem onClick={() => onClickOption(option)}>
+                    <DropdownItem
+                        key={option}
+                        onClick={() => onClickOption(option)}
+                    >
                         {option}
                     </DropdownItem>
                 ))}

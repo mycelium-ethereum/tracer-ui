@@ -3,7 +3,6 @@ import React from "react";
 import { device } from "../..//helpers";
 import styled from "styled-components";
 import { List } from "../../atoms";
-import { NavLinksProps } from "./Navbar.types";
 import { NavbarProps } from ".";
 import HeaderSiteSwitcher from "./HeaderSiteSwitcher";
 
