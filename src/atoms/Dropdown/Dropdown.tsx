@@ -50,7 +50,7 @@ const DropdownPreview = styled.div`
     }
 `;
 
-const Dropdown = styled.div`
+const DropdownContainer = styled.div`
     position: relative;
     top: 50px;
     margin: 0 auto;
@@ -77,22 +77,27 @@ const Dropdown = styled.div`
         }
     }
 `;
-export const ControlledDropdown: React.FC<DropdownProps> = ({ children }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+    previewText,
+    options,
+    onClickOption,
+}) => {
     const [open, setOpen] = useState(false);
     return (
-        <Dropdown
+        <DropdownContainer
             className={open ? "active" : ""}
             onClick={() => setOpen(!open)}
         >
-            {children}
-        </Dropdown>
+            <DropdownPreview>{previewText}</DropdownPreview>
+            <DropdownItems>
+                {options.map((option) => (
+                    <DropdownItem onClick={() => onClickOption(option)}>
+                        {option}
+                    </DropdownItem>
+                ))}
+            </DropdownItems>
+        </DropdownContainer>
     );
 };
 
-export default {
-    Dropdown,
-    DropdownItem,
-    DropdownItems,
-    DropdownPreview,
-    ControlledDropdown,
-};
+export default Dropdown;
