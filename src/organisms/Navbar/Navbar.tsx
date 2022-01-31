@@ -11,6 +11,7 @@ const Navbar: React.FC<NavbarProps> = ({
     links,
     activeLink,
     href,
+    onClickLink,
 }) => {
     return (
         <NavbarBackground>
@@ -18,7 +19,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 <HeaderSiteSwitcher href={href} />
                 <NavLinks>
                     {links.map((link: string) => (
-                        <NavLink selected={link === activeLink} key={link}>
+                        <NavLink
+                            selected={link === activeLink}
+                            key={link}
+                            onClick={() => onClickLink && onClickLink(link)}
+                        >
                             {link}
                         </NavLink>
                     ))}
