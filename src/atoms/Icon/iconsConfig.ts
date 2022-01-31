@@ -7,7 +7,15 @@ import {
     faTimes,
     faCheckCircle as faCheckCircleSolid,
     faChevronDown,
+    faGlobeAmericas,
 } from "@fortawesome/free-solid-svg-icons";
+
+import {
+    faDiscord,
+    faTwitter,
+    faGithub,
+    faDiscourse,
+} from "@fortawesome/free-brands-svg-icons";
 
 export const tracerIcons = {
     "check-circle": faCheckCircle,
@@ -19,4 +27,9 @@ export const tracerIcons = {
     plus: faPlus,
     times: faTimes,
     chevronDown: faChevronDown,
+    discord: faDiscord,
+    discourse: faDiscourse,
+    twitter: faTwitter,
+    github: faGithub,
+    web: faGlobeAmericas,
 };

@@ -205,7 +205,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                     leftSlot={<Icon name="search" color="tertiary" />}
                     placeholder={searchText}
                     value={search}
-                    onChange={(e) => setSearch((e.target as any).value)}
+                    onChange={(e) => setSearch((e.target as any).value)} // eslint-disable-line
                     onFocus={() => openDropdown()}
                 />
             </Popover>

@@ -9,3 +9,4 @@ export * from "./Popover";
 export * from "./Text";
 export * from "./ToggleButton";
 export * from "./InfoRow";
+export * from "./Dropdown";
