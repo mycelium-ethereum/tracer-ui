@@ -1,17 +1,61 @@
 // Generated with util/create-component.js
 import React from "react";
+import { device } from "../..//helpers";
 import styled from "styled-components";
 import { List } from "../../atoms";
 import { NavLinksProps } from "./Navbar.types";
+import { NavbarProps } from ".";
+import HeaderSiteSwitcher from "./HeaderSiteSwitcher";
 
-const NavbarContent = styled(({ className, children }) => (
-    <nav className={`container ${className}`}>{children}</nav>
-))`
+const Navbar: React.FC<NavbarProps> = ({
+    children,
+    links,
+    activeLink,
+    href,
+}) => {
+    return (
+        <NavbarBackground>
+            <NavbarContent>
+                <HeaderSiteSwitcher href={href} />
+                <NavLinks>
+                    {links.map((link: string) => (
+                        <NavLink selected={link === activeLink} key={link}>
+                            {link}
+                        </NavLink>
+                    ))}
+                </NavLinks>
+                <NavChildren>{children}</NavChildren>
+            </NavbarContent>
+        </NavbarBackground>
+    );
+};
+
+const NavbarContent = styled.nav`
     display: flex;
     font-size: 1rem;
     align-items: center;
     height: 60px;
     margin: auto;
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+    @media ${device.mobileL} {
+        max-width: 540px;
+    }
+    @media ${device.tablet} {
+        max-width: 720px;
+    }
+    @media ${device.laptop} {
+        max-width: 960px;
+    }
+    @media ${device.desktop} {
+        max-width: 1140px;
+    }
+    @media ${device.desktopL} {
+        max-width: 1320px;
+    }
 `;
 
 const NavbarBackground = styled.div`
@@ -25,29 +69,11 @@ const NavbarBackground = styled.div`
     background-image: url("/general/nav-bg.svg");
 `;
 
-const Navbar = styled(({ children }) => {
-    return (
-        <NavbarBackground>
-            <NavbarContent>{children}</NavbarContent>
-        </NavbarBackground>
-    );
-})``;
-
-const NavLinks = styled(List).attrs<NavLinksProps>((props) => ({
-    position: props.position,
-}))<NavLinksProps>`
+const NavLinks = styled(List)`
     display: flex;
     color: #fff;
-    justify-content: ${({ position }) => {
-        switch (position) {
-            case "left":
-                return "start";
-            case "center":
-                return "center";
-            case "right":
-                return "end";
-        }
-    }};
+    width: auto;
+    flex: 1;
 `;
 
 const NavLink = styled.a.attrs<{
@@ -61,6 +87,7 @@ const NavLink = styled.a.attrs<{
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 16px;
+    font-family: ${(props) => props.theme.fontFamily.body};
     cursor: pointer;
     &:hover {
         opacity: 0.8;
@@ -69,8 +96,11 @@ const NavLink = styled.a.attrs<{
     text-underline-offset: 4px;
 `;
 
-export default {
-    Navbar,
-    NavLinks,
-    NavLink,
-};
+const NavChildren = styled.div`
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export default Navbar;

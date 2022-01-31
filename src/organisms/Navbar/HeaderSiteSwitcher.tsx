@@ -128,7 +128,7 @@ const Toggle = styled.div`
     }
 `;
 
-const NavDropdown = styled(({ className }) => {
+const NavDropdown = styled(({ className, href }) => {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -154,7 +154,7 @@ const NavDropdown = styled(({ className }) => {
 
     return (
         <div id="site-switcher" className={className}>
-            <a href="/">
+            <a href={href}>
                 <TCRLogo className="logo" />
             </a>
             <Toggle

@@ -1,74 +1,55 @@
 // Generated with util/create-component.js
 import React from "react";
-import Nav from "./index";
-import { NavbarProps, NavLinksProps } from "./Navbar.types";
+import Navbar from "./Navbar";
+import { NavbarProps } from "./Navbar.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { Button } from "../../atoms";
 
 export default {
     title: "organisms/Navbar",
-    component: Nav.Navbar,
+    component: Navbar,
     parameters: {
         layout: "fullscreen",
     },
     argTypes: {
-        linksPosition: {
-            defaultValue: "left",
-            control: {
-                type: "select",
-                options: ["left", "center", "right"],
-            },
-        },
         links: {
             defaultValue: [],
             control: {
                 type: "array",
             },
         },
-        selectedLink: {
-            defaultValue: 0,
+        activeLink: {
+            defaultValue: "",
             control: {
-                type: "number",
+                type: "text",
             },
         },
+        href: {
+            defaultValue: "",
+            control: { type: "text" },
+        },
     },
-} as ComponentMeta<typeof Nav.Navbar>;
+} as ComponentMeta<typeof Navbar>;
 
 // Create a master template for mapping args to render the Navbar component
-const Template: Story<
-    NavbarProps & {
-        selectedLink: number;
-        links: string[];
-        linksPosition: NavLinksProps["position"];
-    }
-> = (args) => (
-    <Nav.Navbar {...args}>
-        <Nav.HeaderSiteSwitcher href="#" />
-        <Nav.NavLinks position={args.linksPosition}>
-            {args.links.map((link: string, index) => (
-                <Nav.NavLink selected={index === args.selectedLink} key={link}>
-                    {link}
-                </Nav.NavLink>
-            ))}
-        </Nav.NavLinks>
-    </Nav.Navbar>
-);
+const Template: Story<NavbarProps> = (args) => <Navbar {...args}></Navbar>;
 
-export const WithDropdown = Template.bind({});
-WithDropdown.args = {
-    children: (
-        <>
-            <Nav.HeaderSiteSwitcher />
-        </>
-    ),
-};
+export const Default = Template.bind({});
+Default.args = {};
 
 export const WithLinks = Template.bind({});
 WithLinks.args = {
     links: ["Link 1", "Link 2", "Link 3"],
-    selectedLink: 0,
+    activeLink: "Link 1",
+};
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
+    links: ["Buy", "Sell", "Stake"],
+    activeLink: "Sell",
     children: (
-        <>
-            <Nav.HeaderSiteSwitcher />
-        </>
+        <Button variant="alert" size="small">
+            Connect Wallet
+        </Button>
     ),
 };
