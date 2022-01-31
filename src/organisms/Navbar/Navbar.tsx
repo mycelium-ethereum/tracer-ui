@@ -1,10 +1,11 @@
 // Generated with util/create-component.js
 import React from "react";
-import { device } from "../..//helpers";
+import { device } from "../../helpers";
 import styled from "styled-components";
 import { List } from "../../atoms";
 import { NavbarProps } from ".";
 import HeaderSiteSwitcher from "./HeaderSiteSwitcher";
+import navBg from "./nav-bg.png";
 
 const Navbar: React.FC<NavbarProps> = ({
     children,
@@ -65,12 +66,11 @@ const NavbarContent = styled.nav`
 const NavbarBackground = styled.div`
     position: relative;
     background: ${({ theme }) => {
-        console.log(theme);
         return theme.isDark ? "#111928" : "#00007A";
     }};
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("/general/nav-bg.svg");
+    background-image: url(${navBg});
 `;
 
 const NavLinks = styled(List)`
