@@ -1,6 +1,6 @@
 {
     "name": "@tracer-protocol/tracer-ui",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "main": "build/index.js",
     "module": "build/index.esm.js",
     "files": [
