@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React, { useState } from "react";
-import styled from 'styled-components';
-import { DropdownProps } from './Dropdown.types';
+import styled from "styled-components";
+import { DropdownProps } from "./Dropdown.types";
 
 const DropdownItems = styled.div`
     position: relative;
@@ -9,7 +9,7 @@ const DropdownItems = styled.div`
     opacity: 0;
     max-height: 0px;
     transition: max-height 0.6s ease;
-`
+`;
 
 const DropdownItem = styled.div`
     cursor: pointer;
@@ -23,7 +23,7 @@ const DropdownItem = styled.div`
         color: white;
         background: #3a4143;
     }
-`
+`;
 
 const DropdownPreview = styled.div`
     color: black;
@@ -38,7 +38,7 @@ const DropdownPreview = styled.div`
     }
     &:after {
         content: "";
-        transition: all .3s;
+        transition: all 0.3s;
         border: solid black;
         border-width: 0 1px 1px 0;
         float: right;
@@ -48,7 +48,7 @@ const DropdownPreview = styled.div`
         transform: rotate(-135deg);
         -webkit-transform: rotate(-135deg);
     }
-`
+`;
 
 const Dropdown = styled.div`
     position: relative;
@@ -62,7 +62,7 @@ const Dropdown = styled.div`
     &.active {
         ${DropdownPreview} {
             &:after {
-                margin-top:1px;
+                margin-top: 1px;
                 transform: rotate(45deg);
                 -webkit-transform: rotate(45deg);
             }
@@ -76,21 +76,23 @@ const Dropdown = styled.div`
             transition: max-height 0.7s, opacity 2s, visibility 3s ease;
         }
     }
-`
+`;
 export const ControlledDropdown: React.FC<DropdownProps> = ({ children }) => {
-    const [ open, setOpen ] = useState(false);
+    const [open, setOpen] = useState(false);
     return (
-        <Dropdown className={open ? 'active' : ''} onClick={() => setOpen(!open)}>
+        <Dropdown
+            className={open ? "active" : ""}
+            onClick={() => setOpen(!open)}
+        >
             {children}
-      </Dropdown>
+        </Dropdown>
     );
-}
+};
 
-export default ({
+export default {
     Dropdown,
     DropdownItem,
     DropdownItems,
     DropdownPreview,
-    ControlledDropdown
-});
-
+    ControlledDropdown,
+};
