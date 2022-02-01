@@ -15,7 +15,7 @@ const NavDropdownOption = styled(({ href, label, boxColor, className }) => (
     </a>
 ))<NavDropdownOptionProps>`
     display: flex;
-    width: fit-content;
+    width: auto;
     padding-right: 0.5rem;
     margin-bottom: 1.5rem;
     transition: 0.3s;

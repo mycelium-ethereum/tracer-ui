@@ -40,7 +40,7 @@ const DropdownContent = styled.div`
     margin: 1rem 0;
     opacity: 0;
     transition: 0.3s;
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
 `;
 
 const Icons = styled.div`
@@ -88,7 +88,7 @@ const Dropdown = styled.div`
     box-sizing: border-box;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 700ms;
+    transition-duration: 300ms;
     width: 350px;
     padding: 0 1rem;
     top: 3rem;
@@ -104,7 +104,7 @@ const Dropdown = styled.div`
     }
 `;
 
-const TCRLogo = styled(TracerLogo)`
+const LogoLink = styled.a`
     width: 6rem;
     height: auto;
     cursor: pointer;
@@ -154,9 +154,9 @@ const NavDropdown = styled(({ className, href }) => {
 
     return (
         <div id="site-switcher" className={className}>
-            <a href={href}>
-                <TCRLogo className="logo" />
-            </a>
+            <LogoLink href={href}>
+                <TracerLogo className="logo" />
+            </LogoLink>
             <Toggle
                 onClick={(e) => {
                     e.stopPropagation();
@@ -201,7 +201,9 @@ const NavDropdown = styled(({ className, href }) => {
                                     <Icon name={icon.logo} size="sm" />
                                 </span>
                                 <span>
-                                    <Text.Body>{icon.text}</Text.Body>
+                                    <Text.Body fontFamily="heading">
+                                        {icon.text}
+                                    </Text.Body>
                                 </span>
                             </ClickableIcon>
                         ))}

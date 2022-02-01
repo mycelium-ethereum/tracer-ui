@@ -10,13 +10,13 @@ const packageJson = require("./package.json");
 
 export default {
     plugins: [
-        svgr(),
         peerDepsExternal(),
         resolve(),
         commonjs(),
         typescript({ useTsconfigDeclarationDir: true }),
         css(),
-        image(),
+        image({ exclude: "**/*.svg" }),
+        svgr(),
     ],
     input: "src/index.ts",
     output: [
