@@ -106,6 +106,18 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                     border: 1px solid ${theme.colors.danger.text};
                 }
             `;
+            case "ghost":
+                return `
+                background-color: rgba(255, 255, 255, 0.1);
+                color: ${theme.colors.action.text};
+                border: 1px solid ${theme.colors.action.text};
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+                &:disabled {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+                `;
         }
     }}
 
@@ -124,13 +136,13 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     font-size: ${({ size }) => {
         switch (size) {
             case "small":
-                return "0.8rem";
+                return "14px";
             case "medium":
-                return "1rem";
+                return "16px";
             case "large":
-                return "1.2rem";
+                return "20px";
             default:
-                return "1rem";
+                return "16px";
         }
     }};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};

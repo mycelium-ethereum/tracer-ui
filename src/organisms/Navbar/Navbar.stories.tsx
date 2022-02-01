@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { NavbarProps } from "./Navbar.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { Button } from "../../atoms";
+import { NavDropdownButton } from "../../molecules";
 
 export default {
     title: "organisms/Navbar",
@@ -48,8 +48,21 @@ WithChildren.args = {
     links: ["Buy", "Sell", "Stake"],
     activeLink: "Sell",
     children: (
-        <Button variant="alert" size="small">
+        <NavDropdownButton
+            placement="bottom-end"
+            dropdownItems={[
+                {
+                    key: "arbitrum",
+                    content: "Arbitrum",
+                },
+                {
+                    key: "arb-rinkeby",
+                    content: "Arbitrum Rinkeby",
+                },
+            ]}
+            onItemClick={console.log}
+        >
             Connect Wallet
-        </Button>
+        </NavDropdownButton>
     ),
 };
