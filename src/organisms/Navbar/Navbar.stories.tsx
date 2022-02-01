@@ -60,7 +60,7 @@ WithChildren.args = {
                     content: "Arbitrum Rinkeby",
                 },
             ]}
-            onItemClick={() => {}}
+            onItemClick={console.log}
         >
             Connect Wallet
         </NavDropdownButton>

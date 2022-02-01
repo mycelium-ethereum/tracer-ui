@@ -1,7 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
 
 import { IconColor, IconProps } from "./Icon.types";
 import { tracerIcons } from "./iconsConfig";
