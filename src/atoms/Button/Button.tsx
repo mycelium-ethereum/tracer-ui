@@ -106,6 +106,18 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                     border: 1px solid ${theme.colors.danger.text};
                 }
             `;
+            case "ghost":
+                return `
+                background-color: rgba(255, 255, 255, 0.1);
+                color: ${theme.colors.action.text};
+                border: 1px solid ${theme.colors.action.text};
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+                &:disabled {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+                `;
         }
     }}
 
