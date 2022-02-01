@@ -7,7 +7,13 @@ import { IconColor, IconProps } from "./Icon.types";
 import { tracerIcons } from "./iconsConfig";
 import { useTheme } from "styled-components";
 
-const Icon = styled(({ name, size, color = "primary", className }) => {
+const Icon: React.FC<IconProps> = ({
+    name,
+    size,
+    color = "primary",
+    className,
+    id,
+}) => {
     const icon = tracerIcons[name];
     const theme = useTheme();
 
@@ -46,8 +52,9 @@ const Icon = styled(({ name, size, color = "primary", className }) => {
             color={resolveColor(color)}
             size={size}
             className={className}
+            id={id}
         />
     );
-})<IconProps>``;
+};
 
 export default Icon;

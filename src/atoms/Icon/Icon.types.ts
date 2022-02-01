@@ -7,6 +7,8 @@ export interface IconProps {
     name: keyof typeof tracerIcons;
     color?: IconColor;
     size?: SizeProp;
+    className?: string;
+    id?: string;
 }
 
 export type IconColor =

@@ -136,13 +136,13 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     font-size: ${({ size }) => {
         switch (size) {
             case "small":
-                return "0.8rem";
+                return "14px";
             case "medium":
-                return "1rem";
+                return "16px";
             case "large":
-                return "1.2rem";
+                return "20px";
             default:
-                return "1rem";
+                return "16px";
         }
     }};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};

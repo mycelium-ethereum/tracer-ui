@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React, { useState, useEffect } from "react";
-import { Icon, Text } from "../../atoms";
+import { Icon, IconProps, Text } from "../../atoms";
 import { NavDropdownOption } from "../../molecules/NavDropdownOption";
 import TracerLogo from "../../assets/tracer_logo.svg";
 import styled from "styled-components";
@@ -63,7 +63,7 @@ const ClickableIcon = styled.a`
         color: #fff;
         margin-left: 0.25rem;
     }
-    ${Icon} {
+    ${styled(Icon)} {
         color: #fff;
     }
 `;
@@ -118,12 +118,12 @@ const Toggle = styled.div`
     cursor: pointer;
     color: #fff;
 
-    ${Icon} {
+    ${styled(Icon)} {
         transition: 0.3s;
         margin-bottom: 0.1rem;
     }
 
-    ${Icon}.open {
+    ${styled(Icon)}.open {
         transform: rotate(180deg);
     }
 `;
@@ -198,7 +198,10 @@ const NavDropdown = styled(({ className, href }) => {
                                 key={i}
                             >
                                 <span>
-                                    <Icon name={icon.logo} size="sm" />
+                                    <Icon
+                                        name={icon.logo as IconProps["name"]}
+                                        size="sm"
+                                    />
                                 </span>
                                 <span>
                                     <Text.Body fontFamily="heading">
