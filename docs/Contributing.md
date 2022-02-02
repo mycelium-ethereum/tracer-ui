@@ -19,6 +19,7 @@ To submit your changes, make a pull request into `master` from your branch or fo
 ## Notes
 
 - We write in TypeScript
+- Storybook improvements are welcome!
 
 # Other Resources
 

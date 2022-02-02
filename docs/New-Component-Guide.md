@@ -2,6 +2,10 @@
 
 This document contains information related to creating a new component for the library.
 
+## Figma
+
+Any new components should be designed in Figma first by the Tracer design team to ensure there is visual consistency
+
 ## Atomic Design
 
 We follow [atomic design principles](https://bradfrost.com/blog/post/atomic-web-design/) in this component library, based on the following structure:
