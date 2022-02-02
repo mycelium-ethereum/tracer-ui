@@ -1,3 +1,7 @@
 html, body {
     font-family: sans-serif;
 }
+
+#root {
+    /* min-width: 300px; */
+}

@@ -3,12 +3,25 @@ import React from "react";
 import List from "./List";
 import { ListProps } from "./List.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import styled from "styled-components";
+import { Card } from "..";
 
 export default {
     title: "atoms/List",
     component: List,
-    argTypes: {},
+    argTypes: {
+        separator: {
+            control: {
+                type: "boolean",
+            },
+            defaultValue: false,
+        },
+        itemPadding: {
+            control: {
+                type: "text",
+            },
+            defaultValue: "0",
+        },
+    },
 } as ComponentMeta<typeof List>;
 
 // Create a master template for mapping args to render the List component
@@ -18,19 +31,17 @@ const Template: Story<ListProps> = (args) => {
         listItems.push(`Item number ${i}`);
     }
     return (
-        <List {...args}>
-            {listItems.map((item, idx) => (
-                <ListItem key={idx}>{item}</ListItem>
-            ))}
-        </List>
+        <div style={{ width: "500px" }}>
+            <Card padding="none">
+                <List {...args}>
+                    {listItems.map((item) => (
+                        <span key={item}>{item}</span>
+                    ))}
+                </List>
+            </Card>
+        </div>
     );
 };
-
-const ListItem = styled.span`
-    display: block;
-    color: ${(props) => props.theme.colors.text.active};
-    padding: 0.5rem;
-`;
 
 export const Default = Template.bind({});
 
@@ -39,7 +50,8 @@ Separator.args = {
     separator: true,
 };
 
-export const Checkered = Template.bind({});
-Checkered.args = {
-    checkered: true,
+export const Padding = Template.bind({});
+Padding.args = {
+    itemPadding: "10px",
+    separator: true,
 };

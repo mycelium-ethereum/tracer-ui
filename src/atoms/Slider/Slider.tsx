@@ -1,20 +1,32 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 import { SliderProps } from "./Slider.types";
 
-const Slider: React.FC<SliderProps> = ({ value, min, max, step, onChange }) => (
-    <div data-testid="slider">
-        <StyledSlider
-            type="range"
-            value={value}
-            min={min}
-            max={max}
-            step={step}
-            onChange={(ev) => onChange(Number(ev.target.value))}
-        />
-    </div>
+const Slider: React.FC<SliderProps> = ({
+    value,
+    min = 0,
+    max = 100,
+    step = 1,
+    onChange,
+    onChangeNumber,
+    ...rest
+}) => (
+    <StyledSlider
+        {...(rest as StyledComponent<"input", DefaultTheme, {}, never>)}
+        data-testid="slider"
+        type="range"
+        value={value}
+        min={min}
+        max={max}
+        step={step}
+        onChange={(ev) => {
+            ev.persist();
+            onChange && onChange(ev);
+            onChangeNumber && onChangeNumber(Number(ev.target.value));
+        }}
+    />
 );
 
 export default Slider;
@@ -26,10 +38,10 @@ const StyledSlider = styled.input`
             ((Number(value) - Number(min)) / (Number(max) - Number(min))) * 100;
         return `linear-gradient(
             to right, 
-            ${props.theme.colors.action.inactive} 0%, 
-            ${props.theme.colors.action.inactive} ${percent}%, 
-            ${props.theme.colors.cell.highlight} ${percent}%, 
-            ${props.theme.colors.cell.highlight} 100%
+            ${props.theme.colors.action.active} 0%, 
+            ${props.theme.colors.action.active} ${percent}%, 
+            ${props.theme.colors.focus.active} ${percent}%, 
+            ${props.theme.colors.focus.active} 100%
         )`;
     }};
     border-radius: 8px;
@@ -41,7 +53,7 @@ const StyledSlider = styled.input`
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        background: ${(props) => props.theme.colors.action.active};
+        background: ${(props) => props.theme.colors.action.hover};
         border: none;
         border-radius: 50%;
         height: 10px;
@@ -50,7 +62,7 @@ const StyledSlider = styled.input`
         cursor: pointer;
     }
     &::-moz-range-thumb {
-        background: ${(props) => props.theme.colors.action.active};
+        background: ${(props) => props.theme.colors.action.hover};
         border: none;
         border-radius: 50%;
         height: 10px;

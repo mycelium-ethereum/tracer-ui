@@ -3,6 +3,7 @@ import React from "react";
 import Button from "./Button";
 import { ButtonProps } from "./Button.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { Text } from "../";
 
 export default {
     title: "atoms/Button",
@@ -24,10 +25,10 @@ export default {
             },
         },
         variant: {
-            defaultValue: "primary",
+            defaultValue: "action",
             control: {
                 type: "select",
-                options: ["primary", "secondary", "ghost"],
+                options: ["action", "focus", "alert", "danger", "ghost"],
             },
         },
     },
@@ -37,19 +38,59 @@ export default {
 const Template: Story<ButtonProps> = (args) => <Button {...args}></Button>;
 
 // Reuse that template for creating different stories
-export const Primary = Template.bind({});
-Primary.args = {
-    children: "Primary Button",
-    variant: "primary",
+export const Action = Template.bind({});
+Action.args = {
+    children: "Action Button",
+    variant: "action",
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-    children: "Secondary Button",
-    variant: "secondary",
+export const ActionDisabled = Template.bind({});
+ActionDisabled.args = {
+    children: "Action Button",
+    variant: "action",
+    disabled: true,
 };
 
-export const Ghost = Template.bind({});
+export const Focus = Template.bind({});
+Focus.args = {
+    children: "Focus Button",
+    variant: "focus",
+};
+
+export const FocusDisabled = Template.bind({});
+FocusDisabled.args = {
+    children: "Focus Button",
+    variant: "focus",
+    disabled: true,
+};
+
+export const Alert = Template.bind({});
+Alert.args = {
+    children: "Alert Button",
+    variant: "alert",
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+    children: "Danger Button",
+    variant: "danger",
+};
+
+export const Ghost: Story<ButtonProps> = (args) => (
+    <>
+        <Text.Body>Meant for use against dark backgrounds</Text.Body>
+        <div
+            style={{
+                backgroundColor: "darkblue",
+                padding: "20px",
+                display: "flex",
+                justifyContent: "center",
+            }}
+        >
+            <Button {...args}></Button>
+        </div>
+    </>
+);
 Ghost.args = {
     children: "Ghost Button",
     variant: "ghost",

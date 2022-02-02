@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Alert from "./Alert";
-import { AlertProps } from "./Alert.types";
+import TCRBox from "./TCRBox";
+import { TCRBoxProps } from "./TCRBox.types";
 
 describe("Test Component", () => {
-    let props: AlertProps;
+    let props: TCRBoxProps;
 
     beforeEach(() => {
         props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
         };
     });
 
-    const renderComponent = () => render(<Alert {...props} />);
+    const renderComponent = () => render(<TCRBox {...props} />);
 
     it("should render foo text correctly", () => {
         props.foo = "harvey was here";
         const { getByTestId } = renderComponent();
 
-        const component = getByTestId("Alert");
+        const component = getByTestId("TCRBox");
 
         expect(component).toHaveTextContent("harvey was here");
     });

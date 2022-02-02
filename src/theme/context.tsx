@@ -4,6 +4,7 @@ import {
     ThemeProvider as StyledComponentsThemeProvider,
     ThemeContext,
 } from "styled-components";
+import "./global.css";
 
 interface ThemeProviderProps {
     isDark?: boolean;

@@ -3,6 +3,7 @@ import React from "react";
 import Card from "./Card";
 import { CardProps } from "./Card.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { Text } from "../";
 
 export default {
     title: "atoms/Card",
@@ -25,15 +26,10 @@ export default {
             defaultValue: false,
             description: "If true, the card will have a square border.",
         },
-        shadow: {
-            control: { type: "boolean" },
-            defaultValue: false,
-            description: "If true, the card will have a shadow.",
-        },
         padding: {
             control: {
                 type: "select",
-                options: ["sm", "md", "lg"],
+                options: ["none", "sm", "md", "lg"],
             },
             defaultValue: "md",
             description: "The padding of the card.",
@@ -46,10 +42,17 @@ export default {
         color: {
             control: {
                 type: "select",
-                options: ["active", "highlight"],
+                options: ["primary", "secondary", "tertiary"],
             },
-            defaultValue: "active",
+            defaultValue: "primary",
             description: "The color of the card.",
+        },
+        shadow: {
+            control: {
+                type: "select",
+                options: ["sm", "md", "lg", "none"],
+            },
+            defaultValue: "sm",
         },
     },
     parameters: {
@@ -66,31 +69,34 @@ export default {
 
 const Template: Story<CardProps> = (args) => (
     <Card {...args}>
-        <h1>Card Title</h1>
-        <p>
+        <Text.Title>Card Title</Text.Title>
+        <Text.Body>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga
             provident distinctio temporibus maxime vitae cupiditate inventore
             repellat numquam, incidunt esse quam pariatur saepe iusto minima
             architecto, at sint earum.
-        </p>
+        </Text.Body>
     </Card>
 );
 
-export const Default = Template.bind({});
-
-export const Highlight = Template.bind({});
-Highlight.args = {
-    color: "highlight",
+export const Primary = Template.bind({});
+Primary.args = {
+    color: "primary",
 };
 
-export const Shadow = Template.bind({});
-Shadow.args = {
-    shadow: true,
+export const Secondary = Template.bind({});
+Secondary.args = {
+    color: "secondary",
+};
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+    color: "tertiary",
 };
 
 export const HalfWidth = Template.bind({});
 HalfWidth.args = {
-    maxWidth: "500px",
+    maxWidth: "50%",
 };
 
 export const FluidAndSquare = Template.bind({});
@@ -99,32 +105,33 @@ FluidAndSquare.args = {
     square: true,
 };
 
-export const SmallPadding = Template.bind({});
-SmallPadding.args = {
-    padding: "sm",
+export const NoPadding = Template.bind({});
+NoPadding.args = {
+    padding: "none",
+    shadow: true,
 };
 
 export const NestedCard: Story<CardProps> = (args) => (
     <Card>
-        <h1>Card Title</h1>
-        <p>
+        <Text.Title>Card Title</Text.Title>
+        <Text.Body>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi,
             tempore. Adipisci amet ipsa at reiciendis distinctio quam eius
             delectus soluta architecto esse est quibusdam, quaerat officiis
             fugiat neque impedit! Vero!
-        </p>
+        </Text.Body>
 
         <Card {...args}>
-            <h2>Card Subtitle</h2>
-            <p>
+            <Text.Subtitle>Card Subtitle</Text.Subtitle>
+            <Text.Body>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quis.
-            </p>
+            </Text.Body>
         </Card>
     </Card>
 );
 NestedCard.args = {
-    color: "highlight",
+    color: "tertiary",
     padding: "sm",
     fluid: true,
 };

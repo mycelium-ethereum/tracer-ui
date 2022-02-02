@@ -1,29 +1,55 @@
 export interface TracerTheme {
     isDark: boolean;
     colors: {
-        branding: {
+        cell: {
+            background: string;
             primary: string;
             secondary: string;
+            tertiary: string;
+            stroke: string;
+        };
+        focus: {
+            active: string;
+            inactive: string;
             text: string;
+            hover: string;
+            reverse: string;
+        };
+        text: {
+            primary: string;
+            secondary: string;
+            tertiary: string;
+            footnote: string;
+            highlight: string;
         };
         action: {
             active: string;
             inactive: string;
             hover: string;
             text: string;
+            reverse: string;
         };
-        cell: {
-            background: string;
+        alert: {
+            hover: string;
             active: string;
-            inactive: string;
-            highlight: string;
-            border: string;
+            text: string;
+            cell: string;
         };
-        text: {
+        danger: {
+            hover: string;
             active: string;
-            inactive: string;
-            highlight: string;
+            text: string;
+            cell: string;
         };
+        success: {
+            hover: string;
+            active: string;
+            text: string;
+        };
+    };
+    fontFamily: {
+        body: string;
+        heading: string;
     };
 }
 
@@ -31,56 +57,60 @@ export const lightTheme: TracerTheme = {
     isDark: false,
     colors: {
         cell: {
-            background: "#F9FAFB",
-            active: "#FFFFFF",
-            inactive: "#FFFFFF",
-            highlight: "#F3F4F6",
-            border: "#D1D5DB",
-        },
-        text: {
-            active: "#384051",
-            inactive: "#9DA2AF",
-            highlight: "#53A6F6",
+            background: "#F9FAFA",
+            primary: "#FFFFFF",
+            secondary: "#F9FAFA",
+            tertiary: "#E7ECF0",
+            stroke: "#7D8795",
         },
         action: {
-            active: "#1500BF",
-            inactive: "#8281E0",
-            hover: "#7467E7",
+            active: "#1C64F2",
+            inactive: "#C8DCFA",
+            hover: "#3535DC",
             text: "#FFFFFF",
+            reverse: "#B0CFFE",
         },
-        branding: {
-            primary: "#100095",
-            secondary: "#08007B",
-            text: "#FFFFFF",
+        focus: {
+            active: "#D6DFE6",
+            inactive: "#F1F6FA",
+            text: "#192130",
+            hover: "#C7D0D7",
+            reverse: "#E2E8ED",
         },
+        text: {
+            primary: "#192130",
+            secondary: "#4B5563",
+            tertiary: "#7D8795",
+            footnote: "#D6DFE6",
+            highlight: "#1C64F2",
+        },
+
+        alert: {
+            hover: "#FF700B",
+            active: "#FF931E",
+            text: "#FF931E",
+            cell: "#FFF1E2",
+        },
+        danger: {
+            hover: "#FF2A21",
+            active: "#FF5621",
+            text: "#FF5621",
+            cell: "#FFE0D7",
+        },
+        success: {
+            hover: "#4FC423",
+            active: "#4FE021",
+            text: "#4FE021",
+        },
+    },
+    fontFamily: {
+        body: "'Inter', sans-serif",
+        heading: "'Source Sans Pro', sans-serif",
     },
 };
 
+// TODO: Add dark theme
 export const darkTheme: TracerTheme = {
+    ...lightTheme,
     isDark: true,
-    colors: {
-        cell: {
-            active: "#121828",
-            background: "#1C2336",
-            inactive: "#1D2634",
-            highlight: "#384051",
-            border: "#6C727F",
-        },
-        text: {
-            active: "#FAFAFA",
-            inactive: "#D1D5DB",
-            highlight: "#4DA3F6",
-        },
-        action: {
-            active: "#3C0ADE",
-            inactive: "#261A83",
-            hover: "#2F18A7",
-            text: "#FFFFFF",
-        },
-        branding: {
-            primary: "#161554",
-            secondary: "#080C14",
-            text: "#FFFFFF",
-        },
-    },
 };
