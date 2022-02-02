@@ -28,7 +28,6 @@ These commands will generate the following files in the directory that correspon
 
 - `index.ts` A top level export
 - `[ComponentName].stories.tsx` The storybook configuration file
-- `[ComponentName].test.tsx` The test file
 - `[ComponentName].tsx` The component source code
 - `[ComponentName].types.ts` The component typedef file
 
