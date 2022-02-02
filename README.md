@@ -4,13 +4,13 @@
 
 This codebase exists as the component library for the Tracer ecosystem. All components in this library are built based on Atomic Design principles, and published as an npm package.
 
-## [Contribution Guide](./docs/Contributing.md)
+### [Contribution Guide](./docs/Contributing.md)
 
 ## Getting Started
 
 ### Installation
 
-To use this package in a web app, install the npm package:
+To use this package in a React app, install the npm package:
 
 ```
 npm install @tracer-protocol/tracer-ui
