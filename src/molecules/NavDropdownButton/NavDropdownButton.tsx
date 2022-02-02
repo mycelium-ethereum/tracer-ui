@@ -51,29 +51,30 @@ const NavDropdownButton: React.FC<NavDropdownButtonProps> = ({
     );
 
     return (
-        <Popover
-            content={DropdownContent}
-            isOpen={isOpen}
-            placement={placement || "bottom"}
-        >
-            <div ref={buttonRef}>
-                <Button
-                    variant="ghost"
-                    size="small"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <span>
-                        {children}
-                        &nbsp;&nbsp;
-                        <ButtonIcon
-                            isOpen={isOpen}
-                            name="chevronDown"
-                            color="action-text"
-                        />
-                    </span>
-                </Button>
-            </div>
-        </Popover>
+        <div>
+            <Popover
+                content={DropdownContent}
+                isOpen={isOpen}
+                placement={placement || "bottom"}
+            >
+                <div ref={buttonRef}>
+                    <Button
+                        variant="ghost"
+                        size="small"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <ButtonContent>
+                            {children}
+                            <ButtonIcon
+                                isOpen={isOpen}
+                                name="chevronDown"
+                                color="action-text"
+                            />
+                        </ButtonContent>
+                    </Button>
+                </div>
+            </Popover>
+        </div>
     );
 };
 
@@ -100,4 +101,9 @@ const ButtonIcon = styled(Icon)<{ isOpen: boolean }>`
     margin-left: 0.5rem;
     transition: 0.2s ease-in-out;
     transform: ${(props) => (props.isOpen ? "rotate(180deg)" : "rotate(0deg)")};
+`;
+
+const ButtonContent = styled.span`
+    display: flex;
+    align-items: center;
 `;
