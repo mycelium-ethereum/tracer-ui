@@ -1,45 +1,64 @@
 # Tracer UI Component Library
 
-## Development
+## Overview
 
-### Testing
+This codebase exists as the component library for the Tracer ecosystem. All components in this library are built based on Atomic Design principles, and published as an npm package.
 
-```
-npm run test
-```
+### [Contribution Guide](./docs/Contributing.md)
 
-### Building
+## Getting Started
 
-```
-npm run build
-```
+### Installation
 
-### Storybook
-
-To run a live-reload Storybook server on your local machine:
+To use this package in a React app, install the npm package:
 
 ```
-npm run storybook
+npm install @tracer-protocol/tracer-ui
 ```
 
-To export your Storybook as static files:
+Or with yarn:
 
 ```
-npm run storybook:export
+yarn add @tracer-protocol/tracer-ui
 ```
 
-You can then serve the files under `storybook-static` using S3, GitHub pages, Express etc. I've hosted this library at: https://www.harveydelaney.com/react-component-library
+### Tracer Theme
+#### Setup
 
-### Generating New Components
-
-Follow [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
-
-## Publishing
-
-First, make sure you have an NPM account and are [logged into NPM using the `npm login` command.](https://docs.npmjs.com/creating-a-new-npm-user-account)
-
-Then update the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
+All of these components are built with the [styled-components](https://styled-components.com/) library, and use a global theme, which needs to be added to your app.  At the top level of your React app, add the theme provider.
 
 ```
-npm publish
+import { ThemeProvider } from "@tracer-protocol/tracer-ui";
+
+const MyApp = () => {
+    return (
+        <ThemeProvider>
+            // The rest of your app
+        </ThemeProvider>
+    )
+}
+
 ```
+
+If you are using styled components, this will also give you access to the Tracer theme to use in your components.
+
+```
+const MyStyledComponent = styled.div`
+  color: ${(props) => props.theme.colors.text.primary};
+  font-family: ${(props)  => props.theme.fontFamily.heading};
+`;
+```
+
+#### TypeScript
+
+To get TypeScript to recognize the Tracer theme, add the module to your type declaration file:
+```
+// global.d.ts
+import "styled-components";
+import { TracerTheme } from "@tracer-protocol/tracer-ui";
+
+declare module "styled-components" {
+    export interface DefaultTheme extends TracerTheme {}
+}
+```
+
