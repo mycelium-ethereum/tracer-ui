@@ -19,9 +19,9 @@ We follow [atomic design principles](https://bradfrost.com/blog/post/atomic-web-
 Each component type can be generated with a yarn command:
 
 ```
-yarn generate-atom [componentName]
-yarn generate-molecule [componentName]
-yarn generate-organism [componentName]
+yarn generate-atom [ComponentName]
+yarn generate-molecule [ComponentName]
+yarn generate-organism [ComponentName]
 ```
 
 These commands will generate the following files in the directory that corresponds to their position in the component hierarchy.
