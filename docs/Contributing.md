@@ -1,6 +1,6 @@
 # Contributing to Tracer UI Library
 
-First off, *thank you* for considering contributing to the Tracer UI Library.  We want Tracer to be a community built ecosystem, which isn't possible without people like you
+First off, *thank you* for considering contributing to the Tracer UI Library.  We want Tracer to be a community built ecosystem, which isn't possible without people like you.
 
 Second, we'd like the contribution experience to be as good as possible. If you have any feedback on your experience, please let us know.
 
