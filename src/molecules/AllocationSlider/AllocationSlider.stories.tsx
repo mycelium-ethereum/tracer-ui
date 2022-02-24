@@ -31,7 +31,10 @@ export default {
             defaultValue: "TKN",
         },
         tokenImageSrc: {
-            control: false,
+            control: {
+                type: "text",
+            },
+            defaultValue: "",
         },
         isLocked: {
             control: {
@@ -64,7 +67,6 @@ const Template: Story<AllocationSliderProps> = ({
                     onClickLock();
                     updateArgs({ isLocked: !isLocked });
                 }}
-                tokenImageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png"
             ></AllocationSlider>
         </div>
     );
@@ -75,10 +77,14 @@ export const Unlocked = Template.bind({});
 Unlocked.args = {
     isLocked: false,
     percentage: 25,
+    tokenImageSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png",
 };
 
 export const Locked = Template.bind({});
 Locked.args = {
     isLocked: true,
     percentage: 75,
+    tokenImageSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png",
 };
