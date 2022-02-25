@@ -13,6 +13,8 @@ const Select: React.FC<SelectProps> = ({
     form,
     name,
     onChange,
+    className,
+    emptyText,
 }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const selectBoxRef = React.useRef<HTMLDivElement>(null);
@@ -37,8 +39,13 @@ const Select: React.FC<SelectProps> = ({
     };
 
     const DropdownContent = (
-        <DropdownCard width={selectBoxRef?.current?.offsetWidth}>
+        <DropdownCard minWidth={selectBoxRef?.current?.offsetWidth}>
             <List separator>
+                {(() => {
+                    if (options.length === 0 && emptyText) {
+                        return <EmptyText>{emptyText}</EmptyText>;
+                    }
+                })()}
                 {options.map((option) => (
                     <ListItem
                         key={option.value}
@@ -58,7 +65,7 @@ const Select: React.FC<SelectProps> = ({
         </DropdownCard>
     );
     return (
-        <Container>
+        <Container className={className}>
             <Popover
                 content={DropdownContent}
                 isOpen={isOpen}
@@ -136,12 +143,12 @@ const IconBox = styled.div`
 `;
 
 type DropdownCardProps = {
-    width: number;
+    minWidth: number;
 };
 
 const DropdownCard = styled.div<DropdownCardProps>`
     max-height: 300px;
-    width: ${({ width }) => width}px;
+    min-width: ${({ minWidth }) => minWidth}px;
     overflow-y: auto;
     border-radius: 0 0 16px 16px;
     background-color: ${({ theme }) => theme.colors.cell.primary};
@@ -156,4 +163,12 @@ const ListItem = styled.div`
     &:hover {
         background-color: ${({ theme }) => theme.colors.cell.secondary};
     }
+`;
+
+const EmptyText = styled.div`
+    background-color: ${({ theme }) => theme.colors.cell.primary};
+    padding: 16px;
+    text-align: center;
+    font-family: ${({ theme }) => theme.fontFamily.body};
+    color: ${({ theme }) => theme.colors.text.tertiary};
 `;
