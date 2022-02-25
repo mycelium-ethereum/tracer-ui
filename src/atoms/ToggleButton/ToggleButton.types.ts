@@ -9,4 +9,5 @@ export interface ToggleButtonProps {
     form?: string;
     defaultChecked?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    className?: string;
 }

@@ -6,4 +6,5 @@ export interface CheckboxProps {
     form?: string;
     defaultChecked?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    className?: string;
 }
