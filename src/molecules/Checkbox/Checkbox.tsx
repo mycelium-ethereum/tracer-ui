@@ -13,8 +13,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
     defaultChecked,
     form,
     name,
+    className,
 }) => (
-    <Container data-test-id="checkbox" disabled={disabled}>
+    <Container
+        data-test-id="checkbox"
+        disabled={disabled}
+        className={className}
+    >
         <input
             type="checkbox"
             checked={checked}

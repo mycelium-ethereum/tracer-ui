@@ -13,12 +13,14 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     form,
     name,
     onChange,
+    className,
 }) => (
     <StyledToggleButton
         buttonSize={size || "medium"}
         checked={checked}
         disabled={disabled}
         form={form}
+        className={className}
     >
         <input
             type="checkbox"

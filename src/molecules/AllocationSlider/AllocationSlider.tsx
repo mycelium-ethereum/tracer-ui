@@ -25,7 +25,7 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
     return (
         <Container data-testid="AllocationSlider">
             <InfoRow>
-                <TokenImage src={tokenImageSrc} />
+                {tokenImageSrc && <TokenImage src={tokenImageSrc} />}
                 <NameAndSymbol>
                     <Text.Body variant="bold">{tokenName}</Text.Body>
                     <Text.Footer>{tokenSymbol}</Text.Footer>

@@ -11,6 +11,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             variant={props.variant || "primary"}
             textAlign={props.textAlign || "left"}
             form={props.form}
+            className={props.className}
         >
             {props.leftSlot ? <LeftSlot>{props.leftSlot}</LeftSlot> : null}
             <StyledInput

@@ -10,6 +10,7 @@ import { Text } from "../../atoms";
 const { Footer } = Text;
 
 const optionOptions: Record<string, SelectOption[]> = {
+    empty: [],
     collateral: [
         {
             title: "Ethereum",
@@ -115,6 +116,10 @@ export default {
             control: false,
             description: "The function to call when the select changes",
         },
+        emptyText: {
+            control: "text",
+            defaultValue: "No options available",
+        },
     },
 } as ComponentMeta<typeof Select>;
 
@@ -158,4 +163,9 @@ Disabled.args = {
 export const LongList = Template.bind({});
 LongList.args = {
     options: "longList",
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+    options: "empty",
 };

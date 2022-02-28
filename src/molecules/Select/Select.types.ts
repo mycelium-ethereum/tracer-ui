@@ -15,4 +15,6 @@ export interface SelectProps {
     name?: string;
     form?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    className?: string;
+    emptyText?: string;
 }
