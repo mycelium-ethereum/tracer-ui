@@ -63,9 +63,11 @@ const ClickableIcon = styled.a`
         color: #fff;
         margin-left: 0.25rem;
     }
-    ${styled(Icon)} {
-        color: #fff;
-    }
+`;
+
+const SocialIcon = styled(Icon)`
+    color: #fff;
+    margin-right: 0.5rem;
 `;
 
 const Backdrop = styled.div`
@@ -117,13 +119,13 @@ const Toggle = styled.div`
     justify-content: center;
     cursor: pointer;
     color: #fff;
+`;
 
-    ${styled(Icon)} {
-        transition: 0.3s;
-        margin-bottom: 0.1rem;
-    }
+const SpinningIcon = styled(Icon)`
+    transition: 0.3s;
+    margin-bottom: 0.1rem;
 
-    ${styled(Icon)}.open {
+    &.open {
         transform: rotate(180deg);
     }
 `;
@@ -163,7 +165,7 @@ const NavDropdown = styled(({ className, href }) => {
                     setOpen(!open);
                 }}
             >
-                <Icon
+                <SpinningIcon
                     id="toggle"
                     className={`${open ? "open" : ""}`}
                     name="chevronDown"
@@ -198,7 +200,7 @@ const NavDropdown = styled(({ className, href }) => {
                                 key={i}
                             >
                                 <span>
-                                    <Icon
+                                    <SocialIcon
                                         name={icon.logo as IconProps["name"]}
                                         size="sm"
                                     />
