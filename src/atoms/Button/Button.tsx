@@ -145,4 +145,6 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 `;
 
+Button.displayName = "Button";
+
 export default Button;
