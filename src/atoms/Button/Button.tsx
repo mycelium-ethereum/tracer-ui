@@ -4,22 +4,19 @@ import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 import { ButtonProps } from "./Button.types";
 
-const Button: React.FC<ButtonProps> = ({
-    children,
-    variant,
-    size,
-    fluid,
-    ...rest
-}) => (
-    <StyledButton
-        data-testid="button"
-        variant={variant}
-        size={size}
-        fluid={fluid}
-        {...(rest as StyledComponent<"button", DefaultTheme, {}, never>)}
-    >
-        {children}
-    </StyledButton>
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ children, variant, size, fluid, ...rest }, ref) => (
+        <StyledButton
+            data-testid="button"
+            variant={variant}
+            size={size}
+            fluid={fluid}
+            ref={ref}
+            {...(rest as StyledComponent<"button", DefaultTheme, {}, never>)}
+        >
+            {children}
+        </StyledButton>
+    ),
 );
 
 type StyledButtonProps = {
