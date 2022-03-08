@@ -8,6 +8,7 @@ import {
     faCheckCircle as faCheckCircleSolid,
     faChevronDown,
     faGlobeAmericas,
+    faExclamationCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -32,4 +33,5 @@ export const tracerIcons = {
     twitter: faTwitter,
     github: faGithub,
     web: faGlobeAmericas,
+    exclamationCircle: faExclamationCircle,
 };
