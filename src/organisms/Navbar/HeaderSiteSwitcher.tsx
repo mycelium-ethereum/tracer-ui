@@ -37,10 +37,8 @@ const icons = [
 
 const DropdownContent = styled.div`
     position: relative;
-    margin: 1rem 0;
     opacity: 0;
     transition: 0.3s;
-    transition-delay: 0.2s;
 `;
 
 const Icons = styled.div`
@@ -88,20 +86,22 @@ const Dropdown = styled.div`
     transform-origin: top left;
     z-index: 20;
     box-sizing: border-box;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-    width: 350px;
-    padding: 0 1rem;
+    transition all 0.5s ease;
+    width: 0;
+    height: 0;
     top: 3rem;
     left: 0;
-    transform: scale(0);
+    padding: 0;
 
     &.open {
-        transform: scale(1);
+        width: 350px;
+        height: 504px;
+        padding: 2rem;
 
         ${DropdownContent} {
             opacity: 1;
+            transition: opacity 0.5s ease;
+            transition-delay: 0.35s;
         }
     }
 `;
