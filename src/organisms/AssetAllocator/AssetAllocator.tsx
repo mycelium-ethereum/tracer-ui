@@ -16,6 +16,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
     allocations,
     onAllocationsChange,
     emptySearchText,
+    disabled,
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const searchBarRef = React.useRef<HTMLInputElement>(null);
@@ -207,11 +208,12 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                     value={search}
                     onChange={(e) => setSearch((e.target as any).value)} // eslint-disable-line
                     onFocus={() => openDropdown()}
+                    disabled={disabled}
                 />
             </Popover>
             <div style={{ height: "16px" }} />
             {allocations.length === 0 ? (
-                <EmptyCard fluid onClick={openDropdown}>
+                <EmptyCard fluid onClick={() => !disabled && openDropdown()}>
                     {emptyText}
                 </EmptyCard>
             ) : (
@@ -248,16 +250,17 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                                 </AssetContainer>
                             );
                         })}
-                        <FooterButtonContainer>
-                            <Button
+                        <Centered>
+                            <FooterButton
                                 size="small"
                                 variant="action"
                                 onClick={() => openDropdown()}
+                                disabled={disabled}
                             >
-                                <Icon name="plus" color="action-text" />
+                                <Icon name="plus" color="inherit" />
                                 &nbsp;{addButtonText}
-                            </Button>
-                        </FooterButtonContainer>
+                            </FooterButton>
+                        </Centered>
                     </List>
                 </Card>
             )}
@@ -286,11 +289,6 @@ const EmptyCard = styled(Card)`
 
 const AssetContainer = styled.div`
     padding: 24px;
-`;
-
-const FooterButtonContainer = styled.div`
-    margin: 19px auto;
-    width: 120px;
 `;
 
 type DropdownProps = {
@@ -322,4 +320,19 @@ const EmptySearchText = styled.div`
     font-size: 14px;
     padding: 16px;
     text-align: center;
+`;
+
+const Centered = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const FooterButton = styled(Button)`
+    margin: 19px;
+    width: 120px;
+    color: ${(props) =>
+        props.disabled
+            ? props.theme.colors.action.inactive
+            : props.theme.colors.action.text};
 `;
