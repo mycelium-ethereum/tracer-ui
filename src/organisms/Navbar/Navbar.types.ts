@@ -1,10 +1,11 @@
 // Generated with util/create-component.js
-export interface NavbarProps {
-    links: string[];
-    activeLink: string;
+export interface NavbarProps<Link extends string> {
+    links: Link[];
+    activeLink: Link;
     href: string;
-    onClickLink?: (link: string) => void;
-}
+    onClickLink?: (link: Link) => void;
+    children?: React.ReactNode;
+};
 
 export interface HeaderSiteSwitcherProps {
     className?: string;
