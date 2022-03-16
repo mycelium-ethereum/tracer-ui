@@ -32,7 +32,9 @@ export default {
 } as ComponentMeta<typeof Navbar>;
 
 // Create a master template for mapping args to render the Navbar component
-const Template: Story<NavbarProps<string>> = (args) => <Navbar {...args}></Navbar>;
+const Template: Story<NavbarProps<string>> = (args) => (
+    <Navbar {...args}></Navbar>
+);
 
 export const Default = Template.bind({});
 Default.args = {};

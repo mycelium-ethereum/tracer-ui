@@ -7,7 +7,7 @@ import { NavbarProps } from ".";
 import HeaderSiteSwitcher from "./HeaderSiteSwitcher";
 import navBg from "./nav-bg.png";
 
-const Navbar = <Link extends string,>({
+const Navbar = <Link extends string>({
     children,
     links,
     activeLink,

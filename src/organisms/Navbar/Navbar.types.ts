@@ -5,7 +5,7 @@ export interface NavbarProps<Link extends string> {
     href: string;
     onClickLink?: (link: Link) => void;
     children?: React.ReactNode;
-};
+}
 
 export interface HeaderSiteSwitcherProps {
     className?: string;
