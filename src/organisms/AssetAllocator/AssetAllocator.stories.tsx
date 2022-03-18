@@ -47,6 +47,12 @@ export default {
             },
             defaultValue: "No results found",
         },
+        addMarketDisabled: {
+            control: {
+                type: "boolean",
+            },
+            defaultValue: false,
+        },
     },
 } as ComponentMeta<typeof AssetAllocator>;
 

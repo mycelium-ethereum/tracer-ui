@@ -16,7 +16,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
     allocations,
     onAllocationsChange,
     emptySearchText,
-    disabled,
+    addMarketDisabled,
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const searchBarRef = React.useRef<HTMLInputElement>(null);
@@ -208,12 +208,15 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                     value={search}
                     onChange={(e) => setSearch((e.target as any).value)} // eslint-disable-line
                     onFocus={() => openDropdown()}
-                    disabled={disabled}
+                    disabled={addMarketDisabled}
                 />
             </Popover>
             <div style={{ height: "16px" }} />
             {allocations.length === 0 ? (
-                <EmptyCard fluid onClick={() => !disabled && openDropdown()}>
+                <EmptyCard
+                    fluid
+                    onClick={() => !addMarketDisabled && openDropdown()}
+                >
                     {emptyText}
                 </EmptyCard>
             ) : (
@@ -255,7 +258,7 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                                 size="small"
                                 variant="action"
                                 onClick={() => openDropdown()}
-                                disabled={disabled}
+                                disabled={addMarketDisabled}
                             >
                                 <Icon name="plus" color="inherit" />
                                 &nbsp;{addButtonText}
