@@ -7,19 +7,19 @@ import { NavbarProps } from ".";
 import HeaderSiteSwitcher from "./HeaderSiteSwitcher";
 import navBg from "./nav-bg.png";
 
-const Navbar: React.FC<NavbarProps> = ({
+const Navbar = <Link extends string>({
     children,
     links,
     activeLink,
     href,
     onClickLink,
-}) => {
+}: NavbarProps<Link>): JSX.Element => {
     return (
         <NavbarBackground>
             <NavbarContent>
                 <HeaderSiteSwitcher href={href} />
                 <NavLinks>
-                    {links.map((link: string) => (
+                    {links.map((link) => (
                         <NavLink
                             selected={link === activeLink}
                             key={link}
