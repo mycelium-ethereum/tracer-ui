@@ -20,4 +20,5 @@ export interface AssetAllocatorProps {
     searchText: string;
     emptyText: string;
     emptySearchText?: string;
+    addMarketDisabled?: boolean;
 }
