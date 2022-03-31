@@ -11,21 +11,24 @@ const Navbar = <Link extends string>({
     children,
     links,
     activeLink,
-    href,
+    homeHref,
     onClickLink,
 }: NavbarProps<Link>): JSX.Element => {
     return (
         <NavbarBackground>
             <NavbarContent>
-                <HeaderSiteSwitcher href={href} />
+                <HeaderSiteSwitcher href={homeHref} />
                 <NavLinks>
                     {links.map((link) => (
                         <NavLink
-                            selected={link === activeLink}
-                            key={link}
-                            onClick={() => onClickLink && onClickLink(link)}
+                            selected={link.href === activeLink}
+                            key={link.href}
+                            href={link.href}
+                            onClick={() =>
+                                onClickLink && onClickLink(link.href)
+                            }
                         >
-                            {link}
+                            {link.label}
                         </NavLink>
                     ))}
                 </NavLinks>
@@ -75,7 +78,6 @@ const NavbarBackground = styled.div`
 
 const NavLinks = styled(List)`
     display: flex;
-    color: #fff;
     width: auto;
     flex: 1;
 `;
@@ -88,10 +90,11 @@ const NavLink = styled.a.attrs<{
 }))<{ selected: boolean }>`
     display: flex;
     transition: 0.3s;
+    color: ${({ theme }) => theme.colors.action.text} !important;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 16px;
-    font-family: ${(props) => props.theme.fontFamily.body};
+    font-family: ${(props) => props.theme.fontFamily.heading} !important;
     cursor: pointer;
     &:hover {
         opacity: 0.8;
