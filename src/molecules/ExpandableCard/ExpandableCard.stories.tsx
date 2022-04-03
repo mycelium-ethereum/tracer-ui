@@ -32,7 +32,7 @@ export default {
 
 // Create a master template for mapping args to render the ExpandableCard component
 const Template: Story<ExpandableCardProps> = (args) => (
-    <div style={{ width: "400px" }}>
+    <div style={{ width: "600px" }}>
         <ExpandableCard {...args}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad illum
             similique ullam dolore sunt, nesciunt ipsam nobis ea accusantium
@@ -56,7 +56,7 @@ Success.args = {
 };
 
 export const NestedExpandableCard: Story<ExpandableCardProps> = (args) => (
-    <div style={{ width: "500px" }}>
+    <div style={{ width: "600px" }}>
         <ExpandableCard
             color="primary"
             headerContent={<span>Parent Card</span>}
