@@ -112,7 +112,7 @@ const HeaderContent = styled.span`
     font-family: ${(props) => props.theme.fontFamily.heading};
 `;
 
-const Chevron = styled(Icon).attrs((props) => ({
+const Chevron = styled(Icon).attrs(() => ({
     name: "chevronDown",
 }))<{ open: boolean }>`
     transform: ${(props) => (props.open ? "rotate(180deg)" : "rotate(0deg)")};
