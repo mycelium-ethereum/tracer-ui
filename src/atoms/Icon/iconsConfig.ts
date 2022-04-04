@@ -1,4 +1,8 @@
-import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import {
+    faCircle,
+    faCheckCircle,
+    faClipboard,
+} from "@fortawesome/free-regular-svg-icons";
 import {
     faLock,
     faUnlock,
@@ -9,6 +13,7 @@ import {
     faChevronDown,
     faGlobeAmericas,
     faExclamationCircle,
+    faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -34,4 +39,6 @@ export const tracerIcons = {
     github: faGithub,
     web: faGlobeAmericas,
     exclamationCircle: faExclamationCircle,
+    "info-circle": faInfoCircle,
+    clipboard: faClipboard,
 };
