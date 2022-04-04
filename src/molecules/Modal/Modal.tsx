@@ -8,7 +8,7 @@ import { ModalProps } from "./Modal.types";
 const Modal: React.FC<ModalProps> = ({
     open,
     color = "primary",
-    onOverlayClick,
+    onRequestClose,
     children,
 }) => {
     const theme = useTheme();
@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
                     backgroundColor,
                 },
             }}
-            onRequestClose={onOverlayClick}
+            onRequestClose={onRequestClose}
         >
             {children}
         </ReactModal>
