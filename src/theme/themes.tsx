@@ -45,6 +45,7 @@ export interface TracerTheme {
             hover: string;
             active: string;
             text: string;
+            cell: string;
         };
     };
     fontFamily: {
@@ -101,6 +102,7 @@ export const lightTheme: TracerTheme = {
             hover: "#4FC423",
             active: "#4FE021",
             text: "#4FE021",
+            cell: "#EDFFE8",
         },
     },
     fontFamily: {
