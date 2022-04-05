@@ -41,14 +41,40 @@ Default.args = {};
 
 export const WithLinks = Template.bind({});
 WithLinks.args = {
-    links: ["Link 1", "Link 2", "Link 3"],
-    activeLink: "Link 1",
+    links: [
+        {
+            href: "https://www.google.com",
+            label: "Google",
+        },
+        {
+            href: "https://www.facebook.com",
+            label: "Facebook",
+        },
+        {
+            href: "https://www.twitter.com",
+            label: "Twitter",
+        },
+    ],
+    activeLink: "https://www.twitter.com",
 };
 
 export const WithChildren = Template.bind({});
 WithChildren.args = {
-    links: ["Buy", "Sell", "Stake"],
-    activeLink: "Sell",
+    links: [
+        {
+            href: "#1",
+            label: "Buy",
+        },
+        {
+            href: "#2",
+            label: "Sell",
+        },
+        {
+            href: "#3",
+            label: "Stake",
+        },
+    ],
+    activeLink: "#2",
     children: (
         <NavDropdownButton
             placement="bottom-end"

@@ -1,8 +1,11 @@
 // Generated with util/create-component.js
 export interface NavbarProps<Link extends string> {
-    links: Link[];
+    links: {
+        label: string;
+        href: Link;
+    }[];
     activeLink: Link;
-    href: string;
+    homeHref: string;
     onClickLink?: (link: Link) => void;
     children?: React.ReactNode;
 }
