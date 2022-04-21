@@ -41,6 +41,10 @@ const DropdownContent = styled.div`
     transition: 0.3s;
 `;
 
+const DropdownItemContainer = styled.div`
+    display: none;
+`;
+
 const Icons = styled.div`
     margin-top: 3rem;
 `;
@@ -102,6 +106,10 @@ const Dropdown = styled.div`
             opacity: 1;
             transition: opacity 0.5s ease;
             transition-delay: 0.35s;
+        }
+
+        ${DropdownItemContainer} {
+            display: block;
         }
     }
 `;
@@ -176,43 +184,47 @@ const NavDropdown = styled(({ className, href }) => {
             <Dropdown className={`${open ? "open" : ""}`}>
                 <Backdrop />
                 <DropdownContent>
-                    <NavDropdownOption
-                        href={"https://vote.tracer.finance/#/"}
-                        label={"Perpetual Pools"}
-                        boxColor={"purple"}
-                    />
-                    <NavDropdownOption
-                        href={"https://vote.tracer.finance/#/"}
-                        label={"Governance"}
-                        boxColor={"green"}
-                    />
-                    <NavDropdownOption
-                        href={"https://vote.tracer.finance/#/"}
-                        label={"Documentation"}
-                        boxColor={"blue"}
-                    />
-                    <Icons>
-                        {icons.map((icon, i) => (
-                            <ClickableIcon
-                                href={icon.href}
-                                rel="noreferrer"
-                                target="_blank"
-                                key={i}
-                            >
-                                <span>
-                                    <SocialIcon
-                                        name={icon.logo as IconProps["name"]}
-                                        size="sm"
-                                    />
-                                </span>
-                                <span>
-                                    <Text.Body fontFamily="heading">
-                                        {icon.text}
-                                    </Text.Body>
-                                </span>
-                            </ClickableIcon>
-                        ))}
-                    </Icons>
+                    <DropdownItemContainer>
+                        <NavDropdownOption
+                            href={"https://vote.tracer.finance/#/"}
+                            label={"Perpetual Pools"}
+                            boxColor={"purple"}
+                        />
+                        <NavDropdownOption
+                            href={"https://vote.tracer.finance/#/"}
+                            label={"Governance"}
+                            boxColor={"green"}
+                        />
+                        <NavDropdownOption
+                            href={"https://vote.tracer.finance/#/"}
+                            label={"Documentation"}
+                            boxColor={"blue"}
+                        />
+                        <Icons>
+                            {icons.map((icon, i) => (
+                                <ClickableIcon
+                                    href={icon.href}
+                                    rel="noreferrer"
+                                    target="_blank"
+                                    key={i}
+                                >
+                                    <span>
+                                        <SocialIcon
+                                            name={
+                                                icon.logo as IconProps["name"]
+                                            }
+                                            size="sm"
+                                        />
+                                    </span>
+                                    <span>
+                                        <Text.Body fontFamily="heading">
+                                            {icon.text}
+                                        </Text.Body>
+                                    </span>
+                                </ClickableIcon>
+                            ))}
+                        </Icons>
+                    </DropdownItemContainer>
                 </DropdownContent>
             </Dropdown>
         </div>
