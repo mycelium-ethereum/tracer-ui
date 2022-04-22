@@ -28,7 +28,14 @@ export default {
             defaultValue: "action",
             control: {
                 type: "select",
-                options: ["action", "focus", "alert", "danger", "ghost"],
+                options: [
+                    "action",
+                    "focus",
+                    "alert",
+                    "danger",
+                    "ghost",
+                    "success",
+                ],
             },
         },
     },
@@ -74,6 +81,12 @@ export const Danger = Template.bind({});
 Danger.args = {
     children: "Danger Button",
     variant: "danger",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+    children: "Success Button",
+    variant: "success",
 };
 
 export const Ghost: Story<ButtonProps> = (args) => (

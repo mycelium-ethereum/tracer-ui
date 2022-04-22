@@ -103,6 +103,24 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                     border: 1px solid ${theme.colors.danger.text};
                 }
             `;
+            case "success":
+                return `
+                background-color: ${theme.colors.success.cell};
+                color: ${theme.colors.success.text};
+                border: 1px solid ${theme.colors.success.text};
+                &:hover {
+                    color: ${theme.colors.success.hover};
+                    border: 1px solid ${theme.colors.success.hover};
+                }   
+                &:active {
+                    color: ${theme.colors.success.text};
+                    border: 1px solid ${theme.colors.success.text};
+                }
+                &:disabled {
+                    color: ${theme.colors.success.text};
+                    border: 1px solid ${theme.colors.success.text};
+                }
+            `;
             case "ghost":
                 return `
                 background-color: rgba(255, 255, 255, 0.1);
