@@ -15,7 +15,7 @@ import {
     faExclamationCircle,
     faInfoCircle,
     faArrowCircleDown,
-    faArrowDown
+    faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -43,6 +43,6 @@ export const tracerIcons = {
     exclamationCircle: faExclamationCircle,
     "info-circle": faInfoCircle,
     clipboard: faClipboard,
-    'arrow-circle-down': faArrowCircleDown,
-    'arrow-down': faArrowDown
+    "arrow-circle-down": faArrowCircleDown,
+    "arrow-down": faArrowDown,
 };

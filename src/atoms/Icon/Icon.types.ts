@@ -11,7 +11,7 @@ export interface IconProps {
     size?: SizeProp;
     className?: string;
     id?: string;
-    rotation?: FontAwesomeIconProps['rotation']
+    rotation?: FontAwesomeIconProps["rotation"];
 }
 
 export type IconColor =
