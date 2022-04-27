@@ -54,6 +54,11 @@ export default {
             },
             defaultValue: "primary",
         },
+        rotation: {
+            control: {
+                type: "number",
+            },
+        },
     },
 } as ComponentMeta<typeof Icon>;
 

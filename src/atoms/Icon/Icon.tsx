@@ -12,6 +12,7 @@ const Icon: React.FC<IconProps> = ({
     color = "primary",
     className,
     id,
+    rotation
 }) => {
     const icon = tracerIcons[name];
     const theme = useTheme();
@@ -52,6 +53,7 @@ const Icon: React.FC<IconProps> = ({
             size={size}
             className={className}
             id={id}
+            rotation={rotation}
         />
     );
 };
