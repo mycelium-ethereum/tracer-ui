@@ -18,6 +18,7 @@ const Modal: React.FC<ModalProps> = ({
     return (
         <ReactModal
             isOpen={open}
+            ariaHideApp={false}
             style={{
                 overlay: {
                     backgroundColor: "rgba(255, 255, 255, 0.5)",
