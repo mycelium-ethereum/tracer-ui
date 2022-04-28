@@ -3,4 +3,5 @@ export interface ModalProps {
     open: boolean;
     color?: "primary" | "secondary" | "tertiary";
     onRequestClose?: () => void;
+    maxWidth?: string;
 }
