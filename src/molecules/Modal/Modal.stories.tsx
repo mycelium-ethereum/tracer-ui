@@ -14,11 +14,16 @@ export default {
                 type: "boolean",
             },
         },
-    },
-    color: {
-        control: {
-            type: "select",
-            options: ["primary", "secondary", "tertiary"],
+        color: {
+            control: {
+                type: "select",
+                options: ["primary", "secondary", "tertiary"],
+            },
+        },
+        maxWidth: {
+            control: {
+                type: "text",
+            },
         },
     },
 } as ComponentMeta<typeof Modal>;
@@ -47,4 +52,11 @@ export const Secondary = Template.bind({});
 Secondary.args = {
     open: true,
     color: "secondary",
+};
+
+export const Small = Template.bind({});
+Small.args = {
+    open: true,
+    color: "primary",
+    maxWidth: "400px",
 };
