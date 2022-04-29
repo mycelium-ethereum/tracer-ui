@@ -10,7 +10,7 @@ const Modal: React.FC<ModalProps> = ({
     color = "primary",
     onRequestClose,
     children,
-    maxWidth,
+    maxWidth = "80%",
 }) => {
     const theme = useTheme();
 
