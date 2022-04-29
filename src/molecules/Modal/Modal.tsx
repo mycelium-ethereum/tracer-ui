@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({
                 },
                 content: {
                     position: "relative",
-                    maxWidth: maxWidth || "80%",
+                    maxWidth: maxWidth,
                     border: "none",
                     borderRadius: "16px",
                     boxShadow:
