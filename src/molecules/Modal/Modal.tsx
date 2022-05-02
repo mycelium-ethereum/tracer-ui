@@ -10,6 +10,7 @@ const Modal: React.FC<ModalProps> = ({
     color = "primary",
     onRequestClose,
     children,
+    maxWidth = "80%",
 }) => {
     const theme = useTheme();
 
@@ -17,6 +18,7 @@ const Modal: React.FC<ModalProps> = ({
     return (
         <ReactModal
             isOpen={open}
+            ariaHideApp={false}
             style={{
                 overlay: {
                     backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -26,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({
                 },
                 content: {
                     position: "relative",
-                    maxWidth: "80%",
+                    maxWidth: maxWidth,
                     border: "none",
                     borderRadius: "16px",
                     boxShadow:
