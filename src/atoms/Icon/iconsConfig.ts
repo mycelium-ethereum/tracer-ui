@@ -4,6 +4,7 @@ import {
     faClipboard,
 } from "@fortawesome/free-regular-svg-icons";
 import {
+    faBook,
     faLock,
     faUnlock,
     faSearch,
@@ -24,6 +25,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export const tracerIcons = {
+    book: faBook,
     "check-circle": faCheckCircle,
     "check-circle-solid": faCheckCircleSolid,
     circle: faCircle,
