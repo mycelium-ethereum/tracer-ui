@@ -67,11 +67,19 @@ Bottom.args = {
     placement: "bottom",
     isOpen: true,
 };
+Bottom.parameters = {
+    // The popover width is not consistent, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
+};
 
 export const Top = Template.bind({});
 Top.args = {
     placement: "top",
     isOpen: true,
+};
+Top.parameters = {
+    // The popover width is not consistent, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
 };
 
 export const NestedOverflowHidden: Story<PopoverProps> = (args) => {
@@ -101,6 +109,10 @@ export const NestedOverflowHidden: Story<PopoverProps> = (args) => {
         </div>
     );
 };
+NestedOverflowHidden.parameters = {
+    // The popover width is not consistent, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
+};
 
 export const Hoverable: Story<PopoverProps> = (args) => {
     const [{ isOpen }, updateArgs] = useArgs();
@@ -119,6 +131,10 @@ export const Hoverable: Story<PopoverProps> = (args) => {
             </Button>
         </Popover>
     );
+};
+Hoverable.parameters = {
+    // The popover width is not consistent, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
 };
 
 export const OverText: Story<PopoverProps> = (args) => {
@@ -150,6 +166,10 @@ OverText.args = {
     placement: "bottom",
     isOpen: true,
 };
+OverText.parameters = {
+    // The popover width is not consistent, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
+};
 
 export const OverInput: Story<PopoverProps> = (args) => {
     const [{ isOpen }, updateArgs] = useArgs();
@@ -168,4 +188,8 @@ export const OverInput: Story<PopoverProps> = (args) => {
             <Slider value={45} />
         </div>
     );
+};
+OverInput.parameters = {
+    // The popover width is not consistent, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
 };
