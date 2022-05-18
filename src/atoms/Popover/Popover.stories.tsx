@@ -150,6 +150,10 @@ OverText.args = {
     placement: "bottom",
     isOpen: true,
 };
+OverText.parameters = {
+    // The popover width is not consistent for this story, so chromatic always detects a change
+    chromatic: { disableSnapshot: true },
+};
 
 export const OverInput: Story<PopoverProps> = (args) => {
     const [{ isOpen }, updateArgs] = useArgs();
