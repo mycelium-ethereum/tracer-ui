@@ -3,9 +3,8 @@ import React from "react";
 import { Icon } from "../../atoms";
 import styled from "styled-components";
 import { device } from "../../helpers";
-import { FooterProps } from "./Footer.types";
 
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC = () => {
     const copyrightYear = new Date().getFullYear();
     return (
         <FooterContainer data-testid="Footer">
