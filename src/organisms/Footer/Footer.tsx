@@ -8,35 +8,83 @@ const Footer: React.FC = () => {
     const copyrightYear = new Date().getFullYear();
     return (
         <FooterContainer data-testid="Footer">
-            <span>
-                &copy; {copyrightYear} Tracer DAO
-            </span>
+            <span>&copy; {copyrightYear} Tracer DAO</span>
             <SocialLinkContainer>
-                <Link href="https://docs.tracer.finance" target="_blank" rel="noreferrer">
+                <Link
+                    href="https://docs.tracer.finance"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Icon name="book" size="lg" />
                 </Link>
-                <Link href="https://discourse.tracer.finance" target="_blank" rel="noreferrer">
+                <Link
+                    href="https://discourse.tracer.finance"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Icon name="discourse" size="lg" />
                 </Link>
-                <Link href="https://twitter.com/TracerDAO" target="_blank" rel="noreferrer">
+                <Link
+                    href="https://twitter.com/TracerDAO"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Icon name="twitter" size="lg" />
                 </Link>
-                <Link href="https://github.com/tracer-protocol" target="_blank" rel="noreferrer">
+                <Link
+                    href="https://github.com/tracer-protocol"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Icon name="github" size="lg" />
                 </Link>
-                <Link href="https://discord.com/invite/kddBUqDVVb" target="_blank" rel="noreferrer">
+                <Link
+                    href="https://discord.com/invite/kddBUqDVVb"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Icon name="discord" size="lg" />
                 </Link>
             </SocialLinkContainer>
             <TextLinkContainer>
-                <Link href="https://tracer.finance/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link>
-                <Link href="https://tracer.finance/privacy-policy#terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</Link>
-                <Link href="https://tracer.finance/privacy-policy#interfaces-disclaimer"  target="_blank" rel="noopener noreferrer">Disclaimer</Link>
-                <Link href="https://gateway.pinata.cloud/ipfs/QmS161WXV2bEAWUtdecfS5FYPmHQZdhNnjVFAwQ5FTX3og" target="_blank" rel="noopener noreferrer">Participation Agreement</Link>
-                <Link href="https://docs.tracer.finance/security/audits-and-security" target="_blank" rel="noopener noreferrer">Security Audits</Link>
+                <Link
+                    href="https://tracer.finance/privacy-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Privacy Policy
+                </Link>
+                <Link
+                    href="https://tracer.finance/privacy-policy#terms-of-use"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Terms of Use
+                </Link>
+                <Link
+                    href="https://tracer.finance/privacy-policy#interfaces-disclaimer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Disclaimer
+                </Link>
+                <Link
+                    href="https://gateway.pinata.cloud/ipfs/QmS161WXV2bEAWUtdecfS5FYPmHQZdhNnjVFAwQ5FTX3og"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Participation Agreement
+                </Link>
+                <Link
+                    href="https://docs.tracer.finance/security/audits-and-security"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Security Audits
+                </Link>
             </TextLinkContainer>
         </FooterContainer>
-    )
+    );
 };
 
 const Link = styled.a`
@@ -49,9 +97,9 @@ const Link = styled.a`
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
     &:hover {
-        opacity: .8;
+        opacity: 0.8;
     }
-`
+`;
 
 const FooterContainer = styled.div`
     display: flex;
@@ -78,7 +126,7 @@ const FooterContainer = styled.div`
         max-width: 1320px;
         flex-direction: row;
     }
-`
+`;
 
 const SocialLinkContainer = styled.div`
     display: flex;
@@ -90,7 +138,7 @@ const SocialLinkContainer = styled.div`
     @media ${device.desktopL} {
         margin: auto;
     }
-`
+`;
 
 const TextLinkContainer = styled.div`
     display: flex;
@@ -98,13 +146,12 @@ const TextLinkContainer = styled.div`
     flex-direction: column;
     @media ${device.desktop} {
         flex-direction: row;
-        gap: 0.75rem
+        gap: 0.75rem;
     }
     @media ${device.desktopL} {
         flex-direction: row;
-        gap: 0.75
+        gap: 0.75;
     }
-`
+`;
 
 export default Footer;
-
