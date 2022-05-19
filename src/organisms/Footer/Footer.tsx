@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                 <Link href="https://twitter.com/TracerDAO" target="_blank" rel="noreferrer">
                     <Icon name="twitter" size="lg" />
                 </Link>
-                <Link href="https://github.com/tracer-protocol/perpetual-pools-contracts" target="_blank" rel="noreferrer">
+                <Link href="https://github.com/tracer-protocol" target="_blank" rel="noreferrer">
                     <Icon name="github" size="lg" />
                 </Link>
                 <Link href="https://discord.com/invite/kddBUqDVVb" target="_blank" rel="noreferrer">
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 <Link href="https://tracer.finance/privacy-policy#terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</Link>
                 <Link href="https://tracer.finance/privacy-policy#interfaces-disclaimer"  target="_blank" rel="noopener noreferrer">Disclaimer</Link>
                 <Link href="https://gateway.pinata.cloud/ipfs/QmS161WXV2bEAWUtdecfS5FYPmHQZdhNnjVFAwQ5FTX3og" target="_blank" rel="noopener noreferrer">Participation Agreement</Link>
-                <Link href="https://docs.tracer.finance/audits-and-security/perpetual-pools" target="_blank" rel="noopener noreferrer">Security Audits</Link>
+                <Link href="https://docs.tracer.finance/security/audits-and-security" target="_blank" rel="noopener noreferrer">Security Audits</Link>
             </TextLinkContainer>
         </FooterContainer>
     )
