@@ -8,7 +8,9 @@ const Footer: React.FC = () => {
     const copyrightYear = new Date().getFullYear();
     return (
         <FooterContainer className="footer" data-testid="Footer">
-            <span className="footer-copyright">&copy; {copyrightYear} Tracer DAO</span>
+            <span className="footer-copyright">
+                &copy; {copyrightYear} Tracer DAO
+            </span>
             <SocialLinkContainer className="footer-social-links">
                 <Link
                     href="https://docs.tracer.finance"
@@ -16,7 +18,12 @@ const Footer: React.FC = () => {
                     rel="noreferrer"
                     className="footer-link"
                 >
-                    <Icon name="book" size="lg" className="footer-icon" color="inherit" />
+                    <Icon
+                        name="book"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://discourse.tracer.finance"
@@ -24,7 +31,12 @@ const Footer: React.FC = () => {
                     rel="noreferrer"
                     className="footer-link"
                 >
-                    <Icon name="discourse" size="lg" className="footer-icon" color="inherit" />
+                    <Icon
+                        name="discourse"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://twitter.com/TracerDAO"
@@ -32,7 +44,12 @@ const Footer: React.FC = () => {
                     rel="noreferrer"
                     className="footer-link"
                 >
-                    <Icon name="twitter" size="lg" className="footer-icon" color="inherit" />
+                    <Icon
+                        name="twitter"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://github.com/tracer-protocol"
@@ -40,7 +57,12 @@ const Footer: React.FC = () => {
                     rel="noreferrer"
                     className="footer-link"
                 >
-                    <Icon name="github" size="lg" className="footer-icon" color="inherit" />
+                    <Icon
+                        name="github"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://discord.com/invite/kddBUqDVVb"
@@ -48,7 +70,12 @@ const Footer: React.FC = () => {
                     rel="noreferrer"
                     className="footer-link"
                 >
-                    <Icon name="discord" size="lg" className="footer-icon" color="inherit" />
+                    <Icon
+                        name="discord"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
             </SocialLinkContainer>
             <TextLinkContainer className="footer-text-links">
@@ -120,8 +147,8 @@ const FooterContainer = styled.div`
     margin: auto;
     width: 100%;
 
-    font-family: ${(props) => props?.theme?.fontFamily?.heading};
-    color: ${({ theme }) => theme?.colors?.text?.primary};
+    font-family: ${(props) => props?.theme?.fontFamily?.heading ?? "inherit"};
+    color: ${({ theme }) => theme?.colors?.text?.primary ?? "inherit"};
 
     @media ${device.mobileL} {
         max-width: 540px;
