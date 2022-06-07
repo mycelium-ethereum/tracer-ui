@@ -47,7 +47,7 @@ const StyledListItem = styled.li`
     & > hr {
         margin: 0;
         border: 0;
-        border-top: 1px solid ${(props) => props.theme.colors.focus.active};
+        border-top: 1px solid ${(props) => props.theme.colors.cell.tertiary};
     }
 `;
 

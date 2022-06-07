@@ -38,7 +38,7 @@ export default {
 // Create a master template for mapping args to render the Popover component
 
 const ExampleContent: React.FC = () => (
-    <Card padding="sm" fluid>
+    <Card padding="sm" color="secondary">
         <Text.Subtitle variant="bold">Popover Content</Text.Subtitle>
         <Text.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -51,7 +51,6 @@ const Template: Story<PopoverProps> = (args) => {
     return (
         <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
             <Button
-                fluid
                 onClick={() => {
                     updateArgs({ isOpen: !isOpen });
                 }}
@@ -88,22 +87,21 @@ export const NestedOverflowHidden: Story<PopoverProps> = (args) => {
     return (
         <div
             style={{
-                width: "100px",
-                height: "100px",
+                width: "200px",
+                height: "120px",
                 overflow: "hidden",
-                border: "1px dotted black",
+                border: "1px dotted white",
             }}
         >
             <Popover content={<ExampleContent />} {...args}>
                 <Button
-                    fluid
                     size="small"
                     onClick={() => updateArgs({ isOpen: !isOpen })}
                 >
                     Popover
                 </Button>
             </Popover>
-            <p>
+            <p style={{ color: "#FFF" }}>
                 This div has overflow hidden but the popover will not be hidden
             </p>
         </div>
@@ -150,7 +148,7 @@ export const OverText: Story<PopoverProps> = (args) => {
                     Lorem ipsu
                 </h2>
             </Popover>
-            <p>
+            <p style={{ color: "#FFF" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 accumsan et viverra justo commodo. Proin sodales pulvinar

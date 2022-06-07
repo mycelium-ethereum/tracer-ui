@@ -8,13 +8,6 @@ export interface TracerTheme {
             tertiary: string;
             stroke: string;
         };
-        focus: {
-            active: string;
-            inactive: string;
-            text: string;
-            hover: string;
-            reverse: string;
-        };
         text: {
             primary: string;
             secondary: string;
@@ -27,7 +20,9 @@ export interface TracerTheme {
             inactive: string;
             hover: string;
             text: string;
-            reverse: string;
+        };
+        highlight: {
+            primary: string;
         };
         alert: {
             hover: string;
@@ -54,36 +49,31 @@ export interface TracerTheme {
     };
 }
 
-export const lightTheme: TracerTheme = {
-    isDark: false,
+export const darkTheme: TracerTheme = {
+    isDark: true,
     colors: {
         cell: {
-            background: "#F9FAFA",
-            primary: "#FFFFFF",
-            secondary: "#F9FAFA",
-            tertiary: "#E7ECF0",
-            stroke: "#7D8795",
+            background: "#040811",
+            primary: "#0A0E1C",
+            secondary: "#0F1325",
+            tertiary: "#292E4F",
+            stroke: "#8BB0EF",
         },
         action: {
             active: "#1C64F2",
-            inactive: "#C8DCFA",
-            hover: "#3535DC",
+            inactive: "#71727a", // I added this
+            hover: "#3535DC", // I added this
             text: "#FFFFFF",
-            reverse: "#B0CFFE",
         },
-        focus: {
-            active: "#D6DFE6",
-            inactive: "#F1F6FA",
-            text: "#192130",
-            hover: "#C7D0D7",
-            reverse: "#E2E8ED",
+        highlight: {
+            primary: "#583BD4",
         },
         text: {
-            primary: "#192130",
-            secondary: "#4B5563",
-            tertiary: "#7D8795",
-            footnote: "#D6DFE6",
-            highlight: "#1C64F2",
+            primary: "#FFFFFF",
+            secondary: "#8BB0EF",
+            tertiary: "#7B9CD4",
+            footnote: "#D9D9D9",
+            highlight: "#3DA8F5",
         },
 
         alert: {
@@ -106,13 +96,13 @@ export const lightTheme: TracerTheme = {
         },
     },
     fontFamily: {
-        body: "'Inter', sans-serif",
-        heading: "'Source Sans Pro', sans-serif",
+        heading: "'Inter', sans-serif",
+        body: "'Source Sans Pro', sans-serif",
     },
 };
 
-// TODO: Add dark theme
-export const darkTheme: TracerTheme = {
-    ...lightTheme,
-    isDark: true,
+// TODO: Add light theme
+export const lightTheme: TracerTheme = {
+    ...darkTheme,
+    isDark: false,
 };

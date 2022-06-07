@@ -32,10 +32,12 @@ const Template: Story<ListProps> = (args) => {
     }
     return (
         <div style={{ width: "500px" }}>
-            <Card padding="none">
+            <Card color="secondary" padding="none">
                 <List {...args}>
                     {listItems.map((item) => (
-                        <span key={item}>{item}</span>
+                        <span key={item} style={{ color: "#FFF" }}>
+                            {item}
+                        </span>
                     ))}
                 </List>
             </Card>

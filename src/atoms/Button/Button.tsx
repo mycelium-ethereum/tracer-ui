@@ -26,7 +26,7 @@ type StyledButtonProps = {
 };
 
 const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
-    variant: props.variant || "primary",
+    variant: props.variant || "action",
     size: props.size || "medium",
 }))<StyledButtonProps>`
     font-family: ${(props) => props.theme.fontFamily.heading};
@@ -49,22 +49,6 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                 }
                 &:disabled {
                     background-color: ${theme.colors.action.inactive};
-                    color: ${theme.colors.action.reverse};
-                }
-                `;
-            case "focus":
-                return `
-                background-color: ${theme.colors.focus.active};
-                color: ${theme.colors.focus.text};
-                &:hover {
-                    background-color: ${theme.colors.focus.hover};
-                }
-                &:active {
-                    background-color: ${theme.colors.focus.active};
-                }
-                &:disabled {
-                    background-color: ${theme.colors.focus.inactive};
-                    color: ${theme.colors.focus.reverse};
                 }
                 `;
             case "alert":

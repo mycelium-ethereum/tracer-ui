@@ -28,14 +28,7 @@ export default {
             defaultValue: "action",
             control: {
                 type: "select",
-                options: [
-                    "action",
-                    "focus",
-                    "alert",
-                    "danger",
-                    "ghost",
-                    "success",
-                ],
+                options: ["action", "alert", "danger", "ghost", "success"],
             },
         },
     },
@@ -55,19 +48,6 @@ export const ActionDisabled = Template.bind({});
 ActionDisabled.args = {
     children: "Action Button",
     variant: "action",
-    disabled: true,
-};
-
-export const Focus = Template.bind({});
-Focus.args = {
-    children: "Focus Button",
-    variant: "focus",
-};
-
-export const FocusDisabled = Template.bind({});
-FocusDisabled.args = {
-    children: "Focus Button",
-    variant: "focus",
     disabled: true,
 };
 
