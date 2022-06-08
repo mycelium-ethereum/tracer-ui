@@ -21,6 +21,7 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
     padding: props.padding || "md",
     border: props.border || "none",
 }))<CardProps>`
+    z-index: auto;
     background-color: ${(props) => {
         switch (props.color) {
             case "primary":

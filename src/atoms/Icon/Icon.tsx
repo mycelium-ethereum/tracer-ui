@@ -30,8 +30,6 @@ const Icon: React.FC<IconProps> = ({
                 return theme.colors.text.highlight;
             case "action-text":
                 return theme.colors.action.text;
-            case "focus-text":
-                return theme.colors.focus.text;
             case "alert":
                 return theme.colors.alert.text;
             case "danger":

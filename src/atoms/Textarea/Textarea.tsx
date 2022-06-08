@@ -23,20 +23,15 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
     font-family: inherit;
     color: ${({ theme }) => theme.colors.text.primary};
     width: 100%;
+    outline: none;
     border-radius: 12px;
     padding: 10px 18px;
     ${({ theme, variant }) => {
         if (variant === "primary") {
             return `
-                border-color: ${theme.colors.focus.active};
-                background-color: ${theme.colors.cell.primary};
-                color: ${theme.colors.focus.text};
-                `;
-        } else if (variant === "secondary") {
-            return `
-                border-color: ${theme.colors.focus.active};
+                border-color: ${theme.colors.cell.tertiary};
                 background-color: ${theme.colors.cell.secondary};
-                color: ${theme.colors.focus.text};
+                color: ${theme.colors.text.primary};
                 `;
         } else if (variant === "alert") {
             return `

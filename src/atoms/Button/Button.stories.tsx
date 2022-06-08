@@ -28,7 +28,14 @@ export default {
             defaultValue: "action",
             control: {
                 type: "select",
-                options: ["action", "alert", "danger", "ghost", "success"],
+                options: [
+                    "action",
+                    "cell",
+                    "alert",
+                    "danger",
+                    "ghost",
+                    "success",
+                ],
             },
         },
     },
@@ -51,6 +58,12 @@ ActionDisabled.args = {
     disabled: true,
 };
 
+export const Cell = Template.bind({});
+Cell.args = {
+    children: "Cell Button",
+    variant: "cell",
+};
+
 export const Alert = Template.bind({});
 Alert.args = {
     children: "Alert Button",
@@ -69,21 +82,7 @@ Success.args = {
     variant: "success",
 };
 
-export const Ghost: Story<ButtonProps> = (args) => (
-    <>
-        <Text.Body>Meant for use against dark backgrounds</Text.Body>
-        <div
-            style={{
-                backgroundColor: "darkblue",
-                padding: "20px",
-                display: "flex",
-                justifyContent: "center",
-            }}
-        >
-            <Button {...args}></Button>
-        </div>
-    </>
-);
+export const Ghost = Template.bind({});
 Ghost.args = {
     children: "Ghost Button",
     variant: "ghost",

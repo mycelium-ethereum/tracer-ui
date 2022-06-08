@@ -4,6 +4,7 @@ import ReactModal from "react-modal";
 import { useTheme } from "styled-components";
 
 import { ModalProps } from "./Modal.types";
+import "./modal.css";
 
 const Modal: React.FC<ModalProps> = ({
     open,
@@ -19,9 +20,10 @@ const Modal: React.FC<ModalProps> = ({
         <ReactModal
             isOpen={open}
             ariaHideApp={false}
+            closeTimeoutMS={100}
             style={{
                 overlay: {
-                    backgroundColor: "rgba(255, 255, 255, 0.5)",
+                    backgroundColor: theme.colors.cell.overlay,
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -31,8 +33,6 @@ const Modal: React.FC<ModalProps> = ({
                     maxWidth: maxWidth,
                     border: "none",
                     borderRadius: "16px",
-                    boxShadow:
-                        "0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1)",
                     backgroundColor,
                 },
             }}

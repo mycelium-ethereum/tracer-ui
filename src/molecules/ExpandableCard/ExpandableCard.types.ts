@@ -3,11 +3,5 @@ export interface ExpandableCardProps {
     headerContent: JSX.Element;
     open?: boolean;
     className?: string;
-    color:
-        | "primary"
-        | "secondary"
-        | "tertiary"
-        | "alert"
-        | "danger"
-        | "success";
+    color: "primary" | "secondary" | "tertiary";
 }

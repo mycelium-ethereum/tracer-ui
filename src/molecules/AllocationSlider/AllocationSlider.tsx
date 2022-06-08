@@ -12,7 +12,6 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
     tokenName,
     tokenSymbol,
     isLocked,
-    removeButtonText,
     onClickLock,
     onRemove,
 }) => {
@@ -43,18 +42,15 @@ const AllocationSlider: React.FC<AllocationSliderProps> = ({
                             rightSlot={"%"}
                         />
                     </PercentageContainer>
-                    <LockContainer onClick={() => onClickLock()}>
+                    <IconContainer onClick={() => onClickLock()}>
                         <Icon
                             name={isLocked ? "lock" : "unlock"}
                             color="primary"
                         />
-                    </LockContainer>
-                    <div>
-                        <Button variant="focus" size="small" onClick={onRemove}>
-                            <Icon name="times" color="focus-text" />
-                            &nbsp; {removeButtonText}
-                        </Button>
-                    </div>
+                    </IconContainer>
+                    <IconContainer onClick={() => onRemove()}>
+                        <Icon name="trash" color="danger" />
+                    </IconContainer>
                 </InputsContainer>
             </InfoRow>
             <Slider
@@ -98,7 +94,9 @@ const InputsContainer = styled.div`
     flex: 1;
 `;
 
-const LockContainer = styled.div``;
+const IconContainer = styled.div`
+    cursor: pointer;
+`;
 
 const PercentageContainer = styled.div`
     width: 100px;

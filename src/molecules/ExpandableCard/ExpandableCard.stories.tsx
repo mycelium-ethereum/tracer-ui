@@ -3,7 +3,7 @@ import React from "react";
 import ExpandableCard from "./ExpandableCard";
 import { ExpandableCardProps } from "./ExpandableCard.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { Icon } from "../../atoms";
+import { Icon, Text } from "../../atoms";
 
 export default {
     title: "molecules/ExpandableCard",
@@ -17,14 +17,7 @@ export default {
             defaultValue: "primary",
             control: {
                 type: "select",
-                options: [
-                    "primary",
-                    "secondary",
-                    "tertiary",
-                    "success",
-                    "alert",
-                    "danger",
-                ],
+                options: ["primary", "secondary", "tertiary"],
             },
         },
     },
@@ -49,19 +42,16 @@ Primary.args = {
     color: "primary",
 };
 
-export const Success = Template.bind({});
-Success.args = {
-    headerContent: "Success Expandable Card",
-    color: "success",
-};
-
 export const NestedExpandableCard: Story<ExpandableCardProps> = (args) => (
     <div style={{ width: "600px" }}>
         <ExpandableCard
             color="primary"
             headerContent={<span>Parent Card</span>}
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad illum
+            <Text.Subtitle>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                illum
+            </Text.Subtitle>
             <br />
             <br />
             <ExpandableCard {...args}>
@@ -81,9 +71,9 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
     headerContent: (
         <span>
-            <Icon name="exclamationCircle" color="alert" />
+            <Icon name="check-circle-solid" color="success" />
             &nbsp; Title with Icon
         </span>
     ),
-    color: "alert",
+    color: "primary",
 };

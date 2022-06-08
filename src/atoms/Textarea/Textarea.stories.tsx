@@ -19,7 +19,7 @@ export default {
         variant: {
             control: {
                 type: "select",
-                options: ["primary", "secondary", "alert", "danger"],
+                options: ["primary", "alert", "danger"],
             },
             defaultValue: "primary",
         },

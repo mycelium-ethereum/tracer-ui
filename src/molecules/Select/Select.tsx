@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React from "react";
+import React, { useEffect } from "react";
 import { Icon, Popover, InfoRow, List } from "../../atoms";
 import styled from "styled-components";
 
@@ -19,6 +19,23 @@ const Select: React.FC<SelectProps> = ({
     const [isOpen, setIsOpen] = React.useState(false);
     const selectBoxRef = React.useRef<HTMLDivElement>(null);
     const selectRef = React.useRef<HTMLSelectElement>(null);
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
+    function handleClickOutside(ev: MouseEvent) {
+        const clickedSelectBox = selectBoxRef.current?.contains(
+            ev.target as Node,
+        );
+        const clickedSelect = selectRef.current?.contains(ev.target as Node);
+        if (!clickedSelectBox && !clickedSelect) {
+            setIsOpen(false);
+        }
+    }
 
     const selectedOption = options.find((option) => option.value === value);
 
@@ -121,11 +138,10 @@ type SelectBoxProps = {
 const SelectBox = styled.div<SelectBoxProps>`
     position: relative;
     width: 100%;
-    background-color: ${({ theme, disabled }) =>
-        disabled ? theme.colors.cell.tertiary : theme.colors.cell.primary};
-    color: ${({ theme, disabled }) =>
-        disabled ? theme.colors.text.tertiary : theme.colors.text.primary};
-    border: 1px solid ${({ theme }) => theme.colors.focus.active};
+    background-color: ${({ theme }) => theme.colors.cell.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
+    opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
+    border: 1px solid ${({ theme }) => theme.colors.cell.tertiary};
     border-radius: ${({ squareBottom }) =>
         squareBottom ? "12px 12px 0 0" : "12px"};
     padding: 9px 17px;
@@ -152,8 +168,8 @@ const DropdownCard = styled.div<DropdownCardProps>`
     overflow-y: auto;
     border-radius: 0 0 16px 16px;
     background-color: ${({ theme }) => theme.colors.cell.primary};
-    box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.1),
-        0px 10px 10px rgba(0, 0, 0, 0.04);
+    outline: 1px solid ${({ theme }) => theme.colors.cell.tertiary};
+    outline-offset: -1px;
 `;
 
 const ListItem = styled.div`

@@ -101,9 +101,9 @@ export const NestedOverflowHidden: Story<PopoverProps> = (args) => {
                     Popover
                 </Button>
             </Popover>
-            <p style={{ color: "#FFF" }}>
+            <Text.Body>
                 This div has overflow hidden but the popover will not be hidden
-            </p>
+            </Text.Body>
         </div>
     );
 };
@@ -141,14 +141,15 @@ export const OverText: Story<PopoverProps> = (args) => {
     return (
         <div style={{ width: "600px", textAlign: "center" }}>
             <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
-                <h2
+                <Text.Subtitle
+                    align="center"
                     onMouseEnter={() => updateArgs({ isOpen: true })}
                     onMouseLeave={() => updateArgs({ isOpen: false })}
                 >
-                    Lorem ipsu
-                </h2>
+                    Hover over me
+                </Text.Subtitle>
             </Popover>
-            <p style={{ color: "#FFF" }}>
+            <Text.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 accumsan et viverra justo commodo. Proin sodales pulvinar
@@ -156,7 +157,7 @@ export const OverText: Story<PopoverProps> = (args) => {
                 montes, nascetur ridiculus mus. Nam fermentum, nulla luctus
                 pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien
                 nunc eget.
-            </p>
+            </Text.Body>
         </div>
     );
 };
@@ -175,12 +176,13 @@ export const OverInput: Story<PopoverProps> = (args) => {
     return (
         <div style={{ width: "600px", textAlign: "center" }}>
             <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
-                <h2
+                <Text.Subtitle
+                    align="center"
                     onMouseEnter={() => updateArgs({ isOpen: true })}
                     onMouseLeave={() => updateArgs({ isOpen: false })}
                 >
-                    Lorem ipsu
-                </h2>
+                    Hover over me
+                </Text.Subtitle>
             </Popover>
             <Input placeholder="This should go under the popover" />
             <Slider value={45} />

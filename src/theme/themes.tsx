@@ -7,6 +7,7 @@ export interface TracerTheme {
             secondary: string;
             tertiary: string;
             stroke: string;
+            overlay: string;
         };
         text: {
             primary: string;
@@ -55,9 +56,10 @@ export const darkTheme: TracerTheme = {
         cell: {
             background: "#040811",
             primary: "#0A0E1C",
-            secondary: "#0F1325",
+            secondary: "#0E1324",
             tertiary: "#292E4F",
             stroke: "#8BB0EF",
+            overlay: "rgba(255, 255, 255, 0.2)",
         },
         action: {
             active: "#1C64F2",
@@ -75,7 +77,6 @@ export const darkTheme: TracerTheme = {
             footnote: "#D9D9D9",
             highlight: "#3DA8F5",
         },
-
         alert: {
             hover: "#FF700B",
             active: "#FF931E",

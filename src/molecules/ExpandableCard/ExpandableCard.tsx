@@ -81,21 +81,6 @@ const Container = styled.div<ContainerProps>`
                     background-color: ${props.theme.colors.cell.tertiary};
                     border-color: ${props.theme.colors.cell.stroke};
                 `;
-            case "success":
-                return `
-                    background-color: ${props.theme.colors.success.cell};
-                    border-color: ${props.theme.colors.success.active};
-                `;
-            case "alert":
-                return `
-                    background-color: ${props.theme.colors.alert.cell};
-                    border-color: ${props.theme.colors.alert.active};
-                `;
-            case "danger":
-                return `
-                    background-color: ${props.theme.colors.danger.cell};
-                    border-color: ${props.theme.colors.danger.active};
-                `;
         }
     }}
 `;
@@ -110,6 +95,7 @@ const HeaderContent = styled.span`
     font-size: 24px;
     font-weight: bold;
     font-family: ${(props) => props.theme.fontFamily.heading};
+    color: ${(props) => props.theme.colors.text.primary};
 `;
 
 const Chevron = styled(Icon).attrs(() => ({
@@ -127,4 +113,5 @@ const Collapse = styled.div<{ height: number }>`
 
 const Content = styled.div`
     padding-top: 24px;
+    color: ${(props) => props.theme.colors.text.primary};
 `;

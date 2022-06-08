@@ -54,7 +54,7 @@ const Container = styled.label<ContainerProps>`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding: 10px 18px;
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid ${(props) => props.theme.colors.cell.tertiary};
     text-align: ${(props) => props.textAlign};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};

@@ -32,32 +32,58 @@ const Slider: React.FC<SliderProps> = ({
 export default Slider;
 
 const StyledSlider = styled.input`
-    background: ${(props) => {
+    ${(props) => {
         const { value, min, max } = props;
         const percent =
             ((Number(value) - Number(min)) / (Number(max) - Number(min))) * 100;
-        return `linear-gradient(
+        return `
+        background: linear-gradient(
             to right, 
             ${props.theme.colors.action.active} 0%, 
             ${props.theme.colors.action.active} ${percent}%, 
-            ${props.theme.colors.focus.active} ${percent}%, 
-            ${props.theme.colors.focus.active} 100%
-        )`;
-    }};
+            ${props.theme.colors.cell.secondary} ${percent}%, 
+            ${props.theme.colors.cell.secondary} 100%
+        );
+        `;
+    }}
     border-radius: 8px;
-    height: 20px;
+    height: 6px;
     width: 100%;
     outline: none;
     transition: background 450ms ease-in;
     -webkit-appearance: none;
+    position: relative;
+    z-index: 3;
 
+    // Add the border on unfilled half
+    ::before {
+        content: "";
+        border-radius: 8px;
+        ${(props) => {
+            const { value, min, max } = props;
+            const percent =
+                ((Number(value) - Number(min)) / (Number(max) - Number(min))) *
+                100;
+            return `
+        width: ${100 - percent}%;
+        `;
+        }}
+        outline: 1px solid ${(props) => props.theme.colors.cell.stroke};
+        outline-offset: -2px;
+        top: -1px;
+        bottom: -1px;
+        right: -1px;
+        position: absolute;
+    }
+
+    // Thumb styles
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        background: ${(props) => props.theme.colors.action.hover};
+        background: ${(props) => props.theme.colors.action.active};
         border: none;
         border-radius: 50%;
-        height: 10px;
-        width: 10px;
+        height: 7px;
+        width: 7px;
         transform: scale(3);
         cursor: pointer;
     }

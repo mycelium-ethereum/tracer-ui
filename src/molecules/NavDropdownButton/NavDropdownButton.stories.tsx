@@ -6,11 +6,6 @@ import { ComponentMeta, Story } from "@storybook/react";
 
 export default {
     title: "molecules/NavDropdownButton",
-    parameters: {
-        backgrounds: {
-            default: "dark",
-        },
-    },
     component: NavDropdownButton,
     argTypes: {
         placement: {

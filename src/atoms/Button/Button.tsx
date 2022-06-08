@@ -30,7 +30,7 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     size: props.size || "medium",
 }))<StyledButtonProps>`
     font-family: ${(props) => props.theme.fontFamily.heading};
-    border-radius: 12px;
+    border-radius: 8px;
     border: none;
     width: ${(props) => (props.fluid ? "100%" : "auto")};
     line-height: 1.5rem;
@@ -49,6 +49,21 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                 }
                 &:disabled {
                     background-color: ${theme.colors.action.inactive};
+                }
+                `;
+            case "cell":
+                return `
+                background-color: ${theme.colors.cell.secondary};
+                border: 1px solid ${theme.colors.cell.tertiary};
+                color: ${theme.colors.text.primary};
+                &:hover {
+                    color: ${theme.colors.text.secondary};
+                    border-color: ${theme.colors.cell.stroke};
+                }
+                &:active {
+                }
+                &:disabled {
+                    opacity: 0.5;
                 }
                 `;
             case "alert":

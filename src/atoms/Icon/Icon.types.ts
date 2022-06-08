@@ -18,7 +18,6 @@ export type IconColor =
     | "footnote"
     | "highlight"
     | "action-text"
-    | "focus-text"
     | "alert"
     | "danger"
     | "success"
