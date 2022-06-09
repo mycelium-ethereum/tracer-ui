@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import { Button, Slider, Icon, Text, Input } from "../../atoms";
+import { Slider, Icon, Text, Input } from "../../atoms";
 import styled from "styled-components";
 
 import { AllocationSliderProps } from "./AllocationSlider.types";

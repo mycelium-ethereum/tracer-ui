@@ -3,7 +3,6 @@ import React from "react";
 import Button from "./Button";
 import { ButtonProps } from "./Button.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { Text } from "../";
 
 export default {
     title: "atoms/Button",
