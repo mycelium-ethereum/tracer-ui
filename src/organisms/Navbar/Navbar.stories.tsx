@@ -28,6 +28,10 @@ export default {
             defaultValue: "",
             control: { type: "text" },
         },
+        productName: {
+            defaultValue: "Product",
+            control: { type: "text" },
+        },
     },
 } as ComponentMeta<typeof Navbar>;
 

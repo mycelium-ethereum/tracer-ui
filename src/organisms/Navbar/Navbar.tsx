@@ -4,37 +4,35 @@ import { device } from "../../helpers";
 import styled from "styled-components";
 import { List } from "../../atoms";
 import { NavbarProps } from ".";
-import HeaderSiteSwitcher from "./HeaderSiteSwitcher";
-import navBg from "./nav-bg.png";
+import TracerLogo from "../../assets/tracer_logo.svg";
 
 const Navbar = <Link extends string>({
     children,
     links,
-    activeLink,
+    productName,
     homeHref,
     onClickLink,
 }: NavbarProps<Link>): JSX.Element => {
     return (
-        <NavbarBackground>
-            <NavbarContent>
-                <HeaderSiteSwitcher href={homeHref} />
-                <NavLinks>
-                    {links.map((link) => (
-                        <NavLink
-                            selected={link.href === activeLink}
-                            key={link.href}
-                            href={link.href}
-                            onClick={() =>
-                                onClickLink && onClickLink(link.href)
-                            }
-                        >
-                            {link.label}
-                        </NavLink>
-                    ))}
-                </NavLinks>
-                <NavChildren>{children}</NavChildren>
-            </NavbarContent>
-        </NavbarBackground>
+        <NavbarContent>
+            <Branding href={homeHref}>
+                <TracerLogo className="logo" />
+                &nbsp;
+                <div className="product-name">{productName}</div>
+            </Branding>
+            <NavLinks>
+                {links.map((link) => (
+                    <NavLink
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => onClickLink && onClickLink(link.href)}
+                    >
+                        {link.label}
+                    </NavLink>
+                ))}
+            </NavLinks>
+            <NavChildren>{children}</NavChildren>
+        </NavbarContent>
     );
 };
 
@@ -66,41 +64,44 @@ const NavbarContent = styled.nav`
     }
 `;
 
-const NavbarBackground = styled.div`
+const Branding = styled.a`
     position: relative;
-    background: ${({ theme }) => {
-        return theme.isDark ? "#111928" : "#00007A";
-    }};
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(${navBg});
+    width: auto;
+    height: 1.5rem;
+    cursor: pointer;
+    margin-right: 0.75rem;
+    display: flex;
+    color: ${(props) => props.theme.colors.text.highlight};
+
+    .product-name {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-family: ${(props) => props.theme.fontFamily.heading};
+        font-size: 18px;
+    }
 `;
 
 const NavLinks = styled(List)`
+    margin-left: 50px;
     display: flex;
     width: auto;
     flex: 1;
 `;
 
-const NavLink = styled.a.attrs<{
-    selected: boolean;
-}>((props) => ({
-    ...props,
-    selected: props.selected,
-}))<{ selected: boolean }>`
+const NavLink = styled.a`
     display: flex;
     transition: 0.3s;
-    color: ${({ theme }) => theme.colors.action.text} !important;
+    color: ${({ theme }) => theme.colors.text.highlight};
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 16px;
-    font-family: ${(props) => props.theme.fontFamily.heading} !important;
+    font-family: ${(props) => props.theme.fontFamily.heading};
     cursor: pointer;
     &:hover {
         opacity: 0.8;
     }
-    text-decoration-line: ${(props) => (props.selected ? "underline" : "none")};
-    text-underline-offset: 4px;
+    text-decoration-line: none;
 `;
 
 const NavChildren = styled.div`

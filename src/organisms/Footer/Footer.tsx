@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import { Icon } from "../../atoms";
+import { Icon, Text } from "../../atoms";
 import styled from "styled-components";
 import { device } from "../../helpers";
 
@@ -8,42 +8,44 @@ const Footer: React.FC = () => {
     const copyrightYear = new Date().getFullYear();
     return (
         <FooterContainer data-testid="Footer">
-            <span>&copy; {copyrightYear} Tracer DAO</span>
+            <Text.Body color="highlight">
+                &copy; {copyrightYear} Tracer DAO
+            </Text.Body>
             <SocialLinkContainer>
                 <Link
                     href="https://docs.tracer.finance"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon name="book" size="lg" />
+                    <Icon name="book" size="lg" color="highlight" />
                 </Link>
                 <Link
                     href="https://discourse.tracer.finance"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon name="discourse" size="lg" />
+                    <Icon name="discourse" size="lg" color="highlight" />
                 </Link>
                 <Link
                     href="https://twitter.com/TracerDAO"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon name="twitter" size="lg" />
+                    <Icon name="twitter" size="lg" color="highlight" />
                 </Link>
                 <Link
                     href="https://github.com/tracer-protocol"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon name="github" size="lg" />
+                    <Icon name="github" size="lg" color="highlight" />
                 </Link>
                 <Link
                     href="https://discord.com/invite/kddBUqDVVb"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon name="discord" size="lg" />
+                    <Icon name="discord" size="lg" color="highlight" />
                 </Link>
             </SocialLinkContainer>
             <TextLinkContainer>
@@ -88,10 +90,10 @@ const Footer: React.FC = () => {
 };
 
 const Link = styled.a`
-    font-family: ${(props) => props.theme.fontFamily.heading} !important;
+    font-family: ${(props) => props.theme.fontFamily.heading};
     font-size: 16px;
     text-decoration-line: none;
-    color: ${({ theme }) => theme.colors.text.primary} !important;
+    color: ${({ theme }) => theme.colors.text.highlight};
     opacity: 1;
     transition-property: opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

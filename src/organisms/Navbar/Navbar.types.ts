@@ -4,8 +4,8 @@ export interface NavbarProps<Link extends string> {
         label: string;
         href: Link;
     }[];
-    activeLink: Link;
     homeHref: string;
+    productName: string;
     onClickLink?: (link: Link) => void;
     children?: React.ReactNode;
 }
