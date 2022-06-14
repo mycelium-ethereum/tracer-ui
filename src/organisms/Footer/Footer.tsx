@@ -147,8 +147,8 @@ const FooterContainer = styled.div`
     margin: auto;
     width: 100%;
 
-    font-family: ${(props) => props?.theme?.fontFamily?.heading ?? "inherit"};
-    color: ${({ theme }) => theme?.colors?.text?.primary ?? "inherit"};
+    font-family: ${(props) => props.theme.fontFamily.heading};
+    color: ${({ theme }) => theme.colors.text.primary};
 
     @media ${device.mobileL} {
         max-width: 540px;
