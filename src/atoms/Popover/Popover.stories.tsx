@@ -38,7 +38,7 @@ export default {
 // Create a master template for mapping args to render the Popover component
 
 const ExampleContent: React.FC = () => (
-    <Card padding="sm" fluid>
+    <Card padding="sm" color="secondary">
         <Text.Subtitle variant="bold">Popover Content</Text.Subtitle>
         <Text.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -51,7 +51,6 @@ const Template: Story<PopoverProps> = (args) => {
     return (
         <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
             <Button
-                fluid
                 onClick={() => {
                     updateArgs({ isOpen: !isOpen });
                 }}
@@ -88,24 +87,23 @@ export const NestedOverflowHidden: Story<PopoverProps> = (args) => {
     return (
         <div
             style={{
-                width: "100px",
-                height: "100px",
+                width: "200px",
+                height: "120px",
                 overflow: "hidden",
-                border: "1px dotted black",
+                border: "1px dotted white",
             }}
         >
             <Popover content={<ExampleContent />} {...args}>
                 <Button
-                    fluid
                     size="small"
                     onClick={() => updateArgs({ isOpen: !isOpen })}
                 >
                     Popover
                 </Button>
             </Popover>
-            <p>
+            <Text.Body>
                 This div has overflow hidden but the popover will not be hidden
-            </p>
+            </Text.Body>
         </div>
     );
 };
@@ -143,14 +141,15 @@ export const OverText: Story<PopoverProps> = (args) => {
     return (
         <div style={{ width: "600px", textAlign: "center" }}>
             <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
-                <h2
+                <Text.Subtitle
+                    align="center"
                     onMouseEnter={() => updateArgs({ isOpen: true })}
                     onMouseLeave={() => updateArgs({ isOpen: false })}
                 >
-                    Lorem ipsu
-                </h2>
+                    Hover over me
+                </Text.Subtitle>
             </Popover>
-            <p>
+            <Text.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 accumsan et viverra justo commodo. Proin sodales pulvinar
@@ -158,7 +157,7 @@ export const OverText: Story<PopoverProps> = (args) => {
                 montes, nascetur ridiculus mus. Nam fermentum, nulla luctus
                 pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien
                 nunc eget.
-            </p>
+            </Text.Body>
         </div>
     );
 };
@@ -177,12 +176,13 @@ export const OverInput: Story<PopoverProps> = (args) => {
     return (
         <div style={{ width: "600px", textAlign: "center" }}>
             <Popover content={<ExampleContent />} {...args} isOpen={isOpen}>
-                <h2
+                <Text.Subtitle
+                    align="center"
                     onMouseEnter={() => updateArgs({ isOpen: true })}
                     onMouseLeave={() => updateArgs({ isOpen: false })}
                 >
-                    Lorem ipsu
-                </h2>
+                    Hover over me
+                </Text.Subtitle>
             </Popover>
             <Input placeholder="This should go under the popover" />
             <Slider value={45} />

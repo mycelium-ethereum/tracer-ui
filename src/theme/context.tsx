@@ -1,5 +1,5 @@
 import * as React from "react";
-import { lightTheme, darkTheme, TracerTheme } from "./themes";
+import { darkTheme, lightTheme, TracerTheme } from "./themes";
 import {
     ThemeProvider as StyledComponentsThemeProvider,
     ThemeContext,

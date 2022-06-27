@@ -54,8 +54,8 @@ const Container = styled.label<ContainerProps>`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding: 10px 18px;
-    border-radius: 12px;
-    border: 1px solid ${(props) => props.theme.colors.focus.active};
+    border-radius: 8px;
+    border: 1px solid ${(props) => props.theme.colors.cell.tertiary};
     text-align: ${(props) => props.textAlign};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};
     opacity: ${(props) => (props.disabled ? 0.5 : 1)};
@@ -63,15 +63,9 @@ const Container = styled.label<ContainerProps>`
     ${({ theme, variant }) => {
         if (variant === "primary") {
             return `
-                border-color: ${theme.colors.focus.active};
-                background-color: ${theme.colors.cell.primary};
-                color: ${theme.colors.focus.text};
-                `;
-        } else if (variant === "secondary") {
-            return `
-                border-color: ${theme.colors.focus.active};
+                border-color: ${theme.colors.cell.tertiary};
                 background-color: ${theme.colors.cell.secondary};
-                color: ${theme.colors.focus.text};
+                color: ${theme.colors.text.primary};
                 `;
         } else if (variant === "alert") {
             return `

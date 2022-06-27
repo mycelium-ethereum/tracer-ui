@@ -12,7 +12,6 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
     addButtonText,
     emptyText,
     searchText,
-    removeButtonText,
     allocations,
     onAllocationsChange,
     emptySearchText,
@@ -165,16 +164,8 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                                     title={asset.name}
                                     subtitle={asset.symbol}
                                     imageSrc={asset.imageSrc}
-                                >
-                                    <Button
-                                        size="small"
-                                        variant="action"
-                                        onClick={() => addMarket(asset.id)}
-                                    >
-                                        <Icon name="plus" color="action-text" />
-                                        &nbsp; {addButtonText}
-                                    </Button>
-                                </InfoRow>
+                                    onClick={() => addMarket(asset.id)}
+                                ></InfoRow>
                             </ListItem>
                         );
                     })}
@@ -213,14 +204,11 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
             </Popover>
             <div style={{ height: "16px" }} />
             {allocations.length === 0 ? (
-                <EmptyCard
-                    fluid
-                    onClick={() => !addMarketDisabled && openDropdown()}
-                >
+                <EmptyCard onClick={() => !addMarketDisabled && openDropdown()}>
                     {emptyText}
                 </EmptyCard>
             ) : (
-                <Card fluid color="secondary" padding="none">
+                <Card color="secondary" padding="none" border="light">
                     <List separator>
                         {allocations.map((allocation) => {
                             const { assetId, percentage } = allocation;
@@ -240,7 +228,6 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                                         tokenName={asset.symbol}
                                         tokenSymbol={asset.symbol}
                                         tokenImageSrc={asset.imageSrc}
-                                        removeButtonText={removeButtonText}
                                         onRemove={() => removeMarket(assetId)}
                                         onClickLock={() => toggleLock(assetId)}
                                         onChange={(percentage) =>
@@ -253,20 +240,20 @@ const AssetAllocator: React.FC<AssetAllocatorProps> = ({
                                 </AssetContainer>
                             );
                         })}
-                        <Centered>
-                            <FooterButton
-                                size="small"
-                                variant="action"
-                                onClick={() => openDropdown()}
-                                disabled={addMarketDisabled}
-                            >
-                                <Icon name="plus" color="inherit" />
-                                &nbsp;{addButtonText}
-                            </FooterButton>
-                        </Centered>
                     </List>
                 </Card>
             )}
+            <Centered>
+                <FooterButton
+                    size="small"
+                    variant="cell"
+                    onClick={() => openDropdown()}
+                    disabled={addMarketDisabled}
+                >
+                    <Icon name="plus" color="inherit" />
+                    &nbsp;{addButtonText}
+                </FooterButton>
+            </Centered>
         </Container>
     );
 };
@@ -292,6 +279,7 @@ const EmptyCard = styled(Card)`
 
 const AssetContainer = styled.div`
     padding: 24px;
+    /* position: absolute; */
 `;
 
 type DropdownProps = {
@@ -301,9 +289,8 @@ type DropdownProps = {
 const Dropdown = styled.div<DropdownProps>`
     margin-top: 8px;
     background-color: ${(props) => props.theme.colors.cell.background};
-    border-radius: 0px 0px 16px 16px;
-    box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.1),
-        0px 10px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 0px 0px 8px 8px;
+    border: 1px solid ${(props) => props.theme.colors.cell.tertiary};
     width: ${(props) => props.width}px;
     overflow: hidden;
 `;
@@ -333,7 +320,6 @@ const Centered = styled.div`
 
 const FooterButton = styled(Button)`
     margin: 19px;
-    width: 120px;
     color: ${(props) =>
         props.disabled
             ? props.theme.colors.action.inactive

@@ -3,6 +3,7 @@ import React from "react";
 import Modal from "./Modal";
 import { ModalProps } from "./Modal.types";
 import { ComponentMeta, Story } from "@storybook/react";
+import { Text } from "../../atoms";
 
 export default {
     title: "molecules/Modal",
@@ -31,13 +32,13 @@ export default {
 // Create a master template for mapping args to render the Modal component
 const Template: Story<ModalProps> = (args) => (
     <Modal {...args}>
-        <h1>Modal Title</h1>
-        <p>
+        <Text.Subtitle>Modal Title</Text.Subtitle>
+        <Text.Body>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Dignissimos doloremque explicabo quod quo ratione vel, quidem
             doloribus aut nam? Nisi praesentium minus incidunt quam quasi ex
             recusandae alias numquam veritatis.
-        </p>
+        </Text.Body>
     </Modal>
 );
 

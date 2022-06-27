@@ -35,7 +35,7 @@ const NavDropdownButton: React.FC<NavDropdownButtonProps> = ({
 
     const DropdownContent = (
         <div ref={dropdownRef}>
-            <DropdownCard padding="none">
+            <DropdownCard padding="none" color="secondary" border="light">
                 <List>
                     {dropdownItems.map((item) => (
                         <DropdownItem
@@ -91,9 +91,9 @@ const DropdownItem = styled.div`
     padding: 8px 16px;
     cursor: pointer;
     font-family: ${(props) => props.theme.fontFamily.heading};
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: ${(props) => props.theme.colors.text.primary};
     &:hover {
-        background: ${(props) => props.theme.colors.cell.secondary};
+        background: ${(props) => props.theme.colors.cell.tertiary};
     }
 `;
 

@@ -5,7 +5,7 @@ export interface InputProps {
     leftSlot?: React.ReactNode;
     rightSlot?: React.ReactNode;
     textAlign?: "left" | "center" | "right";
-    variant?: "primary" | "secondary" | "alert" | "danger";
+    variant?: "primary" | "alert" | "danger";
     type?: "text" | "password" | "email" | "number" | "tel" | "url" | "search";
     form?: string;
     name?: string;

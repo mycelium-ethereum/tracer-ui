@@ -19,8 +19,9 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
     maxWidth: props.maxWidth,
     color: props.color || "primary",
     padding: props.padding || "md",
-    shadow: props.shadow || "sm",
+    border: props.border || "none",
 }))<CardProps>`
+    z-index: auto;
     background-color: ${(props) => {
         switch (props.color) {
             case "primary":
@@ -32,28 +33,25 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
         }
     }};
     box-sizing: border-box;
-    border-color: ${(props) => props.theme.colors.cell.stroke};
-    border-width: ${(props) => (props.border ? "1px" : "0px")};
+    border-style: solid;
+    border-color: ${(props) => {
+        if (props.border === "strong") {
+            return props.theme.colors.cell.stroke;
+        } else if (props.border === "light") {
+            return props.theme.colors.cell.tertiary;
+        } else {
+            return "transparent";
+        }
+    }};
+    border-width: 1px;
     margin: 0 auto;
-    width: ${(props) => (props.fluid ? "100%" : "calc(100% - 2rem)")};
+    width: 100%;
     max-width: ${(props) => props.maxWidth};
     border-radius: ${(props) => {
         if (props.square) {
             return "0";
         }
-        return "16px";
-    }};
-    box-shadow: ${(props) => {
-        switch (props.shadow) {
-            case "sm":
-                return "0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);";
-            case "md":
-                return "0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);";
-            case "lg":
-                return "0px 4px 8px rgba(0, 0, 0, 0.06), 0px 8px 16px rgba(0, 0, 0, 0.1);";
-            case "none":
-                return "none";
-        }
+        return "6px";
     }};
 
     padding: ${(props) => {

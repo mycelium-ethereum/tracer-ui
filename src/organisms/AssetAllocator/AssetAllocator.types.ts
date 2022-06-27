@@ -16,7 +16,6 @@ export interface AssetAllocatorProps {
     allocations: Allocation[];
     onAllocationsChange: (allocations: Allocation[]) => void;
     addButtonText: string;
-    removeButtonText: string;
     searchText: string;
     emptyText: string;
     emptySearchText?: string;

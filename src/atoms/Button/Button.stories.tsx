@@ -3,7 +3,6 @@ import React from "react";
 import Button from "./Button";
 import { ButtonProps } from "./Button.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { Text } from "../";
 
 export default {
     title: "atoms/Button",
@@ -30,7 +29,7 @@ export default {
                 type: "select",
                 options: [
                     "action",
-                    "focus",
+                    "cell",
                     "alert",
                     "danger",
                     "ghost",
@@ -58,17 +57,10 @@ ActionDisabled.args = {
     disabled: true,
 };
 
-export const Focus = Template.bind({});
-Focus.args = {
-    children: "Focus Button",
-    variant: "focus",
-};
-
-export const FocusDisabled = Template.bind({});
-FocusDisabled.args = {
-    children: "Focus Button",
-    variant: "focus",
-    disabled: true,
+export const Cell = Template.bind({});
+Cell.args = {
+    children: "Cell Button",
+    variant: "cell",
 };
 
 export const Alert = Template.bind({});
@@ -89,21 +81,7 @@ Success.args = {
     variant: "success",
 };
 
-export const Ghost: Story<ButtonProps> = (args) => (
-    <>
-        <Text.Body>Meant for use against dark backgrounds</Text.Body>
-        <div
-            style={{
-                backgroundColor: "darkblue",
-                padding: "20px",
-                display: "flex",
-                justifyContent: "center",
-            }}
-        >
-            <Button {...args}></Button>
-        </div>
-    </>
-);
+export const Ghost = Template.bind({});
 Ghost.args = {
     children: "Ghost Button",
     variant: "ghost",

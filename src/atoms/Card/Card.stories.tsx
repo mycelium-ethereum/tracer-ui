@@ -15,12 +15,6 @@ export default {
             description: "The max-width of the card",
             defaultValue: "",
         },
-        fluid: {
-            control: { type: "boolean" },
-            defaultValue: false,
-            description:
-                "If true, the card will take up 100% of its container. If false, the card will take up 100% of the container minus 2rem.",
-        },
         square: {
             control: { type: "boolean" },
             defaultValue: false,
@@ -35,9 +29,9 @@ export default {
             description: "The padding of the card.",
         },
         border: {
-            control: { type: "boolean" },
-            defaultValue: false,
-            description: "If true, the card will have a border.",
+            control: { type: "select", options: ["none", "strong", "light"] },
+            defaultValue: "none",
+            description: "The type of border for the card.",
         },
         color: {
             control: {
@@ -47,20 +41,13 @@ export default {
             defaultValue: "primary",
             description: "The color of the card.",
         },
-        shadow: {
-            control: {
-                type: "select",
-                options: ["sm", "md", "lg", "none"],
-            },
-            defaultValue: "sm",
-        },
     },
     parameters: {
         layout: "fullscreen",
     },
     decorators: [
         (Story) => (
-            <div style={{ paddingTop: "3rem" }}>
+            <div style={{ padding: "3rem" }}>
                 <Story />
             </div>
         ),
@@ -82,6 +69,7 @@ const Template: Story<CardProps> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
     color: "primary",
+    border: "strong",
 };
 
 export const Secondary = Template.bind({});
@@ -97,22 +85,23 @@ Tertiary.args = {
 export const HalfWidth = Template.bind({});
 HalfWidth.args = {
     maxWidth: "50%",
+    border: "strong",
 };
 
-export const FluidAndSquare = Template.bind({});
-FluidAndSquare.args = {
-    fluid: true,
+export const Square = Template.bind({});
+Square.args = {
     square: true,
+    border: "strong",
 };
 
 export const NoPadding = Template.bind({});
 NoPadding.args = {
     padding: "none",
-    shadow: true,
+    border: "strong",
 };
 
 export const NestedCard: Story<CardProps> = (args) => (
-    <Card>
+    <Card border="strong">
         <Text.Title>Card Title</Text.Title>
         <Text.Body>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi,
@@ -120,6 +109,7 @@ export const NestedCard: Story<CardProps> = (args) => (
             delectus soluta architecto esse est quibusdam, quaerat officiis
             fugiat neque impedit! Vero!
         </Text.Body>
+        <br />
 
         <Card {...args}>
             <Text.Subtitle>Card Subtitle</Text.Subtitle>
@@ -133,5 +123,4 @@ export const NestedCard: Story<CardProps> = (args) => (
 NestedCard.args = {
     color: "tertiary",
     padding: "sm",
-    fluid: true,
 };

@@ -26,11 +26,11 @@ type StyledButtonProps = {
 };
 
 const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
-    variant: props.variant || "primary",
+    variant: props.variant || "action",
     size: props.size || "medium",
 }))<StyledButtonProps>`
     font-family: ${(props) => props.theme.fontFamily.heading};
-    border-radius: 12px;
+    border-radius: 8px;
     border: none;
     width: ${(props) => (props.fluid ? "100%" : "auto")};
     line-height: 1.5rem;
@@ -49,22 +49,21 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                 }
                 &:disabled {
                     background-color: ${theme.colors.action.inactive};
-                    color: ${theme.colors.action.reverse};
                 }
                 `;
-            case "focus":
+            case "cell":
                 return `
-                background-color: ${theme.colors.focus.active};
-                color: ${theme.colors.focus.text};
+                background-color: ${theme.colors.cell.secondary};
+                border: 1px solid ${theme.colors.cell.tertiary};
+                color: ${theme.colors.text.primary};
                 &:hover {
-                    background-color: ${theme.colors.focus.hover};
+                    color: ${theme.colors.text.secondary};
+                    border-color: ${theme.colors.cell.stroke};
                 }
                 &:active {
-                    background-color: ${theme.colors.focus.active};
                 }
                 &:disabled {
-                    background-color: ${theme.colors.focus.inactive};
-                    color: ${theme.colors.focus.reverse};
+                    opacity: 0.5;
                 }
                 `;
             case "alert":

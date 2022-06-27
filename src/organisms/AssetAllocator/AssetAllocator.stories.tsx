@@ -23,12 +23,7 @@ export default {
             },
             defaultValue: "Add Market",
         },
-        removeButtonText: {
-            control: {
-                type: "text",
-            },
-            defaultValue: "Remove",
-        },
+
         emptyText: {
             control: {
                 type: "text",

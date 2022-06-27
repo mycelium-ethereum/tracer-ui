@@ -47,49 +47,26 @@ const StyledToggleButton = styled.label<StyledToggleButtonProps>`
     padding: 8px 16px;
     font-family: ${(props) => props.theme.fontFamily.heading};
     border-radius: 12px;
-    background: ${({ theme, checked, disabled }) => {
-        if (disabled) {
-            return theme.colors.focus.inactive;
-        } else if (checked) {
-            return theme.colors.action.active;
-        } else {
-            return theme.colors.cell.primary;
-        }
-    }};
-    color: ${({ theme, checked, disabled }) => {
-        if (disabled) {
-            return theme.colors.text.tertiary;
-        } else if (checked) {
-            return theme.colors.action.text;
-        } else {
-            return theme.colors.text.primary;
-        }
-    }};
+    background: ${({ theme, checked }) =>
+        checked ? theme.colors.action.active : "transparent"};
+    color: ${({ theme }) => theme.colors.text.primary};
     transition: background-color 0.1s ease-in-out;
     transition: color 0.1s ease-in-out;
 
-    border: ${({ theme, checked, disabled }) => {
-        if (disabled) return "1px solid transparent";
+    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+
+    border: ${({ theme, checked }) => {
         if (checked) return "1px solid transparent";
-        return `1px solid ${theme.colors.focus.active}`;
+        return `1px solid ${theme.colors.cell.stroke}`;
     }};
+
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     &:hover {
-        background-color: ${({ theme, checked, disabled }) => {
-            if (disabled) return theme.colors.focus.inactive;
-            if (checked) return theme.colors.action.hover;
-            return theme.colors.cell.primary;
-        }};
-        color: ${({ theme, checked, disabled }) => {
-            if (disabled) return theme.colors.text.tertiary;
-            if (checked) return theme.colors.action.text;
-            return theme.colors.text.secondary;
-        }};
-        border: ${({ theme, checked, disabled }) => {
-            if (disabled) return "1px solid transparent";
-            if (checked) return "1px solid transparent";
-            return `1px solid ${theme.colors.focus.hover}`;
-        }};
+        ${({ theme, checked, disabled }) => {
+            if (disabled) return "";
+            if (checked) return `background: ${theme.colors.action.hover};`;
+            else return `color: ${theme.colors.text.secondary};`;
+        }}
     }
     padding: ${({ buttonSize }) => {
         switch (buttonSize) {

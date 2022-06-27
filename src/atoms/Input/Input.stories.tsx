@@ -12,7 +12,7 @@ export default {
         variant: {
             control: {
                 type: "select",
-                options: ["primary", "secondary", "alert", "danger"],
+                options: ["primary", "alert", "danger"],
             },
             defaultValue: "primary",
         },
@@ -46,10 +46,10 @@ export default {
 const Template: Story<InputProps> = (args) => <Input {...args}></Input>;
 
 // Reuse that template for creating different stories
-export const Focus = Template.bind({});
-Focus.args = {
-    variant: "focus",
-    placeholder: "Focus Input",
+export const Primary = Template.bind({});
+Primary.args = {
+    variant: "primary",
+    placeholder: "Primary Input",
 };
 
 export const Alert = Template.bind({});
@@ -86,12 +86,14 @@ export const Currency = Template.bind({});
 Currency.args = {
     leftSlot: "$",
     placeholder: "0.00",
+    type: "number",
 };
 
 export const Percentage = Template.bind({});
 Percentage.args = {
     rightSlot: "%",
     placeholder: "0.00",
+    step: 0.01,
 };
 
 export const SearchBar = Template.bind({});

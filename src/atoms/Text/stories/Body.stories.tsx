@@ -41,9 +41,9 @@ export default {
         fontFamily: {
             control: {
                 type: "select",
-                options: ["primary", "secondary"],
+                options: ["body", "heading"],
             },
-            defaultValue: "primary",
+            defaultValue: "body",
         },
     },
 } as ComponentMeta<typeof Text.Body>;
