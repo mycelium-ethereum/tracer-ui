@@ -7,8 +7,8 @@ import { device } from "../../helpers";
 const Footer: React.FC = () => {
     const copyrightYear = new Date().getFullYear();
     return (
-        <FooterContainer data-testid="Footer">
-            <Text.Body color="highlight">
+        <FooterContainer className="footer" data-testid="Footer">
+            <Text.Body className="footer-copyright" color="highlight">
                 &copy; {copyrightYear} Tracer DAO
             </Text.Body>
             <SocialLinkContainer>
@@ -16,43 +16,74 @@ const Footer: React.FC = () => {
                     href="https://docs.tracer.finance"
                     target="_blank"
                     rel="noreferrer"
+                    className="footer-link"
                 >
-                    <Icon name="book" size="lg" color="highlight" />
+                    <Icon
+                        name="book"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://discourse.tracer.finance"
                     target="_blank"
                     rel="noreferrer"
+                    className="footer-link"
                 >
-                    <Icon name="discourse" size="lg" color="highlight" />
+                    <Icon
+                        name="discourse"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://twitter.com/TracerDAO"
                     target="_blank"
                     rel="noreferrer"
+                    className="footer-link"
                 >
-                    <Icon name="twitter" size="lg" color="highlight" />
+                    <Icon
+                        name="twitter"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://github.com/tracer-protocol"
                     target="_blank"
                     rel="noreferrer"
+                    className="footer-link"
                 >
-                    <Icon name="github" size="lg" color="highlight" />
+                    <Icon
+                        name="github"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
                 <Link
                     href="https://discord.com/invite/kddBUqDVVb"
                     target="_blank"
                     rel="noreferrer"
+                    className="footer-link"
                 >
-                    <Icon name="discord" size="lg" color="highlight" />
+                    <Icon
+                        name="discord"
+                        size="lg"
+                        className="footer-icon"
+                        color="inherit"
+                    />
                 </Link>
             </SocialLinkContainer>
-            <TextLinkContainer>
+            <TextLinkContainer className="footer-text-links">
                 <Link
                     href="https://tracer.finance/privacy-policy"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="footer-link"
                 >
                     Privacy Policy
                 </Link>
@@ -60,6 +91,7 @@ const Footer: React.FC = () => {
                     href="https://tracer.finance/privacy-policy#terms-of-use"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="footer-link"
                 >
                     Terms of Use
                 </Link>
@@ -67,6 +99,7 @@ const Footer: React.FC = () => {
                     href="https://tracer.finance/privacy-policy#interfaces-disclaimer"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="footer-link"
                 >
                     Disclaimer
                 </Link>
@@ -74,6 +107,7 @@ const Footer: React.FC = () => {
                     href="https://gateway.pinata.cloud/ipfs/QmS161WXV2bEAWUtdecfS5FYPmHQZdhNnjVFAwQ5FTX3og"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="footer-link"
                 >
                     Participation Agreement
                 </Link>
@@ -81,6 +115,7 @@ const Footer: React.FC = () => {
                     href="https://docs.tracer.finance/security/audits-and-security"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="footer-link"
                 >
                     Security Audits
                 </Link>
@@ -93,9 +128,12 @@ const Link = styled.a`
     font-family: ${(props) => props.theme.fontFamily.heading};
     font-size: 16px;
     text-decoration-line: none;
-    color: ${({ theme }) => theme.colors.text.highlight};
+    font-size: 16px;
+    text-decoration-line: none;
     opacity: 1;
     transition-property: opacity;
+
+    color: inherit;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
     &:hover {
@@ -111,6 +149,10 @@ const FooterContainer = styled.div`
     padding: 1rem;
     margin: auto;
     width: 100%;
+
+    font-family: ${(props) => props.theme.fontFamily.heading};
+    color: ${({ theme }) => theme.colors.text.primary};
+
     @media ${device.mobileL} {
         max-width: 540px;
     }
