@@ -1,8 +1,9 @@
 // Generated with util/create-component.js
-import React, {useState} from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { NavPopout } from '../../atoms/NavPopout';
+import { NavPopout, NavPopoutContainer } from '../../atoms/NavPopout';
+import { NavButton } from '../../atoms/NavButton';
 
 import { NavAppLauncherProps } from "./NavAppLauncher.types";
 import {
@@ -12,15 +13,15 @@ import {
     socialLinkContent,
 } from './launcherContent';
 
+import { useOutsideClick } from '../..//hooks/useOutsideClick';
 
-const ANIMATION_DURATION = 0.3;
+import CubeSVG from '../../assets/icons/cube.svg';
 
 export const StyledLink = styled.a.attrs({
     target: '_blank',
     rel: 'noopener noreferrer',
 })``;
 
-// App launcher styles
 const Launcher = styled(NavPopout)<{ isActive: boolean }>`
     width: 281px;
     /* Active/inactive states */
@@ -87,7 +88,7 @@ const GradientBackground = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    transition: opacity ${ANIMATION_DURATION}s ease;
+    transition: opacity ${({ theme }) => theme.animationSpeed.default}s ease;
     background: ${({ theme }) =>
         !theme.isDark
             ? 'linear-gradient(272.96deg, #9BC2FC -7%, rgba(26, 85, 245, 0) 150%)'
@@ -123,7 +124,7 @@ const AppRowButton = styled(StyledLink)`
     height: 100px;
     overflow: hidden;
     background-color: transparent;
-    transition: color ${ANIMATION_DURATION}s ease;
+    transition: color ${({ theme }) => theme.animationSpeed.default}s ease;
 
     &:hover {
         color: #ffffff;
@@ -169,7 +170,7 @@ const GovernanceButton = styled(StyledLink)`
     border-radius: 4px;
     overflow: hidden;
     background: transparent;
-    transition: color ${ANIMATION_DURATION}s ease;
+    transition: color ${({ theme }) => theme.animationSpeed.default}s ease;
 
     &:hover > div {
         opacity: 1;
@@ -186,7 +187,7 @@ const LinkRow = styled(LauncherRow)<{ fullWidthSVG?: boolean }>`
     position: relative;
     padding: 16px;
     border-bottom: none;
-    transition: color ${ANIMATION_DURATION}s ease;
+    transition: color ${({ theme }) => theme.animationSpeed.default}s ease;
 
     &:hover > div {
         opacity: 1;
@@ -214,7 +215,7 @@ const SocialIconRow = styled(LauncherRow)`
         border-radius: 4px;
         overflow: hidden;
         padding: 12px;
-        transition: background-color ${ANIMATION_DURATION}s ease;
+        transition: background-color ${({ theme }) => theme.animationSpeed.default}s ease;
 
         &:hover > div {
             opacity: 1;
@@ -222,7 +223,7 @@ const SocialIconRow = styled(LauncherRow)`
     }
 
     > a svg {
-        transition: all ${ANIMATION_DURATION}s ease;
+        transition: all ${({ theme }) => theme.animationSpeed.default}s ease;
     }
 
     /* Twitter icon */
@@ -251,55 +252,73 @@ const SocialIconRow = styled(LauncherRow)`
 `;
 
 
-const NavAppLauncher: React.FC<NavAppLauncherProps> = ({ isActive }) => {
-    const [isDark, setIsDark] = useState();
+const NavAppLauncher: React.FC<NavAppLauncherProps> = ({ setShowAppLauncher, showAppLauncher, navMenuOpen, setNavMenuOpen }) => {
+
+    // closes navMenu when opening settingsPopout
+    const handleClick = () => {
+        setShowAppLauncher(!showAppLauncher);
+        setNavMenuOpen(false);
+    };
+
+    const handleClose = () => {
+        setShowAppLauncher(false);
+    };
+
+    const appLauncherContainerRef = useRef<HTMLDivElement>(null);
+    useOutsideClick(appLauncherContainerRef, handleClose);
+
 
     return (
-        <Launcher isActive={isActive} className={false ? 'dark' : ''}>
-            <AppRow>
-                {appButtonContent.map((content, i) => (
-                    <AppRowButton key={i} href={content.link}>
-                        <content.LogoImage />
-                        <AppBackgroundImage src={content.bgImage} />
-                    </AppRowButton>
-                ))}
-            </AppRow>
-            <GovernanceRow>
-                <span>Governance</span>
-                <ButtonRow>
-                    {governanceContent.map((content, i) => (
-                        <GovernanceButton key={i} href={content.link}>
+        <NavPopoutContainer ref={appLauncherContainerRef}>
+            <NavButton onClick={handleClick} selected={showAppLauncher} navMenuOpen={navMenuOpen}>
+                <CubeSVG />
+            </NavButton>
+            <Launcher isActive={showAppLauncher}>
+                <AppRow>
+                    {appButtonContent.map((content, i) => (
+                        <AppRowButton key={i} href={content.link}>
                             <content.LogoImage />
-                            <span>{content.label}</span>
-                            <GradientBackground />
-                        </GovernanceButton>
+                            <AppBackgroundImage src={content.bgImage} />
+                        </AppRowButton>
                     ))}
-                </ButtonRow>
-            </GovernanceRow>
-            {linkContent.map((content, i) => (
-                <StyledLink key={i} href={content.link}>
-                    <LinkRow fullWidthSVG={i === linkContent.length - 1}>
-                        {content.label ? (
-                            <>
+                </AppRow>
+                <GovernanceRow>
+                    <span>Governance</span>
+                    <ButtonRow>
+                        {governanceContent.map((content, i) => (
+                            <GovernanceButton key={i} href={content.link}>
                                 <content.LogoImage />
                                 <span>{content.label}</span>
-                            </>
-                        ) : (
-                            <content.LogoImage />
-                        )}
-                        <GradientBackground />
-                    </LinkRow>
-                </StyledLink>
-            ))}
-            <SocialIconRow>
-                {socialLinkContent.map((content, i) => (
+                                <GradientBackground />
+                            </GovernanceButton>
+                        ))}
+                    </ButtonRow>
+                </GovernanceRow>
+                {linkContent.map((content, i) => (
                     <StyledLink key={i} href={content.link}>
-                        <content.LogoImage key={i}/>
-                        <GradientBackground />
+                        <LinkRow fullWidthSVG={i === linkContent.length - 1}>
+                            {content.label ? (
+                                <>
+                                    <content.LogoImage />
+                                    <span>{content.label}</span>
+                                </>
+                            ) : (
+                                <content.LogoImage />
+                            )}
+                            <GradientBackground />
+                        </LinkRow>
                     </StyledLink>
                 ))}
-            </SocialIconRow>
-        </Launcher>
+                <SocialIconRow>
+                    {socialLinkContent.map((content, i) => (
+                        <StyledLink key={i} href={content.link}>
+                            <content.LogoImage key={i}/>
+                            <GradientBackground />
+                        </StyledLink>
+                    ))}
+                </SocialIconRow>
+            </Launcher>
+        </NavPopoutContainer>
     );
 };
 

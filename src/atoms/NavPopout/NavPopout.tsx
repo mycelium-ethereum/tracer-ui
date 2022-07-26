@@ -69,5 +69,14 @@ export const NavPopoutOption = styled.div<NavPopoutOptionProps>`
     }
 `;
 
+export const NavPopoutContainer = styled.div`
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Aileron', sans-serif;
+`;
+
+
+
 export default NavPopout;
 

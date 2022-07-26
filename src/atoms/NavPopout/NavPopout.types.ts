@@ -6,3 +6,10 @@ export interface NavPopoutProps {
 export interface NavPopoutOptionProps {
     borderBottom?: boolean;
 }
+
+
+export type ToggleButtonProps = {
+    isSelected: boolean;
+    onClick: () => void;
+    navMenuOpen: boolean;
+};

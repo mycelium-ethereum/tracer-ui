@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 import { ToggleSwitchProps } from "./ToggleSwitch.types";
 
-const ANIMATION_DURATION = 0.3;
-
 export const StyledToggleSwitch = styled.button`
     position: relative;
     display: flex;
@@ -28,7 +26,7 @@ export const SwitchOption = styled.span<{ selected: boolean }>`
     width: 68px;
     height: 40px;
     border-radius: 3px;
-    transition: color ${ANIMATION_DURATION}s ease;
+    transition: color ${({ theme }) => theme.animationSpeed.default}s ease;
     z-index: 1;
     ${({ selected }) => {
         switch (true) {
@@ -77,7 +75,7 @@ export const Slider = styled.span<{ isSwitchedOn: boolean }>`
     height: 36px;
     border-radius: 3px;
     z-index: 0;
-    transition: left ${ANIMATION_DURATION}s ease;
+    transition: left ${({ theme }) => theme.animationSpeed.default}s ease;
     background-color: #ffffff;
 
     @media only screen and (min-width: 768px) {
