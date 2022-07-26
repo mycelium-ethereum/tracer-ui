@@ -10,3 +10,5 @@ export * from "./Text";
 export * from "./ToggleButton";
 export * from "./InfoRow";
 export * from "./Dropdown";
+export * from "./ToggleSwitch";
+export * from "./NavPopout";

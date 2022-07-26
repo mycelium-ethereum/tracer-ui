@@ -3,6 +3,7 @@ import {
     faCheckCircle,
     faClipboard,
 } from "@fortawesome/free-regular-svg-icons";
+
 import {
     faBook,
     faLock,
@@ -46,3 +47,4 @@ export const tracerIcons = {
     clipboard: faClipboard,
     trash: faTrash,
 };
+
