@@ -1,9 +1,9 @@
 // Generated with util/create-component.js
-import React, { useRef } from 'react';
-import styled from 'styled-components';
+import React, { useRef } from "react";
+import styled from "styled-components";
 
-import { NavPopout, NavPopoutContainer } from '../../atoms/NavPopout';
-import { NavButton } from '../../atoms/NavButton';
+import { NavPopout, NavPopoutContainer } from "../../atoms/NavPopout";
+import { NavButton } from "../../atoms/NavButton";
 
 import { NavAppLauncherProps } from "./NavAppLauncher.types";
 import {
@@ -11,37 +11,37 @@ import {
     governanceContent,
     linkContent,
     socialLinkContent,
-} from './launcherContent';
+} from "./launcherContent";
 
-import { useOutsideClick } from '../..//hooks/useOutsideClick';
+import { useOutsideClick } from "../..//hooks/useOutsideClick";
 
-import CubeSVG from '../../assets/icons/cube.svg';
+import CubeSVG from "../../assets/icons/cube.svg";
 
 export const StyledLink = styled.a.attrs({
-    target: '_blank',
-    rel: 'noopener noreferrer',
+    target: "_blank",
+    rel: "noopener noreferrer",
 })``;
 
 const Launcher = styled(NavPopout)<{ isActive: boolean }>`
     width: 281px;
     /* Active/inactive states */
     > div:nth-child(1) {
-        transition-delay: ${({ isActive }) => (isActive ? '100ms' : '500ms')};
+        transition-delay: ${({ isActive }) => (isActive ? "100ms" : "500ms")};
     }
     > div:nth-child(2) {
-        transition-delay: ${({ isActive }) => (isActive ? '200ms' : '400ms')};
+        transition-delay: ${({ isActive }) => (isActive ? "200ms" : "400ms")};
     }
     > a:nth-child(3) {
         transition-delay: 300ms;
     }
     > a:nth-child(4) {
-        transition-delay: ${({ isActive }) => (isActive ? '400ms' : '200ms')};
+        transition-delay: ${({ isActive }) => (isActive ? "400ms" : "200ms")};
     }
     > a:nth-child(5) {
-        transition-delay: ${({ isActive }) => (isActive ? '400ms' : '200ms')};
+        transition-delay: ${({ isActive }) => (isActive ? "400ms" : "200ms")};
     }
     > div:nth-child(6) {
-        transition-delay: ${({ isActive }) => (isActive ? '500ms' : '100ms')};
+        transition-delay: ${({ isActive }) => (isActive ? "500ms" : "100ms")};
     }
 
     a {
@@ -59,7 +59,7 @@ const LauncherRow = styled.div`
     backdrop-filter: blur(10px);
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Aileron', sans-serif;
+    font-family: "Aileron", sans-serif;
 
     ${({ theme }) => {
         switch (theme.isDark) {
@@ -91,8 +91,8 @@ const GradientBackground = styled.div`
     transition: opacity ${({ theme }) => theme.animationSpeed.default}s ease;
     background: ${({ theme }) =>
         !theme.isDark
-            ? 'linear-gradient(272.96deg, #9BC2FC -7%, rgba(26, 85, 245, 0) 150%)'
-            : 'linear-gradient(273.08deg, #1E1E90 15%, rgba(26, 85, 245, 0) 120%)'};
+            ? "linear-gradient(272.96deg, #9BC2FC -7%, rgba(26, 85, 245, 0) 150%)"
+            : "linear-gradient(273.08deg, #1E1E90 15%, rgba(26, 85, 245, 0) 120%)"};
     opacity: 0;
     z-index: -1;
 `;
@@ -215,7 +215,8 @@ const SocialIconRow = styled(LauncherRow)`
         border-radius: 4px;
         overflow: hidden;
         padding: 12px;
-        transition: background-color ${({ theme }) => theme.animationSpeed.default}s ease;
+        transition: background-color
+            ${({ theme }) => theme.animationSpeed.default}s ease;
 
         &:hover > div {
             opacity: 1;
@@ -251,9 +252,12 @@ const SocialIconRow = styled(LauncherRow)`
     }
 `;
 
-
-const NavAppLauncher: React.FC<NavAppLauncherProps> = ({ setShowAppLauncher, showAppLauncher, navMenuOpen, setNavMenuOpen }) => {
-
+const NavAppLauncher: React.FC<NavAppLauncherProps> = ({
+    setShowAppLauncher,
+    showAppLauncher,
+    navMenuOpen,
+    setNavMenuOpen,
+}) => {
     // closes navMenu when opening settingsPopout
     const handleClick = () => {
         setShowAppLauncher(!showAppLauncher);
@@ -267,10 +271,13 @@ const NavAppLauncher: React.FC<NavAppLauncherProps> = ({ setShowAppLauncher, sho
     const appLauncherContainerRef = useRef<HTMLDivElement>(null);
     useOutsideClick(appLauncherContainerRef, handleClose);
 
-
     return (
         <NavPopoutContainer ref={appLauncherContainerRef}>
-            <NavButton onClick={handleClick} selected={showAppLauncher} navMenuOpen={navMenuOpen}>
+            <NavButton
+                onClick={handleClick}
+                selected={showAppLauncher}
+                navMenuOpen={navMenuOpen}
+            >
                 <CubeSVG />
             </NavButton>
             <Launcher isActive={showAppLauncher}>
@@ -312,7 +319,7 @@ const NavAppLauncher: React.FC<NavAppLauncherProps> = ({ setShowAppLauncher, sho
                 <SocialIconRow>
                     {socialLinkContent.map((content, i) => (
                         <StyledLink key={i} href={content.link}>
-                            <content.LogoImage key={i}/>
+                            <content.LogoImage key={i} />
                             <GradientBackground />
                         </StyledLink>
                     ))}
@@ -323,4 +330,3 @@ const NavAppLauncher: React.FC<NavAppLauncherProps> = ({ setShowAppLauncher, sho
 };
 
 export default NavAppLauncher;
-

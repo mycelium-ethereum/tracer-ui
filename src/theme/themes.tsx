@@ -49,8 +49,8 @@ export interface TracerTheme {
         heading: string;
     };
     animationSpeed: {
-        default: string
-    }
+        default: string;
+    };
 }
 
 export const darkTheme: TracerTheme = {
@@ -104,8 +104,8 @@ export const darkTheme: TracerTheme = {
         body: "'Source Sans Pro', sans-serif",
     },
     animationSpeed: {
-        default: '0.3'
-    }
+        default: "0.3",
+    },
 };
 
 // TODO: Add light theme

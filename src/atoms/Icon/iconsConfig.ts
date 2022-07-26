@@ -47,4 +47,3 @@ export const tracerIcons = {
     clipboard: faClipboard,
     trash: faTrash,
 };
-

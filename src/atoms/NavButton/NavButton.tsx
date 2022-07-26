@@ -48,16 +48,23 @@ export const StyledNavButton = styled.button<NavButtonProps>`
                 return `
                     border: 1px solid #1c64f2;
                     color: #1c64f2;
-                    background-color: ${!theme.isDark ? '#ffffff' : 'transparent'}
+                    background-color: ${
+                        !theme.isDark ? "#ffffff" : "transparent"
+                    }
                 `;
         }
     }}
-
 `;
 
-const NavButton: React.FC<NavButtonProps> = ({ selected, navMenuOpen, children, ...args }) => (
-    <StyledNavButton {...args} selected={selected} navMenuOpen={navMenuOpen}>{children}</StyledNavButton>
-)
+const NavButton: React.FC<NavButtonProps> = ({
+    selected,
+    navMenuOpen,
+    children,
+    ...args
+}) => (
+    <StyledNavButton {...args} selected={selected} navMenuOpen={navMenuOpen}>
+        {children}
+    </StyledNavButton>
+);
 
 export default NavButton;
-

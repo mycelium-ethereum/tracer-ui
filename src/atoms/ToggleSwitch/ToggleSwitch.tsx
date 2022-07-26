@@ -68,7 +68,7 @@ export const SwitchOption = styled.span<{ selected: boolean }>`
 export const Slider = styled.span<{ isSwitchedOn: boolean }>`
     position: absolute;
     top: 50%;
-    left: ${({ isSwitchedOn }) => (isSwitchedOn ? '68px' : '1px')};
+    left: ${({ isSwitchedOn }) => (isSwitchedOn ? "68px" : "1px")};
     transform: translateY(-50%);
     display: flex;
     width: 68px;
@@ -79,11 +79,16 @@ export const Slider = styled.span<{ isSwitchedOn: boolean }>`
     background-color: #ffffff;
 
     @media only screen and (min-width: 768px) {
-        background-color: ${({ theme }) => (!theme.isDark ? '#1c64f2' : '#ffffff')};
+        background-color: ${({ theme }) =>
+            !theme.isDark ? "#1c64f2" : "#ffffff"};
     }
 `;
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ selected, handleClick, options }) => (
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
+    selected,
+    handleClick,
+    options,
+}) => (
     <StyledToggleSwitch onClick={handleClick}>
         <SwitchOption selected={!selected}>{options?.[0]}</SwitchOption>
         <SwitchOption selected={selected}>{options?.[1]}</SwitchOption>
@@ -92,4 +97,3 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ selected, handleClick, opti
 );
 
 export default ToggleSwitch;
-

@@ -1,12 +1,11 @@
 // Generated with util/create-component.js
 export interface NavPopoutProps {
-    isActive: boolean
+    isActive: boolean;
 }
 
 export interface NavPopoutOptionProps {
     borderBottom?: boolean;
 }
-
 
 export type ToggleButtonProps = {
     isSelected: boolean;

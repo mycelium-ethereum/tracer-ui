@@ -3,7 +3,11 @@ import React from "react";
 import Navbar from "./Navbar";
 import { NavbarProps } from "./Navbar.types";
 import { ComponentMeta, Story } from "@storybook/react";
-import { NavAppLauncher, NavDropdownButton, NavSettings } from "../../molecules";
+import {
+    NavAppLauncher,
+    NavDropdownButton,
+    NavSettings,
+} from "../../molecules";
 
 export default {
     title: "organisms/Navbar",
@@ -97,8 +101,18 @@ WithChildren.args = {
             >
                 Connect Wallet
             </NavDropdownButton>
-            <NavSettings navMenuOpen={false} setNavMenuOpen={console.log} showSettingsPopout={false} setShowSettingsPopout={console.log} />
-            <NavAppLauncher navMenuOpen={false} setNavMenuOpen={console.log} showAppLauncher={false} setShowAppLauncher={console.log}/>
+            <NavSettings
+                navMenuOpen={false}
+                setNavMenuOpen={console.log}
+                showSettingsPopout={false}
+                setShowSettingsPopout={console.log}
+            />
+            <NavAppLauncher
+                navMenuOpen={false}
+                setNavMenuOpen={console.log}
+                showAppLauncher={false}
+                setShowAppLauncher={console.log}
+            />
         </>
     ),
 };
