@@ -70,4 +70,6 @@ const NavButton = React.forwardRef<HTMLButtonElement, NavButtonProps>(
     ),
 );
 
+NavButton.displayName = "NavButton";
+
 export default NavButton;
