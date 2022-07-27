@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export const useOutsideClick: (
-    containerRef: React.RefObject<any>,
+    containerRef: React.RefObject<any>, // eslint-disable-line
     action: () => void,
 ) => void = (containerRef, action) => {
     useEffect(() => {
