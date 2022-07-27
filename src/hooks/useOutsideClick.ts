@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-// eslint-disable-next-line
 export const useOutsideClick: (
     containerRef: React.RefObject<any>,
     action: () => void,

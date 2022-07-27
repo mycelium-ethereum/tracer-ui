@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 import { NavButtonProps } from "./NavButton.types";
 
@@ -56,15 +56,18 @@ export const StyledNavButton = styled.button<NavButtonProps>`
     }}
 `;
 
-const NavButton: React.FC<NavButtonProps> = ({
-    selected,
-    navMenuOpen,
-    children,
-    ...args
-}) => (
-    <StyledNavButton {...args} selected={selected} navMenuOpen={navMenuOpen}>
-        {children}
-    </StyledNavButton>
+const NavButton = React.forwardRef<HTMLButtonElement, NavButtonProps>(
+    ({ selected, navMenuOpen, children, ...rest }, ref) => (
+        <StyledNavButton
+            data-testid="button"
+            selected={selected}
+            navMenuOpen={navMenuOpen}
+            ref={ref}
+            {...(rest as StyledComponent<"button", DefaultTheme, {}, never>)}
+        >
+            {children}
+        </StyledNavButton>
+    ),
 );
 
 export default NavButton;
