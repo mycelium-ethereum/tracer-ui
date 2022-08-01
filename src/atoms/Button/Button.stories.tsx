@@ -16,6 +16,10 @@ export default {
             defaultValue: false,
             control: { type: "boolean" },
         },
+        emphasis: {
+            defaultValue: false,
+            control: { type: "boolean" },
+        },
         size: {
             defaultValue: "medium",
             control: {
@@ -24,12 +28,12 @@ export default {
             },
         },
         variant: {
-            defaultValue: "action",
+            defaultValue: "primary",
             control: {
                 type: "select",
                 options: [
-                    "action",
-                    "cell",
+                    "primary",
+                    "secondary",
                     "alert",
                     "danger",
                     "ghost",
@@ -45,23 +49,23 @@ export default {
 const Template: Story<ButtonProps> = (args) => <Button {...args}></Button>;
 
 // Reuse that template for creating different stories
-export const Action = Template.bind({});
-Action.args = {
-    children: "Action Button",
-    variant: "action",
+export const Primary = Template.bind({});
+Primary.args = {
+    children: "Primary Button",
+    variant: "primary",
 };
 
-export const ActionDisabled = Template.bind({});
-ActionDisabled.args = {
-    children: "Action Button",
-    variant: "action",
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+    children: "Primary Button",
+    variant: "primary",
     disabled: true,
 };
 
-export const Cell = Template.bind({});
-Cell.args = {
-    children: "Cell Button",
-    variant: "cell",
+export const Secondary = Template.bind({});
+Secondary.args = {
+    children: "Secondary Button",
+    variant: "secondary",
 };
 
 export const Alert = Template.bind({});

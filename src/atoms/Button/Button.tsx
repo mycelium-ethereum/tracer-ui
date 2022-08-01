@@ -5,12 +5,13 @@ import styled, { DefaultTheme, StyledComponent } from "styled-components";
 import { ButtonProps } from "./Button.types";
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ children, variant, size, fluid, ...rest }, ref) => (
+    ({ children, variant, size, fluid, emphasis, ...rest }, ref) => (
         <StyledButton
             data-testid="button"
             variant={variant}
             size={size}
             fluid={fluid}
+            emphasis={emphasis}
             ref={ref}
             {...(rest as StyledComponent<"button", DefaultTheme, {}, never>)}
         >
@@ -23,11 +24,13 @@ type StyledButtonProps = {
     variant: ButtonProps["variant"];
     size: ButtonProps["size"];
     fluid: ButtonProps["fluid"];
+    emphasis: ButtonProps["emphasis"];
 };
 
 const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
-    variant: props.variant || "action",
+    variant: props.variant || "primary",
     size: props.size || "medium",
+    emphasis: props.emphasis || false,
 }))<StyledButtonProps>`
     font-family: ${(props) => props.theme.fontFamily.heading};
     border-radius: 8px;
@@ -37,23 +40,10 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
     transition: background-color 0.1s ease-in-out;
     ${({ variant, theme }) => {
         switch (variant) {
-            case "action":
-                return `
-                background-color: ${theme.colors.action.active};
-                color: ${theme.colors.action.text};
-                &:hover {
-                    background-color: ${theme.colors.action.hover};
-                }
-                &:active {
-                    background-color: ${theme.colors.action.active};
-                }
-                &:disabled {
-                    background-color: ${theme.colors.action.inactive};
-                }
-                `;
-            case "gradient":
+            case "primary":
                 return `
                 background: ${theme.colors.action.gradient};
+                border: 1px solid ${theme.colors.action.stroke};
                 color: ${theme.colors.action.text};
                 &:hover {
                     background-color: ${theme.colors.action.hover};
@@ -62,7 +52,23 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                     background-color: ${theme.colors.action.active};
                 }
                 &:disabled {
-                    background-color: ${theme.colors.action.inactive};
+                    opacity: 0.5;
+                    background: ${theme.colors.action.inactive};
+                }
+                `;
+            case "secondary":
+                return `
+                background: ${theme.colors.cell.secondary};
+                border: 1px solid ${theme.colors.action.stroke};
+                color: ${theme.colors.action.active};
+                &:hover {
+                    opacity: 0.5;
+                }
+                &:active {
+                    opacity: 1;
+                }
+                &:disabled {
+                    background: ${theme.colors.action.inactive};
                 }
                 `;
             case "cell":
@@ -148,6 +154,11 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                 `;
         }
     }}
+
+    &:hover {
+        ${({ emphasis }) =>
+            emphasis ? "box-shadow: 0px 0px 15px rgba(28, 100, 242, 0.6);" : ""}
+    }
 
     padding: ${({ size }) => {
         switch (size) {

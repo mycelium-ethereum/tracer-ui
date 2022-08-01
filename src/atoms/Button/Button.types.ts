@@ -4,13 +4,14 @@ import React from "react";
 export interface ButtonProps
     extends Omit<React.HTMLProps<HTMLButtonElement>, "size"> {
     variant?:
-        | "action"
+        | "primary"
+        | "secondary"
         | "cell"
         | "alert"
         | "danger"
         | "ghost"
-        | "success"
-        | "gradient";
+        | "success";
     size?: "small" | "medium" | "large";
     fluid?: boolean;
+    emphasis?: boolean;
 }
