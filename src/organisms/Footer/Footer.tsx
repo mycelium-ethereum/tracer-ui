@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     return (
         <FooterContainer className="footer" data-testid="Footer">
             <Text.Body className="footer-copyright" color="highlight">
-                &copy; {copyrightYear} Tracer DAO
+                &copy; {copyrightYear} Mycelium
             </Text.Body>
             <SocialLinkContainer>
                 <Link

@@ -5,7 +5,7 @@ export default create({
     base: "dark",
     brandTitle: "Mycelium",
     brandUrl: "https://mycelium.xyz",
-    brandImage: "/brand_logo.svg",
+    brandImage: "/myc/myc_logo.svg",
 
     colorPrimary: darkTheme.colors.action.active,
     colorSecondary: darkTheme.colors.action.active,

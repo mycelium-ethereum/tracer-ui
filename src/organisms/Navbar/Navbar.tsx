@@ -4,7 +4,7 @@ import { device } from "../../helpers";
 import styled from "styled-components";
 import { List } from "../../atoms";
 import { NavbarProps } from ".";
-import TracerLogo from "../../assets/tracer/tracer_logo.svg";
+import MYCLogo from "../../assets/myc/myc_logo.svg";
 
 const Navbar = <Link extends string>({
     children,
@@ -16,7 +16,7 @@ const Navbar = <Link extends string>({
     return (
         <NavbarContent>
             <Branding href={homeHref}>
-                <TracerLogo className="logo" />
+                <MYCLogo className="logo" />
                 &nbsp;
                 <div className="product-name">{productName}</div>
             </Branding>
@@ -71,7 +71,11 @@ const Branding = styled.a`
     cursor: pointer;
     margin-right: 0.75rem;
     display: flex;
-    color: ${(props) => props.theme.colors.text.highlight};
+    color: ${(props) => props.theme.colors.text.primary};
+
+    svg {
+        height: 22px;
+    }
 
     .product-name {
         height: 100%;
