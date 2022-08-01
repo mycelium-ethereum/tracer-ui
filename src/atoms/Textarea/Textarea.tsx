@@ -29,7 +29,7 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
     ${({ theme, variant }) => {
         if (variant === "primary") {
             return `
-                border-color: ${theme.colors.cell.tertiary};
+                border-color: ${theme.colors.cell["highlight-stroke"]};
                 background-color: ${theme.colors.cell.secondary};
                 color: ${theme.colors.text.primary};
                 `;

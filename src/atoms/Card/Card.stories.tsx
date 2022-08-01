@@ -36,7 +36,7 @@ export default {
         color: {
             control: {
                 type: "select",
-                options: ["primary", "secondary", "tertiary"],
+                options: ["primary", "secondary", "gradient"],
             },
             defaultValue: "primary",
             description: "The color of the card.",
@@ -77,9 +77,9 @@ Secondary.args = {
     color: "secondary",
 };
 
-export const Tertiary = Template.bind({});
-Tertiary.args = {
-    color: "tertiary",
+export const Gradient = Template.bind({});
+Gradient.args = {
+    color: "gradient",
 };
 
 export const HalfWidth = Template.bind({});
@@ -121,6 +121,6 @@ export const NestedCard: Story<CardProps> = (args) => (
     </Card>
 );
 NestedCard.args = {
-    color: "tertiary",
+    color: "gradient",
     padding: "sm",
 };

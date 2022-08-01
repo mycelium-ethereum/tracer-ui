@@ -55,7 +55,7 @@ const Container = styled.label<ContainerProps>`
     -moz-box-sizing: border-box;
     padding: 10px 18px;
     border-radius: 8px;
-    border: 1px solid ${(props) => props.theme.colors.cell.tertiary};
+    border: 1px solid ${(props) => props.theme.colors.cell["highlight-stroke"]};
     text-align: ${(props) => props.textAlign};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "text")};
     opacity: ${(props) => (props.disabled ? 0.5 : 1)};
@@ -63,7 +63,7 @@ const Container = styled.label<ContainerProps>`
     ${({ theme, variant }) => {
         if (variant === "primary") {
             return `
-                border-color: ${theme.colors.cell.tertiary};
+                border-color: ${theme.colors.cell.stroke};
                 background-color: ${theme.colors.cell.secondary};
                 color: ${theme.colors.text.primary};
                 `;

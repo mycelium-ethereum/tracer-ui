@@ -141,7 +141,7 @@ const SelectBox = styled.div<SelectBoxProps>`
     background-color: ${({ theme }) => theme.colors.cell.primary};
     color: ${({ theme }) => theme.colors.text.primary};
     opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-    border: 1px solid ${({ theme }) => theme.colors.cell.tertiary};
+    border: 1px solid ${({ theme }) => theme.colors.cell["highlight-stroke"]};
     border-radius: ${({ squareBottom }) =>
         squareBottom ? "12px 12px 0 0" : "12px"};
     padding: 9px 17px;
@@ -168,7 +168,7 @@ const DropdownCard = styled.div<DropdownCardProps>`
     overflow-y: auto;
     border-radius: 0 0 16px 16px;
     background-color: ${({ theme }) => theme.colors.cell.primary};
-    outline: 1px solid ${({ theme }) => theme.colors.cell.tertiary};
+    outline: 1px solid ${({ theme }) => theme.colors.cell["highlight-stroke"]};
     outline-offset: -1px;
 `;
 

@@ -78,7 +78,7 @@ const Container = styled.div<ContainerProps>`
                 `;
             case "tertiary":
                 return `
-                    background-color: ${props.theme.colors.cell.tertiary};
+                    background: ${props.theme.colors.cell.gradient};
                     border-color: ${props.theme.colors.cell.stroke};
                 `;
         }

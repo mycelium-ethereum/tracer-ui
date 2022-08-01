@@ -5,20 +5,25 @@ export interface TracerTheme {
             background: string;
             primary: string;
             secondary: string;
-            tertiary: string;
+            gradient: string;
             stroke: string;
             overlay: string;
+            hover: string;
+            "highlight-stroke": string;
         };
         text: {
             primary: string;
             secondary: string;
             tertiary: string;
+            inactive: string;
             footnote: string;
             highlight: string;
         };
         action: {
             active: string;
             inactive: string;
+            stroke: string;
+            gradient: string;
             hover: string;
             text: string;
         };
@@ -57,28 +62,35 @@ export const darkTheme: TracerTheme = {
     isDark: true,
     colors: {
         cell: {
-            background: "#040811",
-            primary: "#0A0E1C",
-            secondary: "#0E1324",
-            tertiary: "#292E4F",
-            stroke: "#8BB0EF",
+            background: "#000A00",
+            primary: "rgba(0, 9, 0, 0.2)",
+            secondary: "#000A00",
+            gradient:
+                "linear-gradient(180deg, rgba(5, 67, 1, 0.2) 0%, rgba(5, 67, 1, 0) 65.01%)",
+            stroke: "#003000",
+            hover: "#03100E",
             overlay: "rgba(255, 255, 255, 0.2)",
+            "highlight-stroke": "#098200",
         },
         action: {
-            active: "#1C64F2",
-            inactive: "#71727a", // I added this
-            hover: "#3535DC", // I added this
+            active: "#098200",
+            inactive: "", // I (doylio) added this
+            hover: "#003000", // I (doylio) added this
+            stroke: "#003000",
             text: "#FFFFFF",
+            gradient:
+                "linear-gradient(267.64deg, rgba(0, 48, 0, 0.5) -84.72%, rgba(0, 48, 0, 0) 144.55%)",
         },
         highlight: {
             primary: "#583BD4",
         },
         text: {
             primary: "#FFFFFF",
-            secondary: "#8BB0EF",
-            tertiary: "#7B9CD4",
-            footnote: "#D9D9D9",
-            highlight: "#3DA8F5",
+            secondary: "#8B968C",
+            tertiary: "#004E00",
+            inactive: "#093806",
+            footnote: "#D6DFE6",
+            highlight: "#098200",
         },
         alert: {
             hover: "#FF700B",

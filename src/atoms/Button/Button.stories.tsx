@@ -34,6 +34,7 @@ export default {
                     "danger",
                     "ghost",
                     "success",
+                    "gradient",
                 ],
             },
         },

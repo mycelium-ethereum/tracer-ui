@@ -93,7 +93,7 @@ const DropdownItem = styled.div`
     font-family: ${(props) => props.theme.fontFamily.heading};
     color: ${(props) => props.theme.colors.text.primary};
     &:hover {
-        background: ${(props) => props.theme.colors.cell.tertiary};
+        background: ${(props) => props.theme.colors.cell["highlight-stroke"]};
     }
 `;
 

@@ -290,7 +290,7 @@ const Dropdown = styled.div<DropdownProps>`
     margin-top: 8px;
     background-color: ${(props) => props.theme.colors.cell.background};
     border-radius: 0px 0px 8px 8px;
-    border: 1px solid ${(props) => props.theme.colors.cell.tertiary};
+    border: 1px solid ${(props) => props.theme.colors.cell["highlight-stroke"]};
     width: ${(props) => props.width}px;
     overflow: hidden;
 `;

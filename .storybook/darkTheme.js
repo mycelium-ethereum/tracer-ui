@@ -3,14 +3,14 @@ import { darkTheme } from "../src/theme";
 
 export default create({
     base: "dark",
-    brandTitle: "Tracer DAO",
-    brandUrl: "https://tracer.finance",
-    brandImage: "/tracer/tracer_logo.svg",
+    brandTitle: "Mycelium",
+    brandUrl: "https://mycelium.xyz",
+    brandImage: "/brand_logo.svg",
 
     colorPrimary: darkTheme.colors.action.active,
     colorSecondary: darkTheme.colors.action.active,
 
-    appBg: darkTheme.colors.cell.primary,
+    appBg: darkTheme.colors.cell.secondary,
     appContentBg: darkTheme.colors.cell.background,
     appBorderColor: darkTheme.colors.cell.stroke,
 
@@ -19,9 +19,9 @@ export default create({
 
     textColor: darkTheme.colors.text.primary,
     textInverseColor: darkTheme.colors.text.footnote,
-    textMutedColor: darkTheme.colors.text.tertiary,
+    textMutedColor: darkTheme.colors.text.inactive,
 
-    inputBg: darkTheme.colors.cell.tertiary,
+    inputBg: darkTheme.colors.cell.primary,
     inputTextColor: darkTheme.colors.text.primary,
-    inputBorderColor: darkTheme.colors.cell.stroke,
+    inputBorderColor: darkTheme.colors.cell['highlight-stroke'],
 });

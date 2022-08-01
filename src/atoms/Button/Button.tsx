@@ -51,10 +51,24 @@ const StyledButton = styled.button.attrs<StyledButtonProps>((props) => ({
                     background-color: ${theme.colors.action.inactive};
                 }
                 `;
+            case "gradient":
+                return `
+                background: ${theme.colors.action.gradient};
+                color: ${theme.colors.action.text};
+                &:hover {
+                    background-color: ${theme.colors.action.hover};
+                }
+                &:active {
+                    background-color: ${theme.colors.action.active};
+                }
+                &:disabled {
+                    background-color: ${theme.colors.action.inactive};
+                }
+                `;
             case "cell":
                 return `
                 background-color: ${theme.colors.cell.secondary};
-                border: 1px solid ${theme.colors.cell.tertiary};
+                border: 1px solid ${theme.colors.cell["highlight-stroke"]};
                 color: ${theme.colors.text.primary};
                 &:hover {
                     color: ${theme.colors.text.secondary};

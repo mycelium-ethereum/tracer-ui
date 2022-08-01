@@ -22,23 +22,23 @@ const StyledCard = styled.div.attrs<CardProps>((props) => ({
     border: props.border || "none",
 }))<CardProps>`
     z-index: auto;
-    background-color: ${(props) => {
+    background: ${(props) => {
         switch (props.color) {
             case "primary":
                 return props.theme.colors.cell.primary;
             case "secondary":
                 return props.theme.colors.cell.secondary;
-            case "tertiary":
-                return props.theme.colors.cell.tertiary;
+            case "gradient":
+                return props.theme.colors.cell.gradient;
         }
     }};
     box-sizing: border-box;
     border-style: solid;
     border-color: ${(props) => {
         if (props.border === "strong") {
-            return props.theme.colors.cell.stroke;
+            return props.theme.colors.cell["highlight-stroke"];
         } else if (props.border === "light") {
-            return props.theme.colors.cell.tertiary;
+            return props.theme.colors.cell.stroke;
         } else {
             return "transparent";
         }
