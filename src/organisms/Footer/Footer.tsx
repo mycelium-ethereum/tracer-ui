@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             </Text.Body>
             <SocialLinkContainer>
                 <Link
-                    href="https://docs.tracer.finance"
+                    href="https://swaps.docs.mycelium.xyz"
                     target="_blank"
                     rel="noreferrer"
                     className="footer-link"
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                     />
                 </Link>
                 <Link
-                    href="https://twitter.com/TracerDAO"
+                    href="https://twitter.com/mycelium_xyz"
                     target="_blank"
                     rel="noreferrer"
                     className="footer-link"
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                     />
                 </Link>
                 <Link
-                    href="https://github.com/tracer-protocol"
+                    href="https://github.com/mycelium-ethereum"
                     target="_blank"
                     rel="noreferrer"
                     className="footer-link"
