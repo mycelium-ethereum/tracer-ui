@@ -26,19 +26,6 @@ const Footer: React.FC = () => {
                     />
                 </Link>
                 <Link
-                    href="https://discourse.tracer.finance"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-link"
-                >
-                    <Icon
-                        name="discourse"
-                        size="lg"
-                        className="footer-icon"
-                        color="inherit"
-                    />
-                </Link>
-                <Link
                     href="https://twitter.com/mycelium_xyz"
                     target="_blank"
                     rel="noreferrer"
@@ -65,7 +52,7 @@ const Footer: React.FC = () => {
                     />
                 </Link>
                 <Link
-                    href="https://discord.gg/4pZUbXDZSF"
+                    href="https://discord.gg/mycelium-xyz"
                     target="_blank"
                     rel="noreferrer"
                     className="footer-link"
@@ -80,7 +67,7 @@ const Footer: React.FC = () => {
             </SocialLinkContainer>
             <TextLinkContainer className="footer-text-links">
                 <Link
-                    href="https://tracer.finance/privacy-policy"
+                    href="https://mycelium.xyz/privacy-policy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-link"
@@ -88,14 +75,14 @@ const Footer: React.FC = () => {
                     Privacy Policy
                 </Link>
                 <Link
-                    href="https://tracer.finance/privacy-policy#terms-of-use"
+                    href="https://mycelium.xyz/terms-of-use"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-link"
                 >
                     Terms of Use
                 </Link>
-                <Link
+                {/* <Link
                     href="https://tracer.finance/privacy-policy#interfaces-disclaimer"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -118,7 +105,7 @@ const Footer: React.FC = () => {
                     className="footer-link"
                 >
                     Security Audits
-                </Link>
+                </Link> */}
             </TextLinkContainer>
         </FooterContainer>
     );
