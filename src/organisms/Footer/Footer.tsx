@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import { Icon, Text } from "../../atoms";
+import { Icon } from "../../atoms";
 import styled from "styled-components";
 import { device } from "../../helpers";
 
@@ -8,81 +8,88 @@ const Footer: React.FC = () => {
     const copyrightYear = new Date().getFullYear();
     return (
         <FooterContainer className="footer" data-testid="Footer">
-            <Text.Body className="footer-copyright" color="highlight">
-                &copy; {copyrightYear} Mycelium
-            </Text.Body>
-            <SocialLinkContainer>
-                <Link
-                    href="https://swaps.docs.mycelium.xyz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-link"
-                >
-                    <Icon
-                        name="book"
-                        size="lg"
-                        className="footer-icon"
-                        color="inherit"
-                    />
-                </Link>
-                <Link
-                    href="https://twitter.com/mycelium_xyz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-link"
-                >
-                    <Icon
-                        name="twitter"
-                        size="lg"
-                        className="footer-icon"
-                        color="inherit"
-                    />
-                </Link>
-                <Link
-                    href="https://github.com/mycelium-ethereum"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-link"
-                >
-                    <Icon
-                        name="github"
-                        size="lg"
-                        className="footer-icon"
-                        color="inherit"
-                    />
-                </Link>
-                <Link
-                    href="https://discord.gg/mycelium-xyz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-link"
-                >
-                    <Icon
-                        name="discord"
-                        size="lg"
-                        className="footer-icon"
-                        color="inherit"
-                    />
-                </Link>
-            </SocialLinkContainer>
-            <TextLinkContainer className="footer-text-links">
-                <Link
-                    href="https://mycelium.xyz/privacy-policy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-link"
-                >
-                    Privacy Policy
-                </Link>
-                <Link
-                    href="https://mycelium.xyz/terms-of-use"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-link"
-                >
-                    Terms of Use
-                </Link>
-                {/* <Link
+            <FooterContainerInner>
+                <FlexContainer>
+                    <CopyrightText
+                        className="footer-copyright"
+                        color="highlight"
+                    >
+                        &copy; {copyrightYear} Mycelium
+                    </CopyrightText>
+                    <SocialLinkContainer>
+                        <Link
+                            href="https://swaps.docs.mycelium.xyz"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="footer-link"
+                        >
+                            <Icon
+                                name="book"
+                                size="lg"
+                                className="footer-icon"
+                                color="inherit"
+                            />
+                        </Link>
+                        <Link
+                            href="https://twitter.com/mycelium_xyz"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="footer-link"
+                        >
+                            <Icon
+                                name="twitter"
+                                size="lg"
+                                className="footer-icon"
+                                color="inherit"
+                            />
+                        </Link>
+                        <Link
+                            href="https://github.com/mycelium-ethereum"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="footer-link"
+                        >
+                            <Icon
+                                name="github"
+                                size="lg"
+                                className="footer-icon"
+                                color="inherit"
+                            />
+                        </Link>
+                        <Link
+                            href="https://discord.gg/mycelium-xyz"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="footer-link"
+                        >
+                            <Icon
+                                name="discord"
+                                size="lg"
+                                className="footer-icon"
+                                color="inherit"
+                            />
+                        </Link>
+                    </SocialLinkContainer>
+                </FlexContainer>
+
+                <TextLinkContainer className="footer-text-links">
+                    <Link
+                        href="https://mycelium.xyz/privacy-policy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-link"
+                    >
+                        Privacy Policy
+                    </Link>
+                    <Link
+                        href="https://mycelium.xyz/terms-of-use"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-link"
+                    >
+                        Terms of Use
+                    </Link>
+                    {/* <Link
                     href="https://tracer.finance/privacy-policy#interfaces-disclaimer"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -106,82 +113,90 @@ const Footer: React.FC = () => {
                 >
                     Security Audits
                 </Link> */}
-            </TextLinkContainer>
+                </TextLinkContainer>
+            </FooterContainerInner>
         </FooterContainer>
     );
 };
 
 const Link = styled.a`
-    font-family: ${(props) => props.theme.fontFamily.heading};
-    font-size: 16px;
-    text-decoration-line: none;
     font-size: 16px;
     text-decoration-line: none;
     opacity: 1;
-    transition-property: opacity;
-
     color: inherit;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+    transition: color 0.3s ease;
+
     &:hover {
-        opacity: 0.8;
+        color: #098200;
     }
 `;
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
+    font-family: ${(props) => props.theme.fontFamily.sans};
+    padding: 0 24px;
+`;
+
+const FooterContainerInner = styled.div`
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column-reverse;
     padding: 1rem;
     margin: auto;
     width: 100%;
-
-    font-family: ${(props) => props.theme.fontFamily.heading};
-    color: ${({ theme }) => theme.colors.text.highlight};
-
-    @media ${device.mobileL} {
-        max-width: 540px;
-    }
+    border-top: 1px solid #098200;
+    padding: 26px 0;
+    margin: 0 auto;
+    color: white;
+    width: 100%;
+    max-width: 1920px;
     @media ${device.tablet} {
-        max-width: 720px;
-    }
-    @media ${device.laptop} {
-        max-width: 960px;
-    }
-    @media ${device.desktop} {
-        max-width: 1140px;
         flex-direction: row;
-    }
-    @media ${device.desktopL} {
-        max-width: 1320px;
-        flex-direction: row;
+        align-items: center;
     }
 `;
 
-const SocialLinkContainer = styled.div`
+const FlexContainer = styled.div`
     display: flex;
-    gap: 0.75rem;
-    margin: 1.5rem 0rem;
-    @media ${device.desktop} {
-        margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    margin-top: 37px;
+    @media ${device.tablet} {
+        column-gap: 1.5rem /* 24px */;
+        margin-top: 0;
     }
-    @media ${device.desktopL} {
-        margin: auto;
+`;
+
+const CopyrightText = styled.span`
+    display: block;
+    font-size: 14px;
+    line-height: 21px;
+    color: white;
+    margin-right: 40px;
+    white-space: nowrap;
+`;
+
+const SocialLinkContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1rem /* 16px */;
+    @media ${device.tablet} {
+        column-gap: 1.5rem /* 24px */;
+    }
+    .footer-icon {
+        transition: color 0.3s ease;
+    }
+    .footer-icon:hover {
+        color: #098200;
     }
 `;
 
 const TextLinkContainer = styled.div`
     display: flex;
-    gap: 0.25rem;
-    flex-direction: column;
-    @media ${device.desktop} {
-        flex-direction: row;
-        gap: 0.75rem;
-    }
-    @media ${device.desktopL} {
-        flex-direction: row;
-        gap: 0.75;
+    gap: 40px;
+    font-size: 14px;
+    @media ${device.tablet} {
+        gap: 40px;
     }
 `;
 

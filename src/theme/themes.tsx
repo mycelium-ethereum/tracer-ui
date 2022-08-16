@@ -45,6 +45,7 @@ export interface TracerTheme {
         };
     };
     fontFamily: {
+        sans: string;
         body: string;
         heading: string;
     };
@@ -97,6 +98,7 @@ export const darkTheme: TracerTheme = {
         },
     },
     fontFamily: {
+        sans: "'aileron', sans-serif",
         heading: "'Inter', sans-serif",
         body: "'Source Sans Pro', sans-serif",
     },
