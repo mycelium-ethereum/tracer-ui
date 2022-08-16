@@ -148,6 +148,7 @@ const FooterContainerInner = styled.div`
     margin: 0 auto;
     color: white;
     width: 100%;
+    max-width: 1920px;
     @media ${device.tablet} {
         flex-direction: row;
         align-items: center;
