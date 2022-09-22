@@ -49,6 +49,9 @@ export interface TracerTheme {
         body: string;
         heading: string;
     };
+    animationSpeed: {
+        default: string;
+    };
 }
 
 export const darkTheme: TracerTheme = {
@@ -101,6 +104,9 @@ export const darkTheme: TracerTheme = {
         sans: "'aileron', sans-serif",
         heading: "'Inter', sans-serif",
         body: "'Source Sans Pro', sans-serif",
+    },
+    animationSpeed: {
+        default: "0.3",
     },
 };
 
